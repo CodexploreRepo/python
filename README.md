@@ -141,6 +141,7 @@ random.shuffle(items) #randomize a sequence in-place
 [(Back to top)](#table-of-contents)
 
 # 5. Class
+<p align="center"><img height="220" alt="Screenshot 2021-09-08 at 22 38 12" src="https://user-images.githubusercontent.com/64508435/132530282-20979abf-6614-4b20-aa15-a2d977456dd8.png"></p>
 
 
 [(Back to top)](#table-of-contents)
