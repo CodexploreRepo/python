@@ -147,6 +147,7 @@ random.shuffle(items) #randomize a sequence in-place
 
 ## 5.1. Object
 ### 5.1.1. Variable Assignment and Aliasing
+- **Aliasing**: many variables (a,b) refer to the same object 
 <p align="center"><img height="350" alt="Screenshot 2021-09-08 at 22 52 48" src="https://user-images.githubusercontent.com/64508435/132532913-a9ab157c-6978-4e5f-be48-5bdc91f07efc.png"></p>
 
 [(Back to top)](#table-of-contents)
