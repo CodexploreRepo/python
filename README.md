@@ -3,7 +3,9 @@ ISSS622 - Python Programming and Data Analysis
 
 # Table of contents
 - [Table of contents](#table-of-contents)
-- [1. Operators](#1-operators)
+- [1. Basics](#1-basics)
+  - [1.1. Naming Convention](#11-naming-convention)
+  - [1.2 Operators](#12-operators)
 - [2. Functions](#2-functions)
   - [2.1. Argument Types](#21-argument-types)
   - [2.2. Variable Scopes](#22-variable-scopes)
@@ -12,8 +14,11 @@ ISSS622 - Python Programming and Data Analysis
   - [3.2. Filter and Map](#32-filter-and-map) 
 - [4. Module](#4-module)
 
+# 1. Basics
+## 1.1. Naming Convention
+![Screenshot 2021-09-08 at 22 31 36](https://user-images.githubusercontent.com/64508435/132529021-bbdfe6e6-a3f9-4910-9cef-9dc42c5729db.png)
 
-# 1. Operators
+## 1.2. Operators
 * **4 Bascis Data Types**: String, Integer, Float and Boolean
 * **Logical Variable**: `not`, `and`, `or`
 
