@@ -13,10 +13,11 @@ ISSS622 - Python Programming and Data Analysis
   - [3.1. Sorted](#31-sorted)
   - [3.2. Filter and Map](#32-filter-and-map) 
 - [4. Module](#4-module)
+- [5. Class](#5-class)
 
 # 1. Basics
 ## 1.1. Naming Convention
-![Screenshot 2021-09-08 at 22 31 36](https://user-images.githubusercontent.com/64508435/132529021-bbdfe6e6-a3f9-4910-9cef-9dc42c5729db.png)
+<p align="center"><img height="650" alt="Screenshot 2021-09-08 at 22 32 46" src="https://user-images.githubusercontent.com/64508435/132529262-a62cdade-2b8a-42ad-8b79-06dae10deed6.png"></p>
 
 ## 1.2. Operators
 * **4 Bascis Data Types**: String, Integer, Float and Boolean
@@ -137,6 +138,9 @@ random.shuffle(items) #randomize a sequence in-place
 
 ```
 
-
 [(Back to top)](#table-of-contents)
 
+# 5. Class
+
+
+[(Back to top)](#table-of-contents)
