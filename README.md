@@ -57,13 +57,13 @@ type(x) is int #True
 [(Back to top)](#table-of-contents)
 
 ## 2.2. Variable Scopes
-- There are 2 types of Variable: `Local` and `Global` variable
-  - `Global` variable 
+- There are 2 types of Variable: `Local` and `Global` scope
+  - `global` variable 
 
   ```Python
   y = 'global'
-  def test():
-      global y
+  def test(): 
+      global y #This to declare y is global scope
       print(y)
   test()    #will print 'global'
   print(y)  #will print 'global'
