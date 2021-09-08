@@ -7,7 +7,7 @@ ISSS622 - Python Programming and Data Analysis
 - [2. Functions](#2-functions)
   - [2.1. Argument Types](#21-argument-types)
   - [2.2. Variable Scopes](#22-variable-scopes)
-
+- [3. Lambda Expressions](#lambda-expressions)
 
 # 1. Operators
 * **4 Bascis Data Types**: String, Integer, Float and Boolean
@@ -25,6 +25,9 @@ ISSS622 - Python Programming and Data Analysis
 x =5
 type(x) is int #True
 ```
+
+[(Back to top)](#table-of-contents)
+
 # 2. Functions
 ## 2.1. Argument Types 
 - **2.1.1. Positional Arguments**
@@ -66,5 +69,20 @@ type(x) is int #True
       global y #This to declare y is global scope
       print(y)
   test()    #will print 'global'
-  print(y)  #will print 'global'
   ```
+[(Back to top)](#table-of-contents)
+
+# 3. Lambda Expressions
+- Syntax: `lambda argument_list: expression`
+  - **argument_list**  (same as argument list in functions): `x,y, *arg, **kwargs`
+  - **expression** (Output) must be single line
+
+**Example of** `lambda` 
+```Python
+lambda x, y: x*y          #input: x, y; output: x*y
+lambda *args: sum(args)
+#input: any number of parameters; output: their summation
+lambda x: 1  #input: x; output: 1
+```
+
+[(Back to top)](#table-of-contents)
