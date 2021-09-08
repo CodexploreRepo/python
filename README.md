@@ -14,6 +14,7 @@ ISSS622 - Python Programming and Data Analysis
   - [3.2. Filter and Map](#32-filter-and-map) 
 - [4. Module](#4-module)
 - [5. Class](#5-class)
+  - [5.1. Object – Variable Assignment and Aliasing](#51-object–variable-assignment-and-aliasing)
 
 # 1. Basics
 ## 1.1. Naming Convention
@@ -142,6 +143,6 @@ random.shuffle(items) #randomize a sequence in-place
 
 # 5. Class
 <p align="center"><img height="220" alt="Screenshot 2021-09-08 at 22 38 12" src="https://user-images.githubusercontent.com/64508435/132530282-20979abf-6614-4b20-aa15-a2d977456dd8.png"></p>
-
+## 5.1. Object – Variable Assignment and Aliasing
 
 [(Back to top)](#table-of-contents)
