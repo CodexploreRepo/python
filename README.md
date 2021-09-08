@@ -26,33 +26,32 @@ type(x) is int #True
 ```
 # 2. Functions
 ## 2.1. Argument Types 
-### 2.1.1. Positional Arguments
-### 2.1.2. Keyword Arguments
-### 2.1.3. Default Arguments
-### 2.1.4. Variable-Length Arguments
-1) `*args` (Non-Keyword Arguments): extra arguments can be tacked on to your current formal parameters (including zero extra arguments)
-2) `**kwargs` (Keyword Arguments) : dictionary that maps each keyword to the value that we pass alongside it
-![Screenshot 2021-09-08 at 18 07 03](https://user-images.githubusercontent.com/64508435/132490303-58cd2e39-8e41-4edd-b9e2-70f20268e8ff.png)
+- **2.1.1. Positional Arguments**
+- **2.1.2. Keyword Arguments**
+- **2.1.3. Default Arguments**
+- **2.1.4. Variable-Length Arguments**
+    1) `*args` (Non-Keyword Arguments): extra arguments can be tacked on to your current formal parameters (including zero extra arguments)
+    2) `**kwargs` (Keyword Arguments) : dictionary that maps each keyword to the value that we pass alongside it
 
-**Example of** `*args` 
-```Python
-def info(name, *args):
-    hobby = []
-    for a in args:
-        hobby.append(a)
-    print(name +"'s hobbies: " + ', '.join(hobby))
-info('Mike')                      #Mike's hobbies:
-info('Mike', 'hiking', 'reading') #Mike's hobbies: hiking, reading
-```
-**Example of** `**kwargs`
-```Python
-def info(name, **kwargs):
-    hobby = []
-    for k, v in kwargs.items():
-        hobby.append(k+'-'+v)
-    print(name +"'s hobbies: " + ', '.join(hobby))
-info('Mike', first='hiking', second='reading') #Mike's hobbies: first-hiking, second-reading
-```
+    **Example of** `*args` 
+    ```Python
+    def info(name, *args):
+        hobby = []
+        for a in args:
+            hobby.append(a)
+        print(name +"'s hobbies: " + ', '.join(hobby))
+    info('Mike')                      #Mike's hobbies:
+    info('Mike', 'hiking', 'reading') #Mike's hobbies: hiking, reading
+    ```
+    **Example of** `**kwargs`
+    ```Python
+    def info(name, **kwargs):
+        hobby = []
+        for k, v in kwargs.items():
+            hobby.append(k+'-'+v)
+        print(name +"'s hobbies: " + ', '.join(hobby))
+    info('Mike', first='hiking', second='reading') #Mike's hobbies: first-hiking, second-reading
+    ```
 
 [(Back to top)](#table-of-contents)
 
