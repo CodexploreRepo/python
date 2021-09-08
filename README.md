@@ -16,6 +16,7 @@ ISSS622 - Python Programming and Data Analysis
 - [5. Class](#5-class)
   - [5.1. Object](#51-Object)
     - [5.1.1. Variable Assignment and Aliasing](#511-variable-assignment-and-aliasing) 
+    - [5.1.2. Comparison Operators](#512-comparison-operators)
 
 # 1. Basics
 ## 1.1. Naming Convention
@@ -147,7 +148,21 @@ random.shuffle(items) #randomize a sequence in-place
 
 ## 5.1. Object
 ### 5.1.1. Variable Assignment and Aliasing
-- **Aliasing**: many variables (a,b) refer to the same object 
+- **Aliasing**: many variables (a,b) refer to the same object list `[1,2]`
 <p align="center"><img height="350" alt="Screenshot 2021-09-08 at 22 52 48" src="https://user-images.githubusercontent.com/64508435/132532913-a9ab157c-6978-4e5f-be48-5bdc91f07efc.png"></p>
 
+### 5.1.2. Comparison Operators
+- **==**: compares the values of the object
+- **is**: compares objects
+
+```Python
+a = [1,2]
+b = [1,2] 
+
+print(id(a)) #2661200625736 
+print(id(b)) #2661202091528
+
+a == b #True
+a is b #False
+```
 [(Back to top)](#table-of-contents)
