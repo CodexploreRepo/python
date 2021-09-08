@@ -21,6 +21,7 @@ ISSS622 - Python Programming and Data Analysis
     - [5.1.4. Shallow Copy vs Deep Copy](#514-shallow-copy-vs-deep-copy)
     - [5.1.5. Data Mutability](#515-data-mutability)
   - [5.2. Class](#52-class)
+  - [5.3. Inheritance](#53-inheritance)
  
 # 1. Basics
 ## 1.1. Naming Convention
@@ -199,13 +200,13 @@ c = copy.deepcopy(a)
 
 [(Back to top)](#table-of-contents)
 
-# 5.2. Class
-## 5.2.1. Class Definition
+## 5.2. Class
+### 5.2.1. Class Definition
 - **Class** is a "blue-print" for creating **Object**
   - For example: Cars may not be exactly same, but the structures are same. 
 <p align="center"><img height="300" alt="Screenshot 2021-09-09 at 04 38 24" src="https://user-images.githubusercontent.com/64508435/132582020-fffa406a-96ac-4848-aab1-ec55b61a4394.png"></p>
 
-## 5.2.2. Class Syntax
+### 5.2.2. Class Syntax
 - **Class attribute**: `Student.num_of_stu` += 1 is an attribute for the whole class, *cannot* use self.num_of_stu
 - **Init method**: `__init__` & using self as the first argument
 - **Class Method**: at least one argument – self 
@@ -224,6 +225,19 @@ class Student:
     
     def full_name(self): #Method, we have at least one argument – self 
       return self.first + ' ' + self.last
+```
+
+## 5.3. Inheritance
+- For example, Create `Representative` class based on the `Student` class
+- `super()`: to inherite all the attributes in parent class & Initiate more information than parent class
+- **Override**: to override the method of parent class
+```Python
+class Rep(Student):
+    def __init__(self, first, last, cat):
+      super().__init__(first, last) #parent class handles existing arguments 
+      self.cat = cat #new information
+    def full_name(self): #override the full_name method of parent class, Student
+      return self.cat + ' representative: ' + self.first + ' ' + self.last 
 ```
 
 [(Back to top)](#table-of-contents)
