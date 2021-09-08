@@ -10,6 +10,8 @@ ISSS622 - Python Programming and Data Analysis
 - [3. Lambda Expressions](#3-lambda-expressions)
   - [3.1. Sorted](#31-sorted)
   - [3.2. Filter and Map](#32-filter-and-map) 
+- [4. Module](#4-module)
+
 
 # 1. Operators
 * **4 Bascis Data Types**: String, Integer, Float and Boolean
@@ -102,5 +104,21 @@ list(filter(lambda n: n % 2 == 1, [1, 2, 3, 4, 5]))  #[1, 3, 5]
 list(map(lambda x: x + 1, [1, 2, 3]))                #[2, 3, 4]
 ```
 
+[(Back to top)](#table-of-contents)
+
+# 4. Module
+## 4.1. Random Module
+```Python
+import random
+random.seed(42) #make results reproducible,
+
+random.random() #return random number between 0.0 and 1.0
+>>> 0.35553263284394376
+
+random.randint(0, 10) # generate a random integer between two endpoints in Python
+>>> 7
+```
+
 
 [(Back to top)](#table-of-contents)
+
