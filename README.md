@@ -17,6 +17,7 @@ ISSS622 - Python Programming and Data Analysis
   - [5.1. Object](#51-Object)
     - [5.1.1. Variable Assignment and Aliasing](#511-variable-assignment-and-aliasing) 
     - [5.1.2. Comparison Operators](#512-comparison-operators)
+    - [5.1.3. Integer Caching](#513-integer-caching)
 
 # 1. Basics
 ## 1.1. Naming Convention
@@ -152,8 +153,8 @@ random.shuffle(items) #randomize a sequence in-place
 <p align="center"><img height="350" alt="Screenshot 2021-09-08 at 22 52 48" src="https://user-images.githubusercontent.com/64508435/132532913-a9ab157c-6978-4e5f-be48-5bdc91f07efc.png"></p>
 
 ### 5.1.2. Comparison Operators
-- **==**: compares the values of the object
-- **is**: compares objects
+- `==`: compares the values of the object
+- `is`: compares objects
 
 ```Python
 a = [1,2]
@@ -165,4 +166,10 @@ print(id(b)) #2661202091528
 a == b #True
 a is b #False
 ```
+
+### 5.1.3. Integer Caching
+- In Python, interpreters will typically cache small integers in the range of -5 to 256. 
+- When the Python interpreter is launched, these integer objects will be created and available for later use in the memory.
+<p align="center"><img height="150" alt="Screenshot 2021-09-08 at 23 32 57" src="https://user-images.githubusercontent.com/64508435/132539689-99e8ee1f-0009-496d-82ed-e9e9a4a64090.png"></p>
+
 [(Back to top)](#table-of-contents)
