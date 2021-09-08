@@ -200,6 +200,27 @@ c = copy.deepcopy(a)
 [(Back to top)](#table-of-contents)
 
 # 5.2. Class
+## 5.2.1. Class Definition
+- **Class** is a "blue-print" for creating **Object**
+  - For example: Cars may not be exactly same, but the structures are same. 
+<p align="center"><img height="300" alt="Screenshot 2021-09-09 at 04 38 24" src="https://user-images.githubusercontent.com/64508435/132582020-fffa406a-96ac-4848-aab1-ec55b61a4394.png"></p>
+## 5.2.2. Class Syntax
+- **Class attribute**: `Student.num_of_stu` += 1 is an attribute for the whole class, *cannot* use self.num_of_stu
 
+```Python
+class Student:
+    #Class attribute
+    num_of_stu = 0 
+    
+    #Special init method
+    def __init__(self, first, last):
+      self.first = first
+      self.last = last
+      self.email = first + '.' + last + '@smu.edu.sg'
+      Student.num_of_stu += 1 #attribute for the whole class, cannot use self.num_of_stu
+    
+    def full_name(self): #Method, we have at least one argument – self 
+      return self.first + ' ' + self.last
+```
 
 [(Back to top)](#table-of-contents)
