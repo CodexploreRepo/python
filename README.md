@@ -18,6 +18,7 @@ ISSS622 - Python Programming and Data Analysis
     - [5.1.1. Variable Assignment and Aliasing](#511-variable-assignment-and-aliasing) 
     - [5.1.2. Comparison Operators](#512-comparison-operators)
     - [5.1.3. Integer Caching](#513-integer-caching)
+    - [5.1.4. Copy vs Deep Copy](#514-copy-vs-deep-copy)
 
 # 1. Basics
 ## 1.1. Naming Convention
@@ -170,6 +171,14 @@ a is b #False
 ### 5.1.3. Integer Caching
 - In Python, interpreters will typically cache small integers in the range of -5 to 256. 
 - When the Python interpreter is launched, these integer objects will be created and available for later use in the memory.
-<p align="center"><img height="150" alt="Screenshot 2021-09-08 at 23 32 57" src="https://user-images.githubusercontent.com/64508435/132539689-99e8ee1f-0009-496d-82ed-e9e9a4a64090.png"></p>
+<p align="center"><img height="200" alt="Screenshot 2021-09-08 at 23 32 57" src="https://user-images.githubusercontent.com/64508435/132539689-99e8ee1f-0009-496d-82ed-e9e9a4a64090.png"></p>
+
+### 5.1.4. Copy vs Deep Copy
+#### 5.1.4.1. Copy() - Shallow Copy
+- Shallow Copy will **only create a new object for the parent layer**. 
+- It will **NOT** create a new object **for any of the child layer**.
+
+<p align="center"><img width="741" alt="Screenshot 2021-09-08 at 23 38 28" src="https://user-images.githubusercontent.com/64508435/132541100-72f775f8-ce2c-4522-8cd1-39a179e74bc3.png"></p>
+
 
 [(Back to top)](#table-of-contents)
