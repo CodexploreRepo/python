@@ -6,6 +6,7 @@ ISSS622 - Python Programming and Data Analysis
 - [1. Operators](#1-operators)
 - [2. Functions](#2-functions)
   - [2.1. Argument Types](#21-argument-types)
+  - [2.2. Variable Scopes](#22-variable-scopes)
 
 
 # 1. Operators
@@ -55,4 +56,15 @@ type(x) is int #True
 
 [(Back to top)](#table-of-contents)
 
+## 2.2. Variable Scopes
+- There are 2 types of Variable: `Local` and `Global` variable
+  - `Global` variable 
 
+  ```Python
+  y = 'global'
+  def test():
+      global y
+      print(y)
+  test()    #will print 'global'
+  print(y)  #will print 'global'
+  ```
