@@ -225,6 +225,10 @@ class Student:
     
     def full_name(self): #Method, we have at least one argument – self 
       return self.first + ' ' + self.last
+
+print(Student.num_of_stu) #0 
+stu_1 = Student('Ryan','Tan') 
+print(Student.num_of_stu) #1
 ```
 
 ## 5.3. Inheritance
