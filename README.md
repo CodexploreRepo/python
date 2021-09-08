@@ -115,8 +115,21 @@ random.seed(42) #make results reproducible,
 random.random() #return random number between 0.0 and 1.0
 >>> 0.35553263284394376
 
-random.randint(0, 10) # generate a random integer between two endpoints in Python
+random.randint(0, 10) #generate a random integer between two endpoints in Python
 >>> 7
+
+items = ['one', 'two', 'three', 'four', 'five']
+random.choice(items) #choosing multiple elements from a sequence with replacement (duplicates are possible):
+>>> 'four'
+random.choices(items, k=2)
+>>> ['three', 'three']
+random.choices(items, k=3)
+>>> ['three', 'five', 'four']
+
+
+random.shuffle(items) #randomize a sequence in-place
+>>> ['four', 'three', 'two', 'one', 'five']
+
 ```
 
 
