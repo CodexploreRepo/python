@@ -19,7 +19,9 @@ ISSS622 - Python Programming and Data Analysis
     - [5.1.2. Comparison Operators](#512-comparison-operators)
     - [5.1.3. Integer Caching](#513-integer-caching)
     - [5.1.4. Shallow Copy vs Deep Copy](#514-shallow-copy-vs-deep-copy)
-
+    - [5.1.5. Data Mutability](#515-data-mutability)
+  - [5.2. Class](#52-class)
+ 
 # 1. Basics
 ## 1.1. Naming Convention
 <p align="center"><img height="650" alt="Screenshot 2021-09-08 at 22 32 46" src="https://user-images.githubusercontent.com/64508435/132529262-a62cdade-2b8a-42ad-8b79-06dae10deed6.png"></p>
@@ -189,5 +191,15 @@ c = copy.deepcopy(a)
 #### Deep Copy - deepcopy()
 - Deep Copy will **create new objects for the parent & child layers**. 
 <p align="center"><img width="733" alt="Screenshot 2021-09-08 at 23 45 50" src="https://user-images.githubusercontent.com/64508435/132541770-54c04dab-43be-4439-b93f-98cd6aa61064.png"></p>
+
+### 5.1.5. Data Mutability
+• **Immutable**  (values are changed, a new object will be created): integers, strings, and tuples
+• **Mutable** (values can be changed after creation): lists, dictionaries, and sets 
+<p align="center"><img width="802" alt="Screenshot 2021-09-09 at 04 35 03" src="https://user-images.githubusercontent.com/64508435/132581542-e3c2e12a-efe1-4c64-9750-e39d2091b36d.png"></p>
+
+[(Back to top)](#table-of-contents)
+
+# 5.2. Class
+
 
 [(Back to top)](#table-of-contents)
