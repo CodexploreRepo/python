@@ -145,5 +145,6 @@ random.shuffle(items) #randomize a sequence in-place
 <p align="center"><img height="220" alt="Screenshot 2021-09-08 at 22 38 12" src="https://user-images.githubusercontent.com/64508435/132530282-20979abf-6614-4b20-aa15-a2d977456dd8.png"></p>
 
 ## 5.1. Object – Variable Assignment and Aliasing
+<img width="683" alt="Screenshot 2021-09-08 at 22 52 48" src="https://user-images.githubusercontent.com/64508435/132532913-a9ab157c-6978-4e5f-be48-5bdc91f07efc.png">
 
 [(Back to top)](#table-of-contents)
