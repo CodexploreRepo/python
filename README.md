@@ -7,7 +7,7 @@ ISSS622 - Python Programming and Data Analysis
 - [2. Functions](#2-functions)
   - [2.1. Argument Types](#21-argument-types)
   - [2.2. Variable Scopes](#22-variable-scopes)
-- [3. Lambda Expressions](#lambda-expressions)
+- [3. Lambda Expressions](#3-lambda-expressions)
 
 # 1. Operators
 * **4 Bascis Data Types**: String, Integer, Float and Boolean
