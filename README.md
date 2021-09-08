@@ -8,6 +8,8 @@ ISSS622 - Python Programming and Data Analysis
   - [2.1. Argument Types](#21-argument-types)
   - [2.2. Variable Scopes](#22-variable-scopes)
 - [3. Lambda Expressions](#3-lambda-expressions)
+  - [3.1. Sorted](#31-sorted)
+  - [3.2. Filter and Map](#32-filter-and-map) 
 
 # 1. Operators
 * **4 Bascis Data Types**: String, Integer, Float and Boolean
@@ -80,9 +82,25 @@ type(x) is int #True
 **Example of** `lambda` 
 ```Python
 lambda x, y: x*y          #input: x, y; output: x*y
-lambda *args: sum(args)
-#input: any number of parameters; output: their summation
+lambda *args: sum(args).  #input: any number of parameters; output: their summation
 lambda x: 1  #input: x; output: 1
 ```
+## 3.1. Sorted
+- Syntax: `sorted(iterable, key=None, reverse=False)` sorts the elements in the given iterable by key
+```Python
+sorted([1, 2, 3, 4, 5], key = lambda x: abs(3 - x))  #[3, 2, 4, 1, 5]
+```
+## 3.2. Filter and Map
+- **Filter** syntax: `filter(function, iterable)` filters the given iterable (list) based on the given function
+- **Map** syntax   : `map(function, iterable)` applies a given function to each item of the given iterable
+- Note: Both Filter and Map will return **Iterable Object**, so need to use `list()` function to convert to a lsit
+
+**Example of** `filter` and `map` 
+```Python
+list(filter(lambda n: n % 2 == 1, [1, 2, 3, 4, 5]))  #[1, 3, 5]
+
+list(map(lambda x: x + 1, [1, 2, 3]))                #[2, 3, 4]
+```
+
 
 [(Back to top)](#table-of-contents)
