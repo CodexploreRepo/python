@@ -22,6 +22,7 @@ ISSS622 - Python Programming and Data Analysis
     - [5.1.5. Data Mutability](#515-data-mutability)
   - [5.2. Class](#52-class)
   - [5.3. Inheritance](#53-inheritance)
+  - [5.4. Magic Methods](#54-magic-methods)
  
 # 1. Basics
 ## 1.1. Naming Convention
@@ -243,5 +244,30 @@ class Rep(Student):
     def full_name(self): #override the full_name method of parent class, Student
       return self.cat + ' representative: ' + self.first + ' ' + self.last 
 ```
+[(Back to top)](#table-of-contents)
+
+## 5.4. Magic Methods
+- Magic methods in Python are the special methods that start and end with the double underscores __
+- Built-in classes in Python define many magic methods. Use the `dir()` function to see the number of magic methods inherited by a class.
+  ```Python
+  >>> dir(int)
+  ['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', ...]
+  ```
+- Magic methods are most **frequently used to define behaviors of predefined operators** in Python
+  - For example: `__str__()` method is executed when we want to `print` an object in a printable format. We can override the functionality of the `__str__()` method. As an instance:
+    ```Python
+    class Human:
+        def __init__(self, id, name, addresses=[], maps={}):
+            self.id = id
+            self.name = name
+            self.addresses = addresses
+            self.maps = maps
+
+        def __str__(self):
+            return f'Id {self.id}: {self.name}'
+    human = Human(1, 'Quan Nguyen', ['Address1', 'Address1'], {'London':2, 'UK':3})
+    print(human) #Id 1: Quan Nguyen
+    ```
+
 
 [(Back to top)](#table-of-contents)
