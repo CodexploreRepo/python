@@ -224,7 +224,7 @@ class Student:
       self.email = first + '.' + last + '@smu.edu.sg'
       Student.num_of_stu += 1 #attribute for the whole class, cannot use self.num_of_stu
     
-    def full_name(self, birth_year): #Method, we have at least one argument – self 
+    def full_name(self, birth_year): #Method, we have at least one argument – self & birth_year
       return self.first + ' ' + self.last + ' was born in '  + birth_year 
 
 print(Student.num_of_stu) #0 
