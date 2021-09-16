@@ -208,9 +208,9 @@ c = copy.deepcopy(a)
 <p align="center"><img height="300" alt="Screenshot 2021-09-09 at 04 38 24" src="https://user-images.githubusercontent.com/64508435/132582020-fffa406a-96ac-4848-aab1-ec55b61a4394.png"></p>
 
 ### 5.2.2. Class Syntax
-- **Class attribute**: `Student.num_of_stu` += 1 is an attribute for the whole class, *cannot* use self.num_of_stu
+- **Class attribute**: `Student.num_of_stu` is an attribute for the whole class, *cannot* use self.num_of_stu
 - **Init method**: `__init__` & using self as the first argument
-- **Class Method**: at least one argument – self 
+- **Class Method**: at least one argument – self and can be include other method argument like `birth_year`
 
 ```Python
 class Student:
@@ -224,11 +224,12 @@ class Student:
       self.email = first + '.' + last + '@smu.edu.sg'
       Student.num_of_stu += 1 #attribute for the whole class, cannot use self.num_of_stu
     
-    def full_name(self): #Method, we have at least one argument – self 
-      return self.first + ' ' + self.last
+    def full_name(self, birth_year): #Method, we have at least one argument – self 
+      return self.first + ' ' + self.last + ' was born in '  + birth_year 
 
 print(Student.num_of_stu) #0 
 stu_1 = Student('Ryan','Tan') 
+stu_1.full_name('1995') # "Ryan Tan was born in 1995"
 print(Student.num_of_stu) #1
 ```
 
