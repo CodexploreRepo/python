@@ -439,10 +439,28 @@ The metacharacters can be categorized into several types as below:
     p = re.compile(r'\W')
     m = p.findall('_#a!E$4-') #['#', '!', '$', '-']
     ``` 
-- Type 2: Escaping metacharacters:
-- Anchors:
-- Quantifiers:
-- Grouping Constructs:
+  - `\s` vs `\S` **white space**: \s (white-space) \S (non white-space) match based on whether a character is a whitespace
+    <p align="center"><img height="100" alt="Screenshot 2021-09-09 at 04 35 03" src="https://user-images.githubusercontent.com/64508435/134302708-a5bd4be0-265f-4c5b-9acd-a2ea1cfa983e.png"></p>
+
+    ```Python
+    text = 'Name\tISSS610\tISSS666\nJoe Jones\tA\tA\n' 
+
+    p = re.compile(r'\s')
+    m = p.findall(text) #['\t', '\t', '\n', ' ', '\t', '\t', '\n']
+    ``` 
+- *Type 2*: Escaping metacharacters: `\` Removes the special meaning of a metacharacter
+  <p align="center"><img height="100" alt="Screenshot 2021-09-09 at 04 35 03" src="Screenshot 2021-09-22 at 15 46 07" src="https://user-images.githubusercontent.com/64508435/134303258-162fd351-6b47-4aed-9086-5b13cb5560ae.png"></p> 
+
+  ```Python
+  p1 = re.compile(r'.')
+  p2 = re.compile(r'\.')
+  m1 = p1.findall('smu.edu.sg') #['s', 'm', 'u', '.', 'e', 'd', 'u', '.', 's', 'g']
+  m2 = p2.findall('smu.edu.sg') #['.', '.']
+  ```
+
+- *Type 3*: Anchors:
+- *Type 4*: Quantifiers:
+- *Type 5*: Grouping Constructs:
 - Looking Arounds (Not Required):
 - Miscellaneous Metacharacters (Not Required):
 
