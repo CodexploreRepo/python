@@ -422,6 +422,14 @@ The metacharacters can be categorized into several types as below:
     p = re.compile(r'[0-9^a-z]')#if ^ not at the beginning of a character class, it works as a normal character
     m = p.findall('1 2 3 ^Go') #['1', '2', '3', '^', 'o']
     ``` 
+  - `\d` vs `\D` **digits**: \d (numeric digits) \D (non-digit, including \n)
+    ```Python
+    p = re.compile(r'\d')
+    m = p.findall('a1\nA#')   #['1']
+
+    p = re.compile(r'\D')
+    m = p.findall('a1\nA#') #['a', '\n', 'A', '#']
+    ``` 
 - Type 2: Escaping metacharacters:
 - Anchors:
 - Quantifiers:
