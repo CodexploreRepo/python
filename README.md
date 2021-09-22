@@ -403,14 +403,24 @@ The metacharacters can be categorized into several types as below:
     p = re.compile(r'[abcABC]')
     m = p.findall('abcABC') #['a', 'b', 'c', 'A', 'B', 'C']
     ``` 
-  - `-` **hypen**: specify a range of characters to match
-    - If you want to match a literal hyphen, put it in the beginning or the end inside [] 
+  - `-` **hyphen**: specify a range of characters to match
+    - If you want to match a literal hyphen, put it in the beginning or the end inside [], for ex: `[-a-e]` or `[a-e-]`
     ```Python
     p = re.compile(r'[a-z0-9]')
     m = p.findall('d0A3z6P') #['d', '0', '3', 'z', '6']
 
     p = re.compile(r'[-a-e]') # or [a-e-] if you want to match a hyphen -
     m = p.findall('e-a-s-y, easy') #['e', '-', 'a', '-', '-', 'e', 'a']
+    ``` 
+  - `^` **caret**:  match any character NOT in the character class
+    - A caret ^ not at the beginning of a character class, it works as a normal character
+    - A caret outside a character class has a different meaning.
+    ```Python
+    p = re.compile(r'[^0-9a-z]') #Pattern exclude 0-9 and lowecase of a to z
+    m = p.findall('1 2 3 Go') #Result: Only match space + G
+
+    p = re.compile(r'[0-9^a-z]')#if ^ not at the beginning of a character class, it works as a normal character
+    m = p.findall('1 2 3 ^Go') #['1', '2', '3', '^', 'o']
     ``` 
 - Type 2: Escaping metacharacters:
 - Anchors:
