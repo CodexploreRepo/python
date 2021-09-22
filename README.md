@@ -7,6 +7,7 @@ ISSS622 - Python Programming and Data Analysis
   - [1.1. Naming Convention](#11-naming-convention)
   - [1.2 Operators](#12-operators)
   - [1.3. Iterables & Iterators](#13-iterables-and-iterators)
+  - [1.4. Zip & Enumerate](#14-zip-and-enumerate)
 - [2. Functions](#2-functions)
   - [2.1. Argument Types](#21-argument-types)
   - [2.2. Variable Scopes](#22-variable-scopes)
@@ -48,16 +49,44 @@ type(x) is int #True
 ```
 
 ## 1.3. Iterables and Iterators
-1. **iterable**: types of iterables
-  – list/tuple/str/dict
+- **iterable**: types of iterables
+  - list/tuple/str/dict
   - zip/enumerate/range/reversed
-2.  **iterator**: An iterable can be passed to the built-in function `iter()`, which returns some object called **iterator**
+- **iterator**: An iterable can be passed to the built-in function `iter()`, which returns some object called **iterator**
 ```Python
 it = iter([4, 3, 2, 1]) 
 print(next(it))#4
 print(next(it))#3
 ```
 <p align="center"><img height="150" alt="Screenshot 2021-09-08 at 22 32 46" src="https://user-images.githubusercontent.com/64508435/134283766-31d814a5-ac4d-4ab9-b2f2-c29e81ad737b.png"></p>
+
+
+## 1.4. Zip and Enumerate
+- `zip()`: to zip 2 lists together
+- `enumerate()`: to return both item & index corresponding to that item in the list
+
+```Python
+l1, l2 = [ 1, 2, 3, 4, 5 ], ['h', 'e', 'l', 'l', 'o']
+for item in zip(l1, l2):
+    print(item)
+
+(1, 'h')
+(2, 'e')
+(3, 'l')
+(4, 'l')
+(5, 'o')
+```
+```Python
+l1 = ['h', 'e', 'l', 'l', 'o']
+for idx, item in enumerate(l1):
+    print(idx,item)
+
+0 h
+1 e
+2 l
+3 l
+4 o
+```
 
 [(Back to top)](#table-of-contents)
 
