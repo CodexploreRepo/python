@@ -470,6 +470,16 @@ The metacharacters can be categorized into several types as below:
       p = re.compile(r'^a[ab]c', re.M) #Add flag re.M to match multiple text
       m = p.findall('''aac\nabc''') #['aac', 'abc']
       ```
+  -  `$` **end of text**: 
+      -   It matches the ending position in the text
+      -   Similar to caret, dollar sign matches the ending position but not in each line in multiline text, but this behavior can also be changed with `re.MULTILINE` or `re.M`
+      ```Python
+      p = re.compile(r'ab.$')
+      m = p.findall('abc abd abe abf') #['abf']
+      
+      p = re.compile(r'[ab]c$', re.M)
+      m = p.findall('ac\nbc') #['ac', 'bc']
+      ```
 - *Type 4*: Quantifiers:
 - *Type 5*: Grouping Constructs:
 - Looking Arounds (Not Required):
