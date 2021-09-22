@@ -28,6 +28,7 @@ ISSS622 - Python Programming and Data Analysis
 - [6. Regular Expression](#6-regular-expression)
   - [6.1. What is Regex](#61-what-is-regex) 
   - [6.2. Search for a pattern](#62-search-for-a-pattern)
+  - [6.3. Metacharacters](#63-metacharacters)
 
 # 1. Basics
 ## 1.1. Naming Convention
@@ -388,6 +389,35 @@ for m in finditer_abc:
     print(m) 
 ```
 
+## 6.3. Metacharacters
+The metacharacters can be categorized into several types as below:
+- Type 1: Metacharacters that match a single character:
+  - `.` **Dot**: match any single character except the newline **\n** character 
+    ```Python
+    p = re.compile(r'.at')
+    m = p.findall('cat bat\n sat cap') #['cat', 'bat', 'sat']
+    ``` 
+  - `[]` **character class**: specify a set of characters to match
+    - Metacharacters lose their special meaning inside character class. 
+    ```Python
+    p = re.compile(r'[abcABC]')
+    m = p.findall('abcABC') #['a', 'b', 'c', 'A', 'B', 'C']
+    ``` 
+  - `-` **hypen**: specify a range of characters to match
+    - If you want to match a literal hyphen, put it in the beginning or the end inside [] 
+    ```Python
+    p = re.compile(r'[a-z0-9]')
+    m = p.findall('d0A3z6P') #['d', '0', '3', 'z', '6']
+
+    p = re.compile(r'[-a-e]') # or [a-e-] if you want to match a hyphen -
+    m = p.findall('e-a-s-y, easy') #['e', '-', 'a', '-', '-', 'e', 'a']
+    ``` 
+- Type 2: Escaping metacharacters:
+- Anchors:
+- Quantifiers:
+- Grouping Constructs:
+- Looking Arounds (Not Required):
+- Miscellaneous Metacharacters (Not Required):
 
 [(Back to top)](#table-of-contents)
 
