@@ -391,7 +391,7 @@ for m in finditer_abc:
 
 ## 6.3. Metacharacters
 The metacharacters can be categorized into several types as below:
-- Type 1: Metacharacters that match a single character:
+- *Type 1*: Metacharacters that match a single character:
   - `.` **Dot**: match any single character except the newline **\n** character 
     ```Python
     p = re.compile(r'.at')
@@ -417,7 +417,7 @@ The metacharacters can be categorized into several types as below:
     - A caret outside a character class has a different meaning.
     ```Python
     p = re.compile(r'[^0-9a-z]') #Pattern exclude 0-9 and lowecase of a to z
-    m = p.findall('1 2 3 Go') #Result: Only match space + G
+    m = p.findall('1 2 3 Go') #Result: [' ', ' ', ' ', 'G'] &#8594; Only match space + G
 
     p = re.compile(r'[0-9^a-z]')#if ^ not at the beginning of a character class, it works as a normal character
     m = p.findall('1 2 3 ^Go') #['1', '2', '3', '^', 'o']
