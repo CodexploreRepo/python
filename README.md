@@ -490,11 +490,12 @@ The metacharacters can be categorized into several types as below:
       ```
 
 - *Type 4*: Quantifiers:
-  – `*`: zero or more 
-  – `?`: zero or one 
-  – `+`: one or more 
-  – `{m}`: m repetitions
-  – `{m, n}`: any number of repetitions from m to n, inclusive.
+  - `*`: zero or more 
+  - `?`: zero or one 
+  - `+`: one or more
+  - `{m}`: m repetitions
+  - `{m, n}`: any number of repetitions from m to n, inclusive.
+  
   ```Python
   p = re.compile(r'a[ab]*c')
   m = p.findall('a ab ac abc aac aabc aaac ababc') #['ac', 'abc', 'aac', 'aabc', 'aaac', 'ababc']
