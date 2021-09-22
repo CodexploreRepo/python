@@ -459,7 +459,7 @@ The metacharacters can be categorized into several types as below:
   m = p.findall('135\d') #['5\\d'] i.e: 5\d
   ```
 
-- *Type 3*: Anchors: `^` beginning of text, `$` end of text, `\b \B` word boundary
+- *Type 3*: Anchors: `^` beginning of text, `$` end of text, `\b` word boundary
   -  `^` **beginning of text**: We have seen a caret used in a character class. Here the caret is used without a character class.
       -   It matches the starting position in the text.
       -   In the case of Multiline text, we can add flag `re.MULTILINE` or `re.M` in `re.compile`
@@ -477,10 +477,42 @@ The metacharacters can be categorized into several types as below:
       p = re.compile(r'ab.$')
       m = p.findall('abc abd abe abf') #['abf']
       
-      p = re.compile(r'[ab]c$', re.M)
+      p = re.compile(r'[ab]c$', re.M) #Add flag re.M to match multiple text
       m = p.findall('ac\nbc') #['ac', 'bc']
       ```
+  -  `\b` **word boundary**: Match based on whether a position is a word boundary
+      ```Python
+      p = re.compile(r'\b\d\d\b')
+      m = p.findall('1 2 3 11 12 13 111 112 113') #['11', '12', '13']
+
+      p = re.compile(r'\b\w\w\b')
+      m = p.findall('aa,ab;ac(AA)AB AC') #['aa', 'ab', 'ac', 'AA', 'AB', 'AC']
+      ```
+
 - *Type 4*: Quantifiers:
+  – `*`: zero or more 
+  – `?`: zero or one 
+  – `+`: one or more 
+  – `{m}`: m repetitions
+  – `{m, n}`: any number of repetitions from m to n, inclusive.
+  ```Python
+  p = re.compile(r'a[ab]*c')
+  m = p.findall('a ab ac abc aac aabc aaac ababc') #['ac', 'abc', 'aac', 'aabc', 'aaac', 'ababc']
+
+  p = re.compile(r'a[ab]+c')
+  m = p.findall('a ab ac abc aac aabc aaac ababc') #['abc', 'aac', 'aabc', 'aaac', 'ababc']
+
+  p = re.compile(r'a[ab]?c')
+  m = p.findall('a ab ac abc aac aabc aaac ababc') #['ac', 'abc', 'aac', 'abc', 'aac', 'abc']
+
+  p = re.compile(r'\d{3}')
+  m = p.findall('1 2 3 11 12 13 111 112 113') #['111', '112', '113']
+
+  p = re.compile(r'\d{2,3}')
+  m = p.findall('1 2 3 11 12 13 111 112 113') #['11', '12', '13', '111', '112', '113']
+  ```
+  
+  
 - *Type 5*: Grouping Constructs:
 - Looking Arounds (Not Required):
 - Miscellaneous Metacharacters (Not Required):
