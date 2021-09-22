@@ -429,7 +429,7 @@ The metacharacters can be categorized into several types as below:
     p = re.compile(r'\D')
     m = p.findall('a1\nA#') #['a', '\n', 'A', '#']
     ``` 
-  - `\w` vs `\W` **Word Characters**: \w (`[a-zA-Z0-9_]`) \D (`[^a-zA-Z0-9_]`)
+  - `\w` vs `\W` **word characters**: \w (`[a-zA-Z0-9_]`) \D (`[^a-zA-Z0-9_]`)
     <p align="center"><img height="100" alt="Screenshot 2021-09-09 at 04 35 03" src="https://user-images.githubusercontent.com/64508435/134301630-40ca4653-2651-4bd9-8eb5-df0294287fb4.png"></p>
     
     ```Python
