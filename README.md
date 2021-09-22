@@ -449,13 +449,14 @@ The metacharacters can be categorized into several types as below:
     m = p.findall(text) #['\t', '\t', '\n', ' ', '\t', '\t', '\n']
     ``` 
 - *Type 2*: Escaping metacharacters: `\` Removes the special meaning of a metacharacter
-  <p align="center"><img height="250" alt="Screenshot 2021-09-09 at 04 35 03" src="Screenshot 2021-09-22 at 15 46 07" src="https://user-images.githubusercontent.com/64508435/134303814-71cd11d8-2cc2-4c7c-a757-159fbc98a2c3.png"></p> 
-
   ```Python
   p1 = re.compile(r'.')
   p2 = re.compile(r'\.')
   m1 = p1.findall('smu.edu.sg') #['s', 'm', 'u', '.', 'e', 'd', 'u', '.', 's', 'g']
   m2 = p2.findall('smu.edu.sg') #['.', '.']
+  
+  p = re.compile(r'\d\\d') #First \d is to match any digit, then second \\d is to match "\d"
+  m = p.findall('135\d') #['5\\d'] i.e: 5\d
   ```
 
 - *Type 3*: Anchors:
