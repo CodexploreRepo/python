@@ -459,7 +459,18 @@ The metacharacters can be categorized into several types as below:
   m = p.findall('135\d') #['5\\d'] i.e: 5\d
   ```
 
-- *Type 3*: Anchors: `^` beginning of text, 
+- *Type 3*: Anchors: `^` beginning of text, `$` end of text, `\b \B` word boundary
+  -  `^` **beginning of text**: We have seen a caret used in a character class. Here the caret is used without a character class.
+      -   It matches the starting position in the text.
+      -   In the case of Multiline text, we can add flag `re.MULTILINE` or `re.M`
+      ```Python
+      p = re.compile(r'^a[ab]c') #['aac']
+      m = p.findall('''aac\nabc''')
+      print(m)
+
+      p = re.compile(r'^a[ab]c', re.M)
+      m = p.findall('''aac\nabc''') #['aac', 'abc']
+      ```
 - *Type 4*: Quantifiers:
 - *Type 5*: Grouping Constructs:
 - Looking Arounds (Not Required):
