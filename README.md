@@ -353,7 +353,7 @@ print(mat_abc1) #None because pattern 'abc' not appear at the beginning
 print(mat_abc2) #<re.Match object; span=(0, 3), match='abc'>
 ```
 
-#### 6.2.2.2. Search
+#### 6.2.2.2. Search()
 - `search()`: match the pattern in **any position** in the text and returns the match in `re.Match` class.
 -  BUT it **only returns the first match**
 ```Python
@@ -365,7 +365,7 @@ print(sear_abc2) #<re.Match object; span=(0, 3), match='abc'>
 print(type(sear_abc1))#<class 're.Match'>
 ```
 
-#### 6.2.2.3. Findall
+#### 6.2.2.3. Findall()
 - `findall()` method: finds all the matched strings and return them in a list.
 ```Python
 find_abc1 = pat.findall('ABC,ABc,AbC,abc')
@@ -375,7 +375,7 @@ print(find_abc1) #['abc']
 print(find_abc2) #['abc', 'abc']
 ```
 
-#### 6.2.2.4. Find Iter
+#### 6.2.2.4. FindIter()
 - The `findall()` method returns all the matched strings in a list.
 - `finditer()`: returns an iterator that lazily splits matches one at a time.
 ```Python
