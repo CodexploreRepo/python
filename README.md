@@ -26,6 +26,8 @@ ISSS622 - Python Programming and Data Analysis
   - [5.3. Inheritance](#53-inheritance)
   - [5.4. Magic Methods](#54-magic-methods)
 - [6. Regular Expression](#6-regular-expression)
+  - [6.1. What is Regex](#61-what-is-regex) 
+  - [6.2. Search for a pattern](#62-search-for-a-pattern)
 
 # 1. Basics
 ## 1.1. Naming Convention
@@ -318,5 +320,74 @@ class Rep(Student):
 
 
 # 6. Regular Expression
+## 6.1. What is Regex 
+- **Regex**: is a tiny programming language used for data manipulation
+- **re** module: is a Python module containing  *re engine* and providing the regular expression functionality
+
+<p align="center"><img height="150" alt="Screenshot 2021-09-09 at 04 35 03" src="https://user-images.githubusercontent.com/64508435/134284925-92986820-ff2a-4e1e-a7be-6803a4656dab.png"></p>
+
+## 6.2. Search for a pattern
+- To search for a pattern, there are 2 steps:
+  - **Step 1**: Compile the pattern
+  - **Step 2**: Perform the search 
+<p align="center"><img height="250" alt="Screenshot 2021-09-09 at 04 35 03" src="https://user-images.githubusercontent.com/64508435/134285694-4c822104-ae2e-4eb2-9d4b-6ca380295c62.png"></p>
+
+### 6.2.1. Compile the pattern
+-  `re.compile()` function compiles a pattern so that the re engine can perform the search.
+```Python
+pat = re.compile(r'abc')
+print(pat)
+print(type(pat))
+
+re.compile('abc')
+<class 're.Pattern'>
+```
+### 6.2.2. Perform the search
+#### 6.2.2.1. Match()
+- `match()`: match the pattern **from the beginning**.
+```Python
+mat_abc1 = pat.match('ABC,ABc,AbC,abc')
+mat_abc2 = pat.match('abc,ABc,AbC,abc')
+print(mat_abc1) #None because pattern 'abc' not appear at the beginning
+print(mat_abc2) #<re.Match object; span=(0, 3), match='abc'>
+```
+
+#### 6.2.2.2. Search
+- `search()`: match the pattern in **any position** in the text and returns the match in `re.Match` class.
+-  BUT it **only returns the first match**
+```Python
+sear_abc1 = pat.search('ABC,ABc,AbC,abc')
+sear_abc2 = pat.search('abc,ABc,AbC,abc')
+
+print(sear_abc1) #<re.Match object; span=(12, 15), match='abc'>
+print(sear_abc2) #<re.Match object; span=(0, 3), match='abc'>
+print(type(sear_abc1))#<class 're.Match'>
+```
+
+#### 6.2.2.3. Findall
+- `findall()` method: finds all the matched strings and return them in a list.
+```Python
+find_abc1 = pat.findall('ABC,ABc,AbC,abc')
+find_abc2 = pat.findall('abc,ABc,AbC,abc')
+
+print(find_abc1) #['abc']
+print(find_abc2) #['abc', 'abc']
+```
+
+#### 6.2.2.4. Find Iter
+- The `findall()` method returns all the matched strings in a list.
+- `finditer()`: returns an iterator that lazily splits matches one at a time.
+```Python
+finditer_abc = pat.finditer('abc,ABc,AbC,abc')
+
+print(finditer_abc) #<callable_iterator object at 0x7ff650853040>
+
+for m in finditer_abc:
+    #<re.Match object; span=(12, 15), match='abc'>
+    #<re.Match object; span=(0, 3), match='abc'>
+    print(m) 
+```
+
 
 [(Back to top)](#table-of-contents)
+
