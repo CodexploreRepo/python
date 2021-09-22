@@ -449,7 +449,7 @@ The metacharacters can be categorized into several types as below:
     m = p.findall(text) #['\t', '\t', '\n', ' ', '\t', '\t', '\n']
     ``` 
 - *Type 2*: Escaping metacharacters: `\` Removes the special meaning of a metacharacter
-  <p align="center"><img height="100" alt="Screenshot 2021-09-09 at 04 35 03" src="Screenshot 2021-09-22 at 15 46 07" src="https://user-images.githubusercontent.com/64508435/134303258-162fd351-6b47-4aed-9086-5b13cb5560ae.png"></p> 
+  <p align="center"><img height="250" alt="Screenshot 2021-09-09 at 04 35 03" src="Screenshot 2021-09-22 at 15 46 07" src="https://user-images.githubusercontent.com/64508435/134303814-71cd11d8-2cc2-4c7c-a757-159fbc98a2c3.png"></p> 
 
   ```Python
   p1 = re.compile(r'.')
