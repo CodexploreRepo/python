@@ -6,6 +6,7 @@ ISSS622 - Python Programming and Data Analysis
 - [1. Basics](#1-basics)
   - [1.1. Naming Convention](#11-naming-convention)
   - [1.2 Operators](#12-operators)
+  - [1.3. Iterables & Iterators](#13-iterables-and-iterators)
 - [2. Functions](#2-functions)
   - [2.1. Argument Types](#21-argument-types)
   - [2.2. Variable Scopes](#22-variable-scopes)
@@ -23,7 +24,8 @@ ISSS622 - Python Programming and Data Analysis
   - [5.2. Class](#52-class)
   - [5.3. Inheritance](#53-inheritance)
   - [5.4. Magic Methods](#54-magic-methods)
- 
+- [6. Regular Expression](#6-regular-expression)
+
 # 1. Basics
 ## 1.1. Naming Convention
 <p align="center"><img height="650" alt="Screenshot 2021-09-08 at 22 32 46" src="https://user-images.githubusercontent.com/64508435/132529262-a62cdade-2b8a-42ad-8b79-06dae10deed6.png"></p>
@@ -44,6 +46,18 @@ ISSS622 - Python Programming and Data Analysis
 x =5
 type(x) is int #True
 ```
+
+## 1.3. Iterables and Iterators
+1. **iterable**: types of iterables
+  – list/tuple/str/dict
+  - zip/enumerate/range/reversed
+2.  **iterator**: An iterable can be passed to the built-in function `iter()`, which returns some object called **iterator**
+```Python
+it = iter([4, 3, 2, 1]) 
+print(next(it))#4
+print(next(it))#3
+```
+<p align="center"><img height="150" alt="Screenshot 2021-09-08 at 22 32 46" src="https://user-images.githubusercontent.com/64508435/134283766-31d814a5-ac4d-4ab9-b2f2-c29e81ad737b.png"></p>
 
 [(Back to top)](#table-of-contents)
 
@@ -270,5 +284,10 @@ class Rep(Student):
     print(human) #Id 1: Quan Nguyen
     ```
 
+
+[(Back to top)](#table-of-contents)
+
+
+# 6. Regular Expression
 
 [(Back to top)](#table-of-contents)
