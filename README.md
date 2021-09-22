@@ -459,7 +459,7 @@ The metacharacters can be categorized into several types as below:
   m = p.findall('135\d') #['5\\d'] i.e: 5\d
   ```
 
-- *Type 3*: Anchors:
+- *Type 3*: Anchors: `^` beginning of text, 
 - *Type 4*: Quantifiers:
 - *Type 5*: Grouping Constructs:
 - Looking Arounds (Not Required):
