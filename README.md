@@ -577,9 +577,9 @@ The metacharacters can be categorized into several types as below:
   ```
 # 6.5. Flags
 Three common flags that are very useful are:
-– `re.MULTILINE` or `re.M` : make “^”/“$” match starting/ending position of each line. 
-– `re.IGNORECASE` or `re.I`: match letters in a case-insensitive way.
-– `re.DOTALL` or `re.S`    : make “.” match any character, including newlines \n.
+- `re.MULTILINE` or `re.M` : make “^”/“$” match starting/ending position of each line. 
+- `re.IGNORECASE` or `re.I`: match letters in a case-insensitive way.
+- `re.DOTALL` or `re.S`    : make “.” match any character, including newlines \n.
 
 ```Python
 p1 = re.compile(r'abc')
