@@ -29,6 +29,7 @@ ISSS622 - Python Programming and Data Analysis
   - [6.1. What is Regex](#61-what-is-regex) 
   - [6.2. Search for a pattern](#62-search-for-a-pattern)
   - [6.3. Metacharacters](#63-metacharacters)
+  - [6.4. Grouping Constructs](#64-grouping-constructs)
 
 # 1. Basics
 ## 1.1. Naming Convention
@@ -514,10 +515,10 @@ The metacharacters can be categorized into several types as below:
   ```
   
   
-- *Type 5*: Grouping Constructs:
+## 6.4. Grouping Constructs
 <p align="center"><img width="600" alt="Screenshot 2021-09-23 at 11 08 51" src="https://user-images.githubusercontent.com/64508435/134449409-b15b02e3-d723-48a5-8a87-bb6a427fbaa6.png"></p>
 
-  - **5.1. Grouped Pattern**
+  - **6.4.1. Grouped Pattern**
     - We can group pattern using `()` into sub-patterns 
     ```Python
     p = re.compile(r'(\w+): (\d+)') #Sub-patterns are 2 group 
@@ -529,13 +530,13 @@ The metacharacters can be categorized into several types as below:
     p = re.compile(r'^Chapter (\d+: .+)', re.M) #['12: Numpy', '13: Pandas', '14: Data Visualzation']
     m = p.findall(chapters)
     ```
-  - **5.2. Alternation**
+  - **6.4.2. Alternation**
     - Match the sub-pattern before or the one after
     ```Python
     p = re.compile(r'(\w+)\.(bat|zip|exe)')
     m = p.findall('game.exe auto.bat text.zip') #[('game', 'exe'), ('auto', 'bat'), ('text', 'zip')]
     ```
-  - **5.3. re.Match.groups() vs re.Match.group()**
+  - **6.4.3. re.Match.groups() vs re.Match.group()**
   - `.groups()`: return all matched groups
   - `.group()`: allows users to choose different groups by giving the indices of the groups.
     - group(0) returns the whole match.
@@ -557,10 +558,21 @@ The metacharacters can be categorized into several types as below:
     print(m.group(1)) #one (i.e: match only group 1)
     print(m.group(2, 3, 4)) #('two', 'three', '4') 
     ```
-  - **5.4. Back Reference  (\1, \2, \3, ...)**
+  - **6.4.4. Back Reference  (\1, \2, \3, ...)**
   - `'(\w+)-\1'` is different from `'(\w+)-\w+'`
   - `'(\w+)-\1'` : when the first group is matched, `\1` match the same literal string in group1
   -  For example: two patterns both match ‘one-one’, but  the one with backreference, `'(\w+)-\1'`, won’t match ‘one-two’.
+  ```Python
+  # pattern tries to match the type of number that starts with a few digits followed by one digit 
+  # and then repeats the first few digits.
+  p = re.compile(r'((\d+)\d\2)')
+  m = p.finditer('1234123, 11311, 123, 54345')
+  for string in m:
+      print(string.group(1, 2)) 
+      #('1234123', '123') (i.e: 123 - 4 - same as group 2, in this case is 123)
+      #('11311', '11')
+      #('434', '4')
+  ```
 
 [(Back to top)](#table-of-contents)
 
