@@ -31,6 +31,7 @@ ISSS622 - Python Programming and Data Analysis
   - [6.3. Metacharacters](#63-metacharacters)
   - [6.4. Grouping Constructs](#64-grouping-constructs)
   - [6.5. Flags](#65-flags)
+  - [6.6. Module-Level re Methods](#66-module-level-re-methods)
 
 # 1. Basics
 ## 1.1. Naming Convention
@@ -575,7 +576,7 @@ The metacharacters can be categorized into several types as below:
       #('11311', '11')
       #('434', '4')
   ```
-# 6.5. Flags
+## 6.5. Flags
 Three common flags that are very useful are:
 - `re.MULTILINE` or `re.M` : make “^”/“$” match starting/ending position of each line. 
 - `re.IGNORECASE` or `re.I`: match letters in a case-insensitive way.
@@ -588,6 +589,8 @@ m1 = p1.findall('abc ABC aBC Abc') #['abc']
 p2 = re.compile(r'abc', re.I)
 m2 = p2.findall('abc ABC aBC Abc') #['abc', 'ABC', 'aBC', 'Abc'] because re.I means Ignore Case
 ```
+
+## 6.6. Module-Level re Methods
 
 [(Back to top)](#table-of-contents)
 
