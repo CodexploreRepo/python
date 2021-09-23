@@ -591,6 +591,43 @@ m2 = p2.findall('abc ABC aBC Abc') #['abc', 'ABC', 'aBC', 'Abc'] because re.I me
 ```
 
 ## 6.6. Module-Level re Methods
+### 6.6.1. re.match, re.search, re.findall, re.finditer
+- Using the module-level methods can skip the step compiling the pattern.
+
+```Python
+match = re.match(r'abc', 'abc')
+search = re.search(r'abc', 'a abc')
+findall = re.findall(r'abc', 'abc abc ab bc a b c')
+finditer = re.finditer(r'abc', 'abc abc ab bc a b c')
+
+print(f'match: {match}') #<re.Match object; span=(0, 3), match='abc'>
+print(f'search: {search}') #<re.Match object; span=(2, 5), match='abc'>
+print(f'findall: {findall}') #findall: ['abc', 'abc']
+print(f'finditer: {finditer}') #<callable_iterator object at 0x7fb2e9796a30>
+```
+
+### 6.6.2. String-modifying methods
+#### Split()
+- By default, the `split()` method returns a list of strings broken down, **excluding the matched strings**.
+- It is also possible to make split() return the matched strings, simply by using a group to capture the whole pattern.
+```Python
+p = re.compile(r'\W+')
+split = p.split('The~split*method-is%powerful') #['The', 'split', 'method', 'is', 'powerful'], by default
+
+#It is also possible to make split() return the matched strings, simply by using a group to capture the whole pattern.
+p = re.compile(r'(\W+)')
+split = p.split('The~split*method-is%powerful') #'The', '~', 'split', '*', 'method', '-', 'is', '%', 'powerful']
+```
+#### Sub(replacement string, text to match the pattern) & Subn()
+- `sub()` returns a new string after replacement.
+- `subn()` returns a tuple containing the new string and the number of replacements.
+
+```Python
+p = re.compile(r'Toko')
+sub = p.sub('Tokyo', 'Toko is a large city.') #Tokyo is a large city.
+subn = p.subn('Tokyo', 'Toko is Toko') #('Tokyo is Tokyo', 2)
+```
+
 
 [(Back to top)](#table-of-contents)
 
