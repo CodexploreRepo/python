@@ -537,7 +537,7 @@ The metacharacters can be categorized into several types as below:
     ```
   - **5.3. re.Match.groups() vs re.Match.group()**
   - `.groups()`: return all matched groups
-    
+  - `.group()`: allows users to choose different groups by giving the indices of the groups.
     - group(0) returns the whole match.
     - group(1) returns the 1st captured group.
     - group(2, 3, 4) returns the 2nd, 3rd and 4th groups.
