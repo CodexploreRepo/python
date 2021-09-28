@@ -633,7 +633,28 @@ sub = p.sub('Tokyo', 'Toko is a large city.') #Tokyo is a large city.
 subn = p.subn('Tokyo', 'Toko is Toko') #('Tokyo is Tokyo', 2)
 ```
 
+## 6.7. Look ahead & Look behind
+### 6.7.1. Look ahead (Look Forward)
+#### Look ahead positive `(?=)`
+Find expression A where expression B is matching: `A(?=B)`
+```Python
+p = re.compile(r"\s(\w+(-\w+){1,3}(?=[\s.]))") #(?=[\s.]) match A if B=[\s.] is matching either space or dot.
+m = p.findall('''
+The man is good-looking and rich.
+The eleven-year-old twenty-five-storey building was developed by a famous developer in town.
+This art piece is one-of-a-kind.
+There is a five-and-one-half-foot-long sign at the outskirt of the town.''')
+#[('good-looking', '-looking'), ('eleven-year-old', '-old'), ('twenty-five-storey', '-storey'), ('one-of-a-kind', '-kind')]
+```
 
+#### Look ahead negative `(?!)`
+Find expression A where expression B does not follow:`A(?!B)`
+
+### 6.7.2. Look behind (Look Backward)
+#### Look behind positive `(?<=)`
+Find expression A where expression B precedes: `(?<=B)A`
+#### Look behind negative `(?<!)`
+Find expression A where expression B does not precede: `(?<!B)A`
 
 
 
