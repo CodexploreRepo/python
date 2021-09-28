@@ -633,7 +633,7 @@ sub = p.sub('Tokyo', 'Toko is a large city.') #Tokyo is a large city.
 subn = p.subn('Tokyo', 'Toko is Toko') #('Tokyo is Tokyo', 2)
 ```
 
-## 6.7. Look ahead & Look behind
+## 6.7. Look ahead and Look behind
 ### 6.7.1. Look ahead (Look Forward)
 #### Look ahead positive `(?=)`
 Find expression A where expression B is matching: `A(?=B)`
