@@ -32,6 +32,7 @@ ISSS622 - Python Programming and Data Analysis
   - [6.4. Grouping Constructs](#64-grouping-constructs)
   - [6.5. Flags](#65-flags)
   - [6.6. Module-Level re Methods](#66-module-level-re-methods)
+  - [6.7. Look ahead & Look behind](#67-look-ahead-and-look-behind)
 
 # 1. Basics
 ## 1.1. Naming Convention
@@ -394,7 +395,11 @@ for m in finditer_abc:
 
 ## 6.3. Metacharacters
 The metacharacters can be categorized into several types as below:
-- *Type 1*: Metacharacters that match a single character:
+
+- `. ^ $ * + ? { } [ ] \ | ( )`
+
+- `"["` and `"]"`
+- *Type 1* `. [] - ^ \d \D \w \W \s \S`: Metacharacters that match a single character:
   - `.` **Dot**: match any single character except the newline **\n** character 
     ```Python
     p = re.compile(r'.at')
@@ -627,6 +632,9 @@ p = re.compile(r'Toko')
 sub = p.sub('Tokyo', 'Toko is a large city.') #Tokyo is a large city.
 subn = p.subn('Tokyo', 'Toko is Toko') #('Tokyo is Tokyo', 2)
 ```
+
+
+
 
 
 [(Back to top)](#table-of-contents)
