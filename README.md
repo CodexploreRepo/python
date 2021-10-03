@@ -328,7 +328,7 @@ class Rep(Student):
 # 6. Regular Expression
 ## 6.0. Regex Summary
 - **Character class**: `[]`  specify a set of characters to match
-- **Metacharacters**: `\w` [a-zA-Z0-9_], `\W` [^a-zA-Z0-9_], `\d`, `\D`, \s (white-space), \S (non white-space) `.` match anything except \n
+- **Metacharacters**: `\w` [a-zA-Z0-9_], `\W` [^a-zA-Z0-9_], `\d`, `\D`, `\s` (white-space), `\S` (non white-space), `.` match anything except \n
 -  `\` to remove special meaning of the metacharacter. For example: [\.] means match "." dot in the text, not mean match anything
 - **Anchors**: `^`, `$`, `\b` to get grid of \n at beginning & end of text: 
   - `^` beginning of text line, `$` end of text line: use `re.M` to match the beginning ^ /end $ pattern in multiple lines
