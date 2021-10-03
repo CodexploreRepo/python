@@ -329,10 +329,14 @@ class Rep(Student):
 ## 6.0. Regex Summary
 - **Character class**: `[]`  specify a set of characters to match
 - **Metacharacters**: `\w` [a-zA-Z0-9_], `\W` [^a-zA-Z0-9_], `\d`, `\s`, `.` match anything except \n
--  `\` to remove the meaning of the metacharacter. For example: [\.] means match "." dot in the text, not mean match anything
+-  `\` to remove special meaning of the metacharacter. For example: [\.] means match "." dot in the text, not mean match anything
 - **Anchors**: `^`, `$`, `\b` to get grid of \n at beginning & end of text: 
   - `^` beginning of text line, `$` end of text line: use `re.M` to match the beginning ^ /end $ pattern in multiple lines
   - `\b` word boundary match until last word character `[a-zA-Z0-9_]`
+- **Quantifiers**:   `*` zero or more , `?`: zero or one, `+`: one or more, `{m}`: m repetitions, `{m, n}`: any number of repetitions from m to n, inclusive: to repeating literal/metacharacter/group/backreference
+- **Group**: to keep certain part out of the entire match, or match a repeat with backref
+- **Backreference**: Numbered groups: `\1`, `\2`, `\3` numbering: from out to in, from left to right
+- [**Look ahead & Look behind**](#67-look-ahead-and-look-behind)
 ## 6.1. What is Regex 
 - **Regex**: is a tiny programming language used for data manipulation
 - **re** module: is a Python module containing  *re engine* and providing the regular expression functionality
