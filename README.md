@@ -26,6 +26,7 @@ ISSS622 - Python Programming and Data Analysis
   - [5.3. Inheritance](#53-inheritance)
   - [5.4. Magic Methods](#54-magic-methods)
 - [6. Regular Expression](#6-regular-expression)
+  - [6.0. Regex Summary](#60-regex-summary)
   - [6.1. What is Regex](#61-what-is-regex) 
   - [6.2. Search for a pattern](#62-search-for-a-pattern)
   - [6.3. Metacharacters](#63-metacharacters)
@@ -325,6 +326,13 @@ class Rep(Student):
 
 
 # 6. Regular Expression
+## 6.0. Regex Summary
+- **Character class**: `[]`  specify a set of characters to match
+- **Metacharacters**: `\w` [a-zA-Z0-9_], `\W` [^a-zA-Z0-9_], `\d`, `\s`, `.` match anything except \n
+-  `\` to remove the meaning of the metacharacter. For example: [\.] means match "." dot in the text, not mean match anything
+- **Anchors**: `^`, `$`, `\b` to get grid of \n at beginning & end of text: 
+  - `^` beginning of text line, `$` end of text line: use `re.M` to match the beginning ^ /end $ pattern in multiple lines
+  - `\b` word boundary match until last word character `[a-zA-Z0-9_]`
 ## 6.1. What is Regex 
 - **Regex**: is a tiny programming language used for data manipulation
 - **re** module: is a Python module containing  *re engine* and providing the regular expression functionality
