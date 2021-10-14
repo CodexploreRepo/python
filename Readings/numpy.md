@@ -119,12 +119,23 @@ print(arr_dat[(arr_id == 0)|(arr_id == 3)])
 ```
 
 ## 1.5. Math and Stat Functions
-- `sum()`: sum
-- `mean()`: mean value
-- `std()`: standard deviation
-- `min()`: minimum
-- `max()`: maximum
-- `cumsum()`: cumulative sum
-- `cumprod()`: cumulative product
+- `sum()` sum
+- `mean()` mean value
+- `std()` standard deviation
+- `min()` minimum
+- `max()` maximum
+- `cumsum()` cumulative sum
+- `cumprod()` cumulative product
+
+```Python
+arr = np.arange(16)
+print(arr) #[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15]
+print(arr.sum())             #120
+print(arr.mean(), arr.std()) #7.5 4.6097722286464435
+print(arr.min(), arr.max())  #0 15
+
+print(arr.cumsum())  #[  0   1   3   6  10  15  21  28  36  45  55  66  78  91 105 120]
+print(arr.cumprod()) #[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+```
 
 [(Back to top)](#table-of-contents)
