@@ -50,9 +50,9 @@ arr2d = np.array([[0, 1, 1],
 #### 1.2.1.2. Create commonly used ndarrays
 - `np.zeros(shape)` and `np.ones(shape)`: to create all-zero vectors/matrices 
 - `np.arange(end)`: equivalence of range() function
-- `np.random.randn(d1, d2, d3, ...)`: Return a sample (or samples) from the “standard normal” distribution.
+- `np.random.randn(d1, d2, d3, ...)`: return a sample (or samples) from the “standard normal” distribution.
     - d1, d2, d3, ... are sizes of each dimension
-- `np.random.rand(d1, d2, d3, ...)`: random samples from a uniform distribution over `[0, 1)`.
+- `np.random.rand(d1, d2, d3, ...)`: return random samples from a uniform distribution over `[0, 1)`.
 - `np.eye(N)`: NxN identity matrix
 
 
