@@ -5,6 +5,7 @@
 - [1. Introduction](#1-introduction)
     - [1.1. Motivation for Numpy](#11-motivation-for-numpy)
     - [1.2. ndarray](#12-ndarray)
+    - [1.3. Indexing & Slicing](#13-indexing-and-slicing)
 
 # 1. Introduction
 - `NumPy` is short for **Numerical Python**, using to deal with `ndarray` data structure (array or vector/matrix-based computations)
