@@ -48,11 +48,12 @@ arr2d = np.array([ [0, 1, 1],
                    [2, 3, 5] ])
 ```
 #### 1.2.1.2. Create commonly used ndarrays
-– `np.zeros(shape)` and `np.ones(shape)`: to create all-zero vectors/matrices
-– `np.arange(end)`: equivalence of `range()` function
-– `np.random.rand(d1, d2, d3, ...)`: vector/matrix with random values
+- `np.zeros(shape)` and `np.ones(shape)`: to create all-zero vectors/matrices 
+- `np.arange(end)`: equivalence of range() function
+- `np.random.randn(d1, d2, d3, ...)`: Return a sample (or samples) from the “standard normal” distribution.
     - d1, d2, d3, ... are sizes of each dimension
-– `np.eye(N)`: NxN identity matrix
+- `np.random.rand(d1, d2, d3, ...)`: random samples from a uniform distribution over `[0, 1)`.
+- `np.eye(N)`: NxN identity matrix
 
 
 ### 1.2.2. ndarray.ndim & ndarray.shape
