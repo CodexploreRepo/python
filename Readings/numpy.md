@@ -68,5 +68,29 @@ print(arr2d.ndim) #2
 print(arr2d.shape) #(2,3) - For 2D array, 2 rows 3 columns
 ```
 
+## 1.3. Indexing and Slicing
+- **1-dimensional array**: similar to Python list
+```Python
+arr1d = np.array([2, 3, 4, 5, 6, 7, 9])
+
+print(arr1d[2])     #4
+print(arr1d[2:5])   #[4 5 6]
+print(arr1d[:-1:2]) #[2 4 6] from begin to the last one (but not include the last one)
+```
+- **higher-dimensional array**: use indexing and slicing for each dimension – separate each dimension with comma (,)
+```Python
+arr2d = np.array([[i+j*4 for i in range(4)] for j in range(4)])
+print(arr2d)
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]
+ [12 13 14 15]]
+print(arr2d[0, :]) #[0 1 2 3]
+print(arr2d[0:3, 1:2]) 
+[[1]
+ [5]
+ [9]]
+```
+
 
 [(Back to top)](#table-of-contents)
