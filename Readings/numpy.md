@@ -12,6 +12,7 @@
     - [1.5. Math & Stat Functions](#15-math-and-stat-functions)
 - [2. Vector and Matrix Computation](#2-vector-and-matrix-computation)
     - [2.1. Vector Arithmetic](#21-vector-arithmetic) 
+    - [2.2. Matrix Shape Manipulation](#22-matrix-shape-manipulation)
 
 
 # 1. Introduction
@@ -166,4 +167,23 @@ print(1 / arr2)
 
 #comparisons between arrays of the same size
 print(arr1 > arr2) #[False False False  True  True]
+```
+
+## 2.2. Matrix Shape Manipulation
+- `reshape()` method can be used to change the shape of the matrix.
+- Use `-1` to imply the size of the other dimension
+```Python
+arr1 = np.arange(9)
+print(arr1, arr1.shape) #[0 1 2 3 4 5 6 7 8] (9,)
+
+mat1 = arr1.reshape(3, 3)
+
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]] (3, 3)
+
+mat2 = arr1.reshape(3, -1) #use -1 to imply the size of the other dimension.
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]] (3, 3) 
 ```
