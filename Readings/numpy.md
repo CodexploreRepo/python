@@ -39,6 +39,7 @@ add_ndarray(size) #time: 50.9 ms much Numpy faster than using For Loop to add 2 
 - NumPy's `ndarray` gives a tool to represent vectors and matrices, represents an *N-dimensional* data.
 - `ndarray` takes a block of memory space. NumPy functionalities can operate this entire memory block without a loop structure, making the computation very fast and efficient.
 ### 1.2.1. Creating ndarray From List
+#### 1.2.1.1. Creating ndarray From List using np.array()
 - `np.array()` method can  create an array or multi-dimensional array from a list or nested list.
 ```Python
 arr = np.array([0, 1, 1, 2, 3, 5])
@@ -46,6 +47,14 @@ arr = np.array([0, 1, 1, 2, 3, 5])
 arr2d = np.array([ [0, 1, 1], 
                    [2, 3, 5] ])
 ```
+#### 1.2.1.2. Create commonly used ndarrays
+– `np.zeros(shape)` and `np.ones(shape)`: to create all-zero vectors/matrices
+– `np.arange(end)`: equivalence of `range()` function
+– `np.random.rand(d1, d2, d3, ...)`: vector/matrix with random values
+    - d1, d2, d3, ... are sizes of each dimension
+– `np.eye(N)`: NxN identity matrix
+
+
 ### 1.2.2. ndarray.ndim & ndarray.shape
 - `ndarray.ndim`: return number of dimensions
 - `ndarray.shape`: return size of each dimension. For 1D array, shape will be `(row, )`.
