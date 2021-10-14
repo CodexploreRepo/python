@@ -10,6 +10,9 @@
     - [1.3. Indexing & Slicing](#13-indexing-and-slicing)
     - [1.4. Boolean Masking](#14-boolean-masking)
     - [1.5. Math & Stat Functions](#15-math-and-stat-functions)
+- [2. Vector and Matrix Computation](#2-vector-and-matrix-computation)
+    - [2.1. Vector Arithmetic](#21-vector-arithmetic) 
+
 
 # 1. Introduction
 - `NumPy` is short for **Numerical Python**, using to deal with `ndarray` data structure (array or vector/matrix-based computations)
@@ -141,3 +144,26 @@ print(arr.cumprod()) #[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
 ```
 
 [(Back to top)](#table-of-contents)
+
+# 2. Vector and Matrix Computation
+## 2.1. Vector Arithmetic
+- Arithmetic operations include: `+, -, *, /, //, **, %`
+- Arithmetic operations with scalars propagate the scalar argument to each element.
+- Comparisons between arrays of the same size yield Boolean arrays.
+
+```Python
+arr1 = np.arange(5)
+arr2 = np.array(range(5, 0, -1))
+print(arr1 + arr2)
+print(arr1 - arr2)
+print(arr1 * arr2)
+print(arr1 / arr2)
+
+#arithmetic operations with scalars propagate the scalar argument to each element
+print(arr1 + 1)
+print(arr1 * 2)
+print(1 / arr2)
+
+#comparisons between arrays of the same size
+print(arr1 > arr2) #[False False False  True  True]
+```
