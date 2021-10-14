@@ -44,8 +44,8 @@ add_ndarray(size) #time: 50.9 ms much Numpy faster than using For Loop to add 2 
 ```Python
 arr = np.array([0, 1, 1, 2, 3, 5])
 
-arr2d = np.array([ [0, 1, 1], 
-                   [2, 3, 5] ])
+arr2d = np.array([[0, 1, 1], 
+                  [2, 3, 5]])
 ```
 #### 1.2.1.2. Create commonly used ndarrays
 - `np.zeros(shape)` and `np.ones(shape)`: to create all-zero vectors/matrices 
