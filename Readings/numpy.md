@@ -6,6 +6,7 @@
     - [1.1. Motivation for Numpy](#11-motivation-for-numpy)
     - [1.2. ndarray](#12-ndarray)
     - [1.3. Indexing & Slicing](#13-indexing-and-slicing)
+    - [1.4. Boolean Masking](#14-boolean-masking)
 
 # 1. Introduction
 - `NumPy` is short for **Numerical Python**, using to deal with `ndarray` data structure (array or vector/matrix-based computations)
@@ -77,19 +78,42 @@ print(arr1d[2])     #4
 print(arr1d[2:5])   #[4 5 6]
 print(arr1d[:-1:2]) #[2 4 6] from begin to the last one (but not include the last one)
 ```
-- **higher-dimensional array**: use indexing and slicing for each dimension – separate each dimension with comma (,)
+- **Higher-dimensional array**: use indexing and slicing for each dimension – separate each dimension with comma (,)
 ```Python
 arr2d = np.array([[i+j*4 for i in range(4)] for j in range(4)])
-print(arr2d)
+
 [[ 0  1  2  3]
  [ 4  5  6  7]
  [ 8  9 10 11]
  [12 13 14 15]]
+
 print(arr2d[0, :]) #[0 1 2 3]
 print(arr2d[0:3, 1:2]) 
 [[1]
  [5]
  [9]]
+```
+## 1.4. Boolean Masking
+```Python
+# random data for 4 users in 4x2 matrix
+arr_dat = np.random.rand(4, 2)
+
+[[0.45141391 0.19962473]
+ [0.51339208 0.35115272]
+ [0.43308732 0.32066871]
+ [0.82072226 0.45147328]]
+
+# user id from 0 to 3
+arr_id = np.arange(4)
+
+# pick data for user id 2
+print(arr_dat[arr_id == 2]) #[[0.43308732 0.32066871]]
+
+# pick data for users id 0 and 3
+print(arr_dat[(arr_id == 0)|(arr_id == 3)])
+
+#[[0.45141391 0.19962473]
+# [0.82072226 0.45147328]]
 ```
 
 
