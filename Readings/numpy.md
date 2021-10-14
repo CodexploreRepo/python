@@ -5,6 +5,8 @@
 - [1. Introduction](#1-introduction)
     - [1.1. Motivation for Numpy](#11-motivation-for-numpy)
     - [1.2. ndarray](#12-ndarray)
+        - [1.2.1. Creating ndarray From List](#121-creating-ndarray-from-list)
+        - [1.2.2. ndarray.ndim and ndarray.shape](#122-ndarray.ndim-and-ndarray.shape)
     - [1.3. Indexing & Slicing](#13-indexing-and-slicing)
     - [1.4. Boolean Masking](#14-boolean-masking)
     - [1.5. Math & Stat Functions](#15-math-and-stat-functions)
@@ -59,7 +61,7 @@ arr2d = np.array([[0, 1, 1],
 - `np.eye(N)`: NxN identity matrix
 
 
-### 1.2.2. ndarray.ndim & ndarray.shape
+### 1.2.2. ndarray.ndim and ndarray.shape
 - `ndarray.ndim`: return number of dimensions
 - `ndarray.shape`: return size of each dimension. For 1D array, shape will be `(row, )`.
 ```Python
