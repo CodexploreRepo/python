@@ -7,6 +7,7 @@
     - [1.2. ndarray](#12-ndarray)
     - [1.3. Indexing & Slicing](#13-indexing-and-slicing)
     - [1.4. Boolean Masking](#14-boolean-masking)
+    - [1.5. Math & Stat Functions](#15-math-and-stat-functions)
 
 # 1. Introduction
 - `NumPy` is short for **Numerical Python**, using to deal with `ndarray` data structure (array or vector/matrix-based computations)
@@ -94,6 +95,7 @@ print(arr2d[0:3, 1:2])
  [9]]
 ```
 ## 1.4. Boolean Masking
+- Use `&` for “and”, `|` for “or” and `~` for “not” to apply multiple conditions.
 ```Python
 # random data for 4 users in 4x2 matrix
 arr_dat = np.random.rand(4, 2)
@@ -112,9 +114,17 @@ print(arr_dat[arr_id == 2]) #[[0.43308732 0.32066871]]
 # pick data for users id 0 and 3
 print(arr_dat[(arr_id == 0)|(arr_id == 3)])
 
-#[[0.45141391 0.19962473]
-# [0.82072226 0.45147328]]
+[[0.45141391 0.19962473]
+ [0.82072226 0.45147328]]
 ```
 
+## 1.5. Math and Stat Functions
+- `sum()`: sum
+- `mean()`: mean value
+- `std()`: standard deviation
+- `min()`: minimum
+- `max()`: maximum
+- `cumsum()`: cumulative sum
+- `cumprod()`: cumulative product
 
 [(Back to top)](#table-of-contents)
