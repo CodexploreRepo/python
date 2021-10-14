@@ -67,6 +67,6 @@ print(arr.shape) #(6,0) - For 1D array, each element in the array will be treate
 print(arr2d.ndim) #2
 print(arr2d.shape) #(2,3) - For 2D array, 2 rows 3 columns
 ```
-- 
+
 
 [(Back to top)](#table-of-contents)
