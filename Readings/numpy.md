@@ -192,6 +192,6 @@ mat2 = arr1.reshape(3, -1) #use -1 to imply the size of the other dimension.
 ## 2.3. Linear Algebra
 - `m.T` to get the transpose of a Matrix m
 - Matrix Multiplication (Dot Product): `np.dot(m1, m2)`; `m1.dot(m2)`; `m1 @ m2`
-– `diag` diagonal elements
-– `trace` sum of diagonal elements 
+- `diag` diagonal elements
+- `trace` sum of diagonal elements 
 - `det` determinant
