@@ -35,6 +35,7 @@ ISSS622 - Python Programming and Data Analysis
   - [6.6. Module-Level re Methods](#66-module-level-re-methods)
   - [6.7. Look ahead & Look behind](#67-look-ahead-and-look-behind)
 - [7. Numpy](./Readings/numpy.md)
+- [8. Pandas](./Readings/pandas.md)
 
 # 1. Basics
 ## 1.1. Naming Convention
