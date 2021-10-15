@@ -195,3 +195,5 @@ mat2 = arr1.reshape(3, -1) #use -1 to imply the size of the other dimension.
 - `np.diag(m)` diagonal elements
 - `np.trace(m)` sum of diagonal elements 
 - `np.linalg.det(m)` determinant
+
+[(Back to top)](#table-of-contents)
