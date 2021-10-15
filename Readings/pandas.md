@@ -6,6 +6,7 @@
   - [1.1. Series](#11-series) 
   - [1.2. DataFrame](#12-dataframe)
     - [1.2.1. Column View](#121-column-view)  
+    - [1.2.2. Row View](#122-row-view)  
 
 
 
@@ -73,11 +74,26 @@ df = pd.DataFrame(population, index = years)
 <p align="center"><img width="145" alt="Screenshot 2021-10-15 at 13 30 18" src="https://user-images.githubusercontent.com/64508435/137437024-172ce012-4710-4391-bb3b-6c9937b78503.png"></p>
 
 ### 1.2.1. Column View
-#### Column Access
 - **Column Index**: df.columns
 - **Column Access**:
   - *Single* column: `df[col_name]` or `df.col_name` (no space in col_name)
   - *Multiple* columns: **column names in a list** `df[[col_name1, col_name2, ...]]`
 - **Column Addition**: `df[new_col] = seq` where seq can be List/ or Pandas Series
+
+### 1.2.2. Row View
+- **Row Index**: df.index
+- **Row Access with .iloc**:
+  - `.iloc` indexer: index the data implicitly with positive integers
+    - `df.iloc[row_num]`
+    - `df.iloc[[row_nums]]` select multiple rows
+    - `df.iloc[start_row_num:end_row_num]` not including the end_row_num
+- **Row Access with .loc**:
+  - `.loc` indexer: use actual row index
+  - Note: *different from iloc, end index are included, not excluded*
+    - `df.loc[row_num]`
+    - `df.loc[[row_nums]]` select multiple rows
+    - `df.loc[start_row_num:end_row_num]` including the end_row_num
+
+
 
 [(Back to top)](#table-of-contents)
