@@ -6,7 +6,8 @@
   - [1.1. Series](#11-series) 
   - [1.2. DataFrame](#12-dataframe)
     - [1.2.1. Column View](#121-column-view)  
-    - [1.2.2. Row View](#122-row-view)  
+    - [1.2.2. Row View](#122-row-view)
+    - [1.2.3. Data Selection](#123-data-selection)
 
 
 
@@ -83,16 +84,18 @@ df = pd.DataFrame(population, index = years)
 ### 1.2.2. Row View
 - **Row Index**: df.index
 - **Row Access with .iloc**:
-  - `.iloc` indexer: index the data implicitly with positive integers
+  - `.iloc` indexer: integer position-based
     - `df.iloc[row_num]`
     - `df.iloc[[row_nums]]` select multiple rows
     - `df.iloc[start_row_num:end_row_num]` not including the end_row_num
 - **Row Access with .loc**:
-  - `.loc` indexer: use actual row index
+  - `.loc` indexer: label-based, which means that you have to specify rows and columns based on their row and column labels.
   - Note: *different from iloc, end index are included, not excluded*
     - `df.loc[row_num]`
     - `df.loc[[row_nums]]` select multiple rows
     - `df.loc[start_row_num:end_row_num]` including the end_row_num
+
+### 1.2.3. Data Selection
 
 
 
