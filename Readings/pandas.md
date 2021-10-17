@@ -10,6 +10,7 @@
     - [1.2.3. Data Selection](#123-data-selection)
     - [1.2.4. Index Manipulation](#124-index-manipulation)
 - [2. Updating Rows and Columns](#2-updating-rows-and-columns)
+- [3. Series.apply()](#3-series-apply)
 
 
 # 1. Introduction
@@ -183,6 +184,24 @@ df.loc[df['last name'] == 'Smith', ['last name']] =  'Anderson' #change will be 
 ```Python
 df['last name'] = list(df['last name'])[::-1] #Assign a sequence to the column
 df['last name'] = df['last name'].str.lower() #Make use of str class under Series class
+```
+
+# 3. Series apply 
+- Syntax: `pandas.Series.apply(func)`
+- **No parentheses** when passing the function name
+
+```Python
+# .apply(provided function)
+df['last name'] = df['last name'].apply(str.title)
+
+# .apply(self-defined function)
+def change_Josh(fname):
+    return 'Joe' if fname == 'Josh' else fname
+
+df['first name'] = df['first name'].apply(change_Josh)
+
+# .apply(lambda function)
+df['first name'] = df['first name'].apply(lambda s: 'Josh' if s == 'Joe' else s)
 ```
 
 [(Back to top)](#table-of-contents)
