@@ -66,13 +66,39 @@ data = pd.Series(val, index=ind)
 <p align="center"><img width="400" alt="Screenshot 2021-10-15 at 13 27 03" src="https://user-images.githubusercontent.com/64508435/137436780-4a9f1620-e1b9-4859-8fc9-c6cae411c562.png"></p>
 
 ```Python
+#Example of  pd.DataFrame
 years = [2000, 2001, 2002, 2003, 2004]
 population = {'area_1': [1.1, 1.2, 1.5, 1.7, 2.0],
               'area_2': [0.4, 0.5, 0.7, 0.6, 0.7]}
 
 df = pd.DataFrame(population, index = years)
+
+# Example of set_index() function
+marks = { 'Names': ['James', 'Andrew', 'Bob', 'Carlson'],
+          'English': [58, 62, 77, 65],
+          'Chinese': [55, 32, 64, 80],
+          'Math': [61, 70, 81, 54]}
+
+df = pd.DataFrame(marks) 
+df.set_index("Names", inplace = True) 
+
+# Example of parameter "columns" function
+marks = {'James': [58, 55, 61],
+         'Andrew': [62, 32, 70],
+         'Bob': [77, 64, 81],
+         'Carlson': [65, 80, 54]}
+
+df = pd.DataFrame(marks.values(), 
+                  index=marks.keys(),
+                  columns=['English', 'Chinese', 'Math'])
+      
+#         English  Chinese  Math
+#James         58       55    61
+#Andrew        62       32    70
+#Bob           77       64    81
+#Carlson       65       80    54
 ```
-<p align="center"><img width="145" alt="Screenshot 2021-10-15 at 13 30 18" src="https://user-images.githubusercontent.com/64508435/137437024-172ce012-4710-4391-bb3b-6c9937b78503.png"></p>
+
 
 ### 1.2.1. Column View
 - **Column Index**: df.columns
@@ -96,7 +122,7 @@ df = pd.DataFrame(population, index = years)
     - `df.loc[start_row_num:end_row_num]` including the end_row_num
 
 ### 1.2.3. Data Selection
-
+- Select a portion of data using `iloc` (integer position-based) & `loc` (label-based)
 
 
 [(Back to top)](#table-of-contents)
