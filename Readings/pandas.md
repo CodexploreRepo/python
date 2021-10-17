@@ -220,13 +220,13 @@ df['first name'] = df['first name'].apply(lambda s: 'Josh' if s == 'Joe' else s)
 0  4  9
 1  4  9
 2  4  9
-
+#Apply function np.sqrt to all columnns in df
 df.apply(np.sqrt)
      A    B
 0  2.0  3.0
 1  2.0  3.0
 2  2.0  3.0
-
+#Apply function np.sum to all rows in df
 df.apply(np.sum, axis=1)
 0    13
 1    13
