@@ -101,14 +101,22 @@ df = pd.DataFrame(marks.values(),
 
 
 ### 1.2.1. Column View
-- **Column Index**: df.columns
+- **Column Index**: `df.columns`
 - **Column Access**:
   - *Single* column: `df[col_name]` or `df.col_name` (no space in col_name)
   - *Multiple* columns: **column names in a list** `df[[col_name1, col_name2, ...]]`
+```Python
+# Single-column access
+print(df['area_1'])
+print(df.area_2)
+
+# Multiple-column access
+print(df[['area_1', 'area_2']])
+```
 - **Column Addition**: `df[new_col] = seq` where seq can be List/ or Pandas Series
 
 ### 1.2.2. Row View
-- **Row Index**: df.index
+- **Row Index**: `df.index`
 - **Row Access with .iloc**:
   - `.iloc` indexer: integer position-based
     - `df.iloc[row_num]`
@@ -122,7 +130,29 @@ df = pd.DataFrame(marks.values(),
     - `df.loc[start_row_num:end_row_num]` including the end_row_num
 
 ### 1.2.3. Data Selection
-- Select a portion of data using `iloc` (integer position-based) & `loc` (label-based)
+- Select a portion of data using `.iloc[rows, cols]` (integer position-based) & `loc[rows, cols]` (label-based)
+```Python
+#iloc examples
+df.iloc[:3, -1] #First 3 rows of the last columns
+df.iloc[[0, 2], :3] #row 0th and row 2nd from first 3 cols
+
+#loc examples:
+df.loc[[2000, 2001, 2003], :'area_2'] #row 2000, 2001 and 2003 with col 'area_2'
+df.loc[2001:2002, 'area_3']
+```
+
+### 1.2.4. Index Manipulation
+- columns and index: both index objects
+- **immutable**: cannot change part of it
+- **replaceable**: replace with completely new index range, or use `set_index(col_name)` to convert a column to row_index
+
+```Python
+df.index[0] = 1999 #Error as Index is immutable
+df.index = range(len(df)) # len(df) gives the number of rows of DataFrame
+df.columns = ['a1', 'a2', 'a3'] #replace the new col indexs
+
+df.set_index('year', inplace = True) #remove the col 'year' and set it as the index of df
+```
 
 
 [(Back to top)](#table-of-contents)
