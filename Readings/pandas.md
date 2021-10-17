@@ -11,7 +11,8 @@
     - [1.2.4. Index Manipulation](#124-index-manipulation)
 - [2. Updating Rows and Columns](#2-updating-rows-and-columns)
 - [3. Apply Function](#3-apply-function)
-  - [3.1. Series.apply()](#31-series-apply)
+  - [3.1. DataFrame.Series.apply()](#31-series-apply)
+  - [3.2. DataFrame.apply()](#32-dataframe-apply)
 
 
 # 1. Introduction
@@ -186,10 +187,11 @@ df.loc[df['last name'] == 'Smith', ['last name']] =  'Anderson' #change will be 
 df['last name'] = list(df['last name'])[::-1] #Assign a sequence to the column
 df['last name'] = df['last name'].str.lower() #Make use of str class under Series class
 ```
+[(Back to top)](#table-of-contents)
 
 # 3. Apply Function
 ## 3.1. Series Apply
-- Syntax: `pandas.Series.apply(func)`
+- Syntax: `pandas.Series.apply(func)`, dealing with one item in the Series but not the Series itself
 - **No parentheses** required when passing the function name
 
 ```Python
@@ -206,4 +208,28 @@ df['first name'] = df['first name'].apply(change_Josh)
 df['first name'] = df['first name'].apply(lambda s: 'Josh' if s == 'Joe' else s)
 ```
 
+## 3.2. DataFrame Apply
+- Syntax: `pandas.DataFrame.apply(func)`, apply a function along an axis of the DataFrame.
+- Axis parameters: by default, axies = 0 i.e applies to columns
+  - 0 or ‘index’: apply function to each column.
+  - 1 or ‘columns’: apply function to each row.
+
+```Python
+#Given below DataFrame
+   A  B
+0  4  9
+1  4  9
+2  4  9
+
+df.apply(np.sqrt)
+     A    B
+0  2.0  3.0
+1  2.0  3.0
+2  2.0  3.0
+
+df.apply(np.sum, axis=1)
+0    13
+1    13
+2    13
+```
 [(Back to top)](#table-of-contents)
