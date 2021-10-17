@@ -169,10 +169,20 @@ df.set_index('year', inplace = True) #remove the col 'year' and set it as the in
 # 2. Updating Rows and Columns
 - **Updating rows**: always use the `loc/iloc` indexer. Otherwise, the change only applies to a copy/view
 ```Python
-df[df['last name'] == 'Smith']['last name'] = 'Anderson'  #SettingWithCopyWarning: Change only applies to a copy/view
-#have to use .loc/.iloc in this case. See below solution
-df.loc[df['last name'] == 'Smith', ['last name']] =  'Anderson' #Change will be updated accordingly
-
+#SettingWithCopyWarning: Change only applies to a copy/view, NOT the df itself
+df[df['last name'] == 'Smith']['last name'] = 'Anderson' #have to use .loc/.iloc in this case. See below solution
+#Solution:
+df.loc[df['last name'] == 'Smith', ['last name']] =  'Anderson' #change will be updated accordingly
+```
+- **Updating columns**: 
+  - Assign a sequence to the column, or 
+  - `.str` class under Series class provides many utilities.
+    - lower/upper/title/capitalize
+    - isupper/islower/isalpha/isalnum
+    - find/replace
+```Python
+df['last name'] = list(df['last name'])[::-1] #Assign a sequence to the column
+df['last name'] = df['last name'].str.lower() #Make use of str class under Series class
 ```
 
 [(Back to top)](#table-of-contents)
