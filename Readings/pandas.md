@@ -9,6 +9,8 @@
     - [1.2.2. Row View](#122-row-view)
     - [1.2.3. Data Selection](#123-data-selection)
     - [1.2.4. Index Manipulation](#124-index-manipulation)
+- [2. Updating Rows and Columns](#2-updating-rows-and-columns)
+
 
 # 1. Introduction
 - **2 fundamental data structures** in Pandas: `Series` and `DataFrame`
@@ -164,5 +166,13 @@ df.columns = ['a1', 'a2', 'a3'] #replace the new col indexs
 df.set_index('year', inplace = True) #remove the col 'year' and set it as the index of df
 ```
 
+# 2. Updating Rows and Columns
+- **Updating rows**: always use the `loc/iloc` indexer. Otherwise, the change only applies to a copy/view
+```Python
+df[df['last name'] == 'Smith']['last name'] = 'Anderson'  #SettingWithCopyWarning: Change only applies to a copy/view
+#have to use .loc/.iloc in this case. See below solution
+df.loc[df['last name'] == 'Smith', ['last name']] =  'Anderson' #Change will be updated accordingly
+
+```
 
 [(Back to top)](#table-of-contents)
