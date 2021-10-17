@@ -10,7 +10,8 @@
     - [1.2.3. Data Selection](#123-data-selection)
     - [1.2.4. Index Manipulation](#124-index-manipulation)
 - [2. Updating Rows and Columns](#2-updating-rows-and-columns)
-- [3. Series.apply()](#3-series-apply)
+- [3. Apply Function](#3-apply-function)
+  - [3.1. Series.apply()](#31-series-apply)
 
 
 # 1. Introduction
@@ -186,9 +187,10 @@ df['last name'] = list(df['last name'])[::-1] #Assign a sequence to the column
 df['last name'] = df['last name'].str.lower() #Make use of str class under Series class
 ```
 
-# 3. Series apply 
+# 3. Apply Function
+## 3.1. Series Apply
 - Syntax: `pandas.Series.apply(func)`
-- **No parentheses** when passing the function name
+- **No parentheses** required when passing the function name
 
 ```Python
 # .apply(provided function)
