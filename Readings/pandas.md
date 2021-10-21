@@ -15,7 +15,7 @@
   - [3.2. DataFrame.apply()](#32-dataframe-apply)
 - [4. Add or Remove Row Column and DataFrame](#4-add-or-remove-row-column-and-dataFrame)
   - [4.1. Appending a DataFrame to Another](#41-appending-a-dataframe-to-another)
-
+- [5. Sorting Data](#5-sorting-data)
 
 # 1. Introduction
 - **2 fundamental data structures** in Pandas: `Series` and `DataFrame`
@@ -254,8 +254,18 @@ df['gender'].drop([3, 4]) #drop index =3, and =4 of Series 'gender'
 
 # DataFrame
 df.drop([3, 4]) #drop row 3 and row 4
-df.drop(df[df['gender'] == 'male'].index) #remove the row with the index of column "df[df['gender'] == 'male']"
-df.drop('year', axis = 1, inplace=True) #remove the col "year"
+df.drop(df[df['gender'] == 'male'].index) #drop the row with the index of column "df[df['gender'] == 'male']"
+df.drop('year', axis = 1, inplace=True) #drop the col "year"
 ```
+[(Back to top)](#table-of-contents)
+
+# 5. Sorting Data
+- `pandas.DataFrame.sort_values(by = col_names, ascending = True/False, inplace=True/False)` sort the DataFrame by given columns
+```Python
+df.sort_values(by='last name')
+df.sort_values(by=['last name', 'first name']) #Sort by Two Cols
+df.sort_values(by=['last name', 'first name'], ascending=[True, False])
+```
+
 
 [(Back to top)](#table-of-contents)
