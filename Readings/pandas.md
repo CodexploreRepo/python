@@ -10,9 +10,10 @@
     - [1.2.3. Data Selection](#123-data-selection)
     - [1.2.4. Index Manipulation](#124-index-manipulation)
 - [2. Updating Rows and Columns](#2-updating-rows-and-columns)
-- [3. Apply Function](#3-apply-function)
+- [3. apply() Function](#3-apply-function)
   - [3.1. DataFrame.Series.apply()](#31-series-apply)
   - [3.2. DataFrame.apply()](#32-dataframe-apply)
+- []()
 
 
 # 1. Introduction
