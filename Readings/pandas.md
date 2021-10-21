@@ -16,6 +16,8 @@
 - [4. Add or Remove Row Column and DataFrame](#4-add-or-remove-row-column-and-dataFrame)
   - [4.1. Appending a DataFrame to Another](#41-appending-a-dataframe-to-another)
 - [5. Sorting Data](#5-sorting-data)
+  - [5.1. Sort by Columns](#51-sort-by-columns)
+  - [5.2. Sort by Row Index](#52-sort-by-row-index)
 
 # 1. Introduction
 - **2 fundamental data structures** in Pandas: `Series` and `DataFrame`
@@ -260,12 +262,17 @@ df.drop('year', axis = 1, inplace=True) #drop the col "year"
 [(Back to top)](#table-of-contents)
 
 # 5. Sorting Data
-- `pandas.DataFrame.sort_values(by = col_names, ascending = True/False, inplace=True/False)` sort the DataFrame by given columns
+## 5.1. Sort by Columns
+- `pandas.DataFrame.sort_values(by=col_names, ascending=True/False, inplace=True/False)` sort the DataFrame by given columns
 ```Python
 df.sort_values(by='last name')
 df.sort_values(by=['last name', 'first name']) #Sort by Two Cols
 df.sort_values(by=['last name', 'first name'], ascending=[True, False])
 ```
 
-
+## 5.2. Sort by Row Index
+- `pandas.DataFrame.sort_index(inplace=True)`: sort DataFrame by row index
+```Python
+df.sort_index(inplace=True)
+```
 [(Back to top)](#table-of-contents)
