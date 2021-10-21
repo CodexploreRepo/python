@@ -275,4 +275,5 @@ df.sort_values(by=['last name', 'first name'], ascending=[True, False])
 ```Python
 df.sort_index(inplace=True)
 ```
+
 [(Back to top)](#table-of-contents)
