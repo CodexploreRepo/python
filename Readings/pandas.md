@@ -263,7 +263,7 @@ df.drop('year', axis = 1, inplace=True) #drop the col "year"
 
 # 5. Sorting Data
 ## 5.1. Sort by Columns
-- `pandas.DataFrame.sort_values(by=col_names, ascending=True/False, inplace=True/False)` sort the DataFrame by given columns
+- `pandas.DataFrame.sort_values(by=col_names, ascending=True, inplace=True)` sort the DataFrame by given columns
 ```Python
 df.sort_values(by='last name')
 df.sort_values(by=['last name', 'first name']) #Sort by Two Cols
@@ -271,7 +271,7 @@ df.sort_values(by=['last name', 'first name'], ascending=[True, False])
 ```
 
 ## 5.2. Sort by Row Index
-- `pandas.DataFrame.sort_index(inplace=True)`: sort DataFrame by row index
+- `pandas.DataFrame.sort_index(inplace=True)` sort DataFrame by row index
 ```Python
 df.sort_index(inplace=True)
 ```
