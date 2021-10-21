@@ -13,7 +13,8 @@
 - [3. apply() Function](#3-apply-function)
   - [3.1. DataFrame.Series.apply()](#31-series-apply)
   - [3.2. DataFrame.apply()](#32-dataframe-apply)
-- []()
+- [4. Add or Remove Row Column and DataFrame](#4-add-or-remove-row-column-and-dataFrame)
+  - [4.1. Appending a DataFrame to Another](#41-appending-a-dataframe-to-another)
 
 
 # 1. Introduction
@@ -233,4 +234,28 @@ df.apply(np.sum, axis=1)
 1    13
 2    13
 ```
+[(Back to top)](#table-of-contents)
+
+# 4. Add or Remove Row Column and DataFrame
+## 4.1. Appending a DataFrame to Another
+- `df = df.append(df2, ignore_index=True)`: Appending a DataFrame to Another 
+  - resulting DataFrame must be assigned to the original or a new df since no inplace parameter to apply the change to the original DataFrame.
+  -  **ignore_index=True**: to reset the index
+## 4.2. Removing Columns Or Rows
+- `pandas.Series.drop(index)`
+  - remove items with given indices from a Series
+- `pandas.DataFrame.drop(index, axis=0, inplace=True)`
+  - remove rows or columns from a DataFrame
+  - remove columns: axis = 1 or axis = ‘columns’
+
+```Python
+# Series
+df['gender'].drop([3, 4]) #drop index =3, and =4 of Series 'gender'
+
+# DataFrame
+df.drop([3, 4]) #drop row 3 and row 4
+df.drop(df[df['gender'] == 'male'].index) #remove the row with the index of column "df[df['gender'] == 'male']"
+df.drop('year', axis = 1, inplace=True) #remove the col "year"
+```
+
 [(Back to top)](#table-of-contents)
