@@ -18,6 +18,7 @@
 - [5. Sorting Data](#5-sorting-data)
   - [5.1. Sort by Columns](#51-sort-by-columns)
   - [5.2. Sort by Row Index](#52-sort-by-row-index)
+- [6. EDA](#6-eda)
 
 # 1. Introduction
 - **2 fundamental data structures** in Pandas: `Series` and `DataFrame`
@@ -281,3 +282,16 @@ df.sort_index(inplace=True)
 ```
 
 [(Back to top)](#table-of-contents)
+
+# 6. EDA
+- `.astype('category')` convert the data type
+```Python
+df["Survived"] = df["Survived"].astype('category')
+```
+- `.value_counts(normalize=True)` can help us find out the distribution of the two values in the column.
+```Python
+df["Survived"].value_counts()
+```
+[(Back to top)](#table-of-contents)
+
+
