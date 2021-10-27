@@ -158,7 +158,7 @@ Data selection with Filter Mask
 - Syntax 3: `df[df["col"].isin([value1, value2, value3])]`
 - Syntax 4: `df[df["col"].str.contains(r"value1|value2")]`
 ```Python
-df[df['age'] >= 10]
+df[(df['age'] >= 10) & (df['height'] >= 10)]
 
 df.loc[df['height'] >= 10, ['age', 'weight']]
 
