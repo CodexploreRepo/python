@@ -8,7 +8,8 @@
     - [1.2.1. Column View](#121-column-view)  
     - [1.2.2. Row View](#122-row-view)
     - [1.2.3. Data Selection](#123-data-selection)
-    - [1.2.4. Index Manipulation](#124-index-manipulation)
+    - [1.2.4. Filter](#124-filter)
+    - [1.2.5. Index Manipulation](#125-index-manipulation)
 - [2. Updating Rows and Columns](#2-updating-rows-and-columns)
 - [3. apply() Function](#3-apply-function)
   - [3.1. DataFrame.Series.apply()](#31-series-apply)
@@ -139,7 +140,7 @@ print(df[['area_1', 'area_2']])
     - `df.loc[start_row_num:end_row_num]` including the end_row_num
 
 ### 1.2.3. Data Selection
-#### 1.2.3.1. Loc and iLoc
+#### Loc and iLoc
 - Select a portion of data using `.iloc[rows, cols]` (integer position-based) & `loc[rows, cols]` (label-based)
 ```Python
 #iloc examples
@@ -150,12 +151,12 @@ df.iloc[[0, 2], :3] #row 0th and row 2nd from first 3 cols
 df.loc[[2000, 2001, 2003], :'area_2'] #row 2000, 2001 and 2003 with col 'area_2'
 df.loc[2001:2002, 'area_3']
 ```
-#### 1.2.3.2. Filtering 
+### 1.2.4. Filter
 Data selection with Filter Mask
 - Syntax 1: `df[filter mask]`
 - Syntax 2: `df.loc[filter mask,[columns]]`  columns is OPTIONAL 
-- Syntax 3: `df[df['col'].isin([value1, value2, value3])]`
-
+- Syntax 3: `df[df["col"].isin([value1, value2, value3])]`
+- Syntax 4: `df[df["col"].str.contains("value")]`
 ```Python
 df[df['age'] >= 10]
 
@@ -163,9 +164,12 @@ df.loc[df['height'] >= 10, ['age', 'weight']]
 
 #isin
 data[data['Crime Code'].isin(['624', '510', '230'])
+
+#.str.contains
+df[df["Name"].str.contains("Jonkheer")]['Name']
 ```
 
-### 1.2.4. Index Manipulation
+### 1.2.5. Index Manipulation
 - columns and index: both index objects
 - **immutable**: cannot change part of it
 - **replaceable**: replace with completely new index range, or use `set_index(col_name)` to convert a column to row_index
