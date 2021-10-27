@@ -153,11 +153,15 @@ df.loc[2001:2002, 'area_3']
 Data selection with Filter Mask
 - Syntax 1: `df[filter mask]`
 - Syntax 2: `df.loc[filter mask,[columns]]`  columns is OPTIONAL 
+- Syntax 3: `df[df['col'].isin([value1, value2, value3])]`
 
 ```Python
 df[df['age'] >= 10]
 
 df.loc[df['height'] >= 10, ['age', 'weight']]
+
+#isin
+data[data['Crime Code'].isin(['624', '510', '230'])
 ```
 
 ### 1.2.4. Index Manipulation
