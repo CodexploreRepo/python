@@ -153,10 +153,10 @@ df.loc[2001:2002, 'area_3']
 ```
 ### 1.2.4. Filter
 Data selection with Filter Mask
-- Syntax 1: `df[filter mask]`
-- Syntax 2: `df.loc[filter mask,[columns]]`  columns is OPTIONAL 
-- Syntax 3: `df[df["col"].isin([value1, value2, value3])]`
-- Syntax 4: `df[df["col"].str.contains(r"value1|value2")]`
+- **Filter Mask**: `df[filter mask]`
+- **Filter Mask**: `df.loc[filter mask,[columns]]`  columns is OPTIONAL 
+- **String**: `df[df["col"].isin([value1, value2, value3])]`
+- **String**: `df[df["col"].str.contains(r"value1|value2")]`
 ```Python
 df[(df['age'] >= 10) & (df['height'] >= 10)]
 
