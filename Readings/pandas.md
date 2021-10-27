@@ -167,7 +167,7 @@ data[data['Crime Code'].isin(['624', '510', '230'])
 
 #.str.contains
 df[df["Name"].str.contains("Jonkheer")]['Name']
-df[df["Name"].str.contains(r'Tyler|Goodwin')]
+df[df["Name"].str.contains(r'Tyler|Goodwin')] #.str.contains regex
 ```
 
 ### 1.2.5. Index Manipulation
