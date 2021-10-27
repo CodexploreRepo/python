@@ -156,7 +156,7 @@ Data selection with Filter Mask
 - Syntax 1: `df[filter mask]`
 - Syntax 2: `df.loc[filter mask,[columns]]`  columns is OPTIONAL 
 - Syntax 3: `df[df["col"].isin([value1, value2, value3])]`
-- Syntax 4: `df[df["col"].str.contains("value")]`
+- Syntax 4: `df[df["col"].str.contains(r"value1|value2")]`
 ```Python
 df[df['age'] >= 10]
 
@@ -167,6 +167,7 @@ data[data['Crime Code'].isin(['624', '510', '230'])
 
 #.str.contains
 df[df["Name"].str.contains("Jonkheer")]['Name']
+df[df["Name"].str.contains(r'Tyler|Goodwin')]
 ```
 
 ### 1.2.5. Index Manipulation
@@ -283,18 +284,46 @@ df.sort_values(by=['last name', 'first name'], ascending=[True, False])
 - `pandas.DataFrame.sort_index(inplace=True)` sort DataFrame by row index
 ```Python
 df.sort_index(inplace=True)
+
+df["SibSp"].value_counts().sort_index()
 ```
 
 [(Back to top)](#table-of-contents)
 
 # 6. EDA
+## 6.1. Categorical Data
 - `.astype('category')` convert the data type
 ```Python
 df["Survived"] = df["Survived"].astype('category')
 ```
+## 6.2. Check Null/NaN values
+- NaN values can be counted with the `.isna()` or `.isnull()` method.
+```Python
+df["Age"].isnull().sum()
+
+df['Age'].isna().sum()
+```
+## 6.3. Distrbution of Values
 - `.value_counts(normalize=True)` can help us find out the distribution of the two values in the column.
+- `.describe()` to understand the overall distribution
+- `.quantile(np.arange(1,11)*0.1)` function helps to get the quantile information, parameter should be between 0 and 1
+- `.plot.hist()` to plot Histogram distribution
 ```Python
 df["Survived"].value_counts()
+df["Fare"].describe()
+
+df["Age"].quantile(np.arange(1,11)*0.1) # np.arange(1, 11) gives an np.array containing 1 to 10.
+#0.1    14.0
+#0.2    19.0 most dense area in the distribution is between 19 to 31
+#0.3    22.0
+#0.4    25.0
+#0.5    28.0
+#0.6    31.8
+#0.7    36.0
+#0.8    41.0
+#0.9    50.0
+#1.0    80.0
+df["Age"].plot.hist() # plot a histogram
 ```
 [(Back to top)](#table-of-contents)
 
