@@ -15,7 +15,8 @@
   - [3.1. DataFrame.Series.apply()](#31-series-apply)
   - [3.2. DataFrame.apply()](#32-dataframe-apply)
 - [4. Add or Remove Row Column and DataFrame](#4-add-or-remove-row-column-and-dataframe)
-  - [4.1. Appending a DataFrame to Another](#41-appending-a-dataframe-to-another)
+  - [4.1. Concating a DataFrame to Another](#41-concating-a-dataframe-to-another)
+  - [4.2. Removing Columns Or Rows](#42-removing-columns-or-rows)
 - [5. Sorting Data](#5-sorting-data)
   - [5.1. Sort by Columns](#51-sort-by-columns)
   - [5.2. Sort by Row Index](#52-sort-by-row-index)
@@ -251,7 +252,7 @@ df.apply(np.sum, axis=1)
 [(Back to top)](#table-of-contents)
 
 # 4. Add or Remove Row Column and DataFrame
-## 4.1. Appending a DataFrame to Another
+## 4.1. Concat a DataFrame to Another
 - `df = df.append(df2, ignore_index=True)`: Appending a DataFrame to Another 
   - resulting DataFrame must be assigned to the original or a new df since no inplace parameter to apply the change to the original DataFrame.
   -  **ignore_index=True**: to reset the index
