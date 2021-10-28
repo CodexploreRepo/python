@@ -270,13 +270,15 @@ result = pd.concat([df1, df2, df3])
 <p align="center"><img width="400" alt="Screenshot 2021-10-15 at 13 27 03" src="https://user-images.githubusercontent.com/64508435/139216000-859a11e1-2b45-4f68-b616-14af4c51f585.png"></p>
 
 ```Python
-result = pd.concat([df1, df4], axis=1) #By default, axis=1 => join="inner" - Union
+#By default, axis=1 => join="inner" - Union
+result = pd.concat([df1, df4], axis=1) 
 
-result = pd.concat([df1, df4], axis=1, join="inner") #join="inner" = Intersect - the second picture below
+#join="inner" = Intersect - the second picture below
+result = pd.concat([df1, df4], axis=1, join="inner") 
 ```
 <p align="center">
-  <img width="400" alt="Screenshot 2021-10-15 at 13 27 03" src="https://user-images.githubusercontent.com/64508435/139216509-c5e13ce9-658b-48fa-b46c-d30116af333c.png">
-  <img width="400" alt="Screenshot 2021-10-15 at 13 27 03" src="https://user-images.githubusercontent.com/64508435/139216557-3bcc660a-4c05-42ce-af0e-e643f44903bd.png">
+  <img width="500" alt="Screenshot 2021-10-15 at 13 27 03" src="https://user-images.githubusercontent.com/64508435/139216509-c5e13ce9-658b-48fa-b46c-d30116af333c.png">
+  <img width="500" alt="Screenshot 2021-10-15 at 13 27 03" src="https://user-images.githubusercontent.com/64508435/139216557-3bcc660a-4c05-42ce-af0e-e643f44903bd.png">
 </p>
 
 ### 4.1.2. Append DataFrame
