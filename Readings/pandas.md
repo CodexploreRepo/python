@@ -219,7 +219,9 @@ def change_Josh(fname):
 df['first name'] = df['first name'].apply(change_Josh)
 
 # .apply(lambda function)
-df['first name'] = df['first name'].apply(lambda s: 'Josh' if s == 'Joe' else s)
+import re
+p = re.compile(r"\b(\w+)\.")
+df["Title"] = df["Name"].apply(lambda s: p.search(s).group(1)) #Apply regex to split the "Title" out of "Name"
 ```
 
 ## 3.2. DataFrame Apply
