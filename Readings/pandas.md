@@ -298,8 +298,8 @@ df["SibSp"].value_counts().sort_index()
 ```Python
 df["Survived"] = df["Survived"].astype('category')
 ```
-## 6.2. Check Null/NaN values
-- NaN values can be counted with the `.isna()` or `.isnull()` method.
+## 6.2. Check Null values
+- NaN or Null values can be counted with the `.isna()` or `.isnull()` method.
 ```Python
 df["Age"].isnull().sum()
 
@@ -325,8 +325,28 @@ df["Age"].quantile(np.arange(1,11)*0.1) # np.arange(1, 11) gives an np.array con
 #0.8    41.0
 #0.9    50.0
 #1.0    80.0
+
 df["Age"].plot.hist() # plot a histogram
 ```
+
+## 6.4. Multi-column analysis
+- `df.groupby()` creates groups within a DataFrame by a key, i.e., the dateframe is separated into groups according the values of the key. 
+- *__str__()* doesn’t give you much information as `groupby()` lazy in nature. It doesn’t really do any operations to produce a useful result until you say so.
+
+```Python
+by_state = df.groupby("state")
+print(by_state) #__str__() doesn’t give you much information 
+#<pandas.core.groupby.generic.DataFrameGroupBy object at 0x107293278>
+
+by_state.get_group("PA")
+#     last_name first_name   birthday   gender type state               party
+# 4       Clymer     George 1739-03-16      M  rep    PA                  NaN
+#19       Maclay    William 1737-07-20      M  sen    PA  Anti-Administration
+#21       Morris     Robert 1734-01-20      M  sen    PA   Pro-Administration
+
+```
+
+
 [(Back to top)](#table-of-contents)
 
 
