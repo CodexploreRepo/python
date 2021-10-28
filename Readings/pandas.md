@@ -14,7 +14,7 @@
 - [3. apply() Function](#3-apply-function)
   - [3.1. DataFrame.Series.apply()](#31-series-apply)
   - [3.2. DataFrame.apply()](#32-dataframe-apply)
-- [4. Add or Remove Row Column and DataFrame](#4-add-or-remove-row-column-and-dataFrame)
+- [4. Add or Remove Row Column and DataFrame](#4-add-or-remove-row-column-and-dataframe)
   - [4.1. Appending a DataFrame to Another](#41-appending-a-dataframe-to-another)
 - [5. Sorting Data](#5-sorting-data)
   - [5.1. Sort by Columns](#51-sort-by-columns)
@@ -343,9 +343,11 @@ df["Age"].plot.hist() # plot a histogram
   - **Aggregation methods**: `.value_counts(normalize=True, sort=False)`
 ```Python
 by_state = df.groupby("state")
+# Example of __str__()
 print(by_state) #__str__() doesn’t give you much information 
 #<pandas.core.groupby.generic.DataFrameGroupBy object at 0x107293278>
 
+# Example of .get_group()
 by_state.get_group("PA")
 #     last_name first_name   birthday   gender type state               party
 # 4       Clymer     George 1739-03-16      M  rep    PA                  NaN
