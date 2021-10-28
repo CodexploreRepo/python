@@ -383,6 +383,7 @@ df["Age"].plot.hist() # plot a histogram
 ```
 
 ## 6.4. Multi-Column Analysis
+## 6.4.1. Groupby
 - `df.groupby()` creates groups within a DataFrame by a key, i.e., the dateframe is separated into groups according the values of the key. 
   - `__str__()` doesn’t give you much information as `groupby()` lazy in nature. It doesn’t really do any operations to produce a useful result until you say so.
 - Various methods of `.groupby()`:
@@ -440,6 +441,8 @@ fare_gp.agg(['count', 'mean', 'median', 'std', 'max', 'min'])
 
 <img width="402" alt="Screenshot 2021-10-28 at 17 15 57" src="https://user-images.githubusercontent.com/64508435/139226269-74598439-b279-4b11-aefe-8d657ae37e12.png">
 
+# 6.4.2. Cut
+- `pd.cut(col, interval)` Bin values into discrete intervals.
 
 [(Back to top)](#table-of-contents)
 
