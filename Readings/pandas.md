@@ -413,13 +413,21 @@ by_state.get_group("PA")
 #19       Maclay    William 1737-07-20      M  sen    PA  Anti-Administration
 #21       Morris     Robert 1734-01-20      M  sen    PA   Pro-Administration
 ```
-- Example of `.value_counts()`
+- For **Categorical** Columns Analysis: `.value_counts()`
 ```Python
 gend = df.groupby(by='Survived')['Sex'].value_counts(sort=False)
 ```
 <img width="266" alt="Screenshot 2021-10-28 at 17 05 06" src="https://user-images.githubusercontent.com/64508435/139224372-45014daa-94ee-47bf-98b9-bc20a721b3ee.png">
 
-- Example of `agg()`
+```Python
+pclass_df = df.groupby(by='Survived')["Pclass"].value_counts(sort=False)
+pclass_pct_df = df.groupby(by='Survived')["Pclass"].value_counts(sort=False, normalize=True)
+pd.concat([pclass_df, pclass_pct_df], axis = 1)
+```
+<img width="232" alt="Screenshot 2021-10-28 at 17 17 52" src="https://user-images.githubusercontent.com/64508435/139226667-d51baf83-24c0-4363-aa92-d2e922f712db.png">
+
+
+- For **Numerical** Columns Analysis: `agg()`
 ```Python
 fare_gp = df.groupby(by="Survived")["Fare"]
 fare_gp.mean() #Calculate the mean of fare for each group in "Survived" col
