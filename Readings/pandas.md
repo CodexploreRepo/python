@@ -298,15 +298,21 @@ df["SibSp"].value_counts().sort_index()
 ```Python
 df["Survived"] = df["Survived"].astype('category')
 ```
-## 6.2. Check Null values
+## 6.2. Check Null Values
 - NaN or Null values can be counted with the `.isna()` or `.isnull()` method.
 ```Python
 df["Age"].isnull().sum()
 
 df['Age'].isna().sum()
 ```
+## 6.3. Check Unique Values
+- Need to understand how many unique values in a column
+```Python
+df["Ticket"].nunique()
+#681
+```
 ## 6.3. Distrbution of Values
-- `.value_counts(normalize=True)` can help us find out the distribution of the two values in the column.
+- `.value_counts(normalize=True, sort=False)` can help us find out the distribution of the two values in the column.
 - `.describe()` to understand the overall distribution
 - `.quantile(np.arange(1,11)*0.1)` function helps to get the quantile information, parameter should be between 0 and 1
 - `.plot.hist()` to plot Histogram distribution
@@ -329,10 +335,12 @@ df["Age"].quantile(np.arange(1,11)*0.1) # np.arange(1, 11) gives an np.array con
 df["Age"].plot.hist() # plot a histogram
 ```
 
-## 6.4. Multi-column analysis
+## 6.4. Multi-Column Analysis
 - `df.groupby()` creates groups within a DataFrame by a key, i.e., the dateframe is separated into groups according the values of the key. 
-- *__str__()* doesn’t give you much information as `groupby()` lazy in nature. It doesn’t really do any operations to produce a useful result until you say so.
-
+  - `__str__()` doesn’t give you much information as `groupby()` lazy in nature. It doesn’t really do any operations to produce a useful result until you say so.
+- Various methods of `.groupby()`:
+  - **Meta methods & Properties**: `.get_group(value in each group)`
+  - **Aggregation methods**: `.value_counts(normalize=True, sort=False)`
 ```Python
 by_state = df.groupby("state")
 print(by_state) #__str__() doesn’t give you much information 
