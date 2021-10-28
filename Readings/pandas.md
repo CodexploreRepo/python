@@ -252,7 +252,7 @@ df.apply(np.sum, axis=1)
 [(Back to top)](#table-of-contents)
 
 # 4. Add or Remove Row Column and DataFrame
-## 4.1. Concat a DataFrame to Another
+## 4.1. Concating a DataFrame to Another
 - `df = df.append(df2, ignore_index=True)`: Appending a DataFrame to Another 
   - resulting DataFrame must be assigned to the original or a new df since no inplace parameter to apply the change to the original DataFrame.
   -  **ignore_index=True**: to reset the index
