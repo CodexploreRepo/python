@@ -332,11 +332,20 @@ df["SibSp"].value_counts().sort_index()
 [(Back to top)](#table-of-contents)
 
 # 6. EDA
-## 6.1. Categorical Data
+## 6.1. Categorical & Numerical Data
+### 6.1.1. Categorical Data
+- Check the type of columns, and convert those categorical columns to type `'category'`
 - `.astype('category')` convert the data type
 ```Python
 df["Survived"] = df["Survived"].astype('category')
 ```
+
+### 6.1.2. Numerical Data
+- List of Numerical Columns
+```Python
+numerical_col = [c for c in df.columns if df[c].dtype in ('float64', 'int64')]
+```
+
 ## 6.2. Check Null Values
 - NaN or Null values can be counted with the `.isna()` or `.isnull()` method.
 ```Python
@@ -347,8 +356,7 @@ df['Age'].isna().sum()
 ## 6.3. Check Unique Values
 - Need to understand how many unique values in a column
 ```Python
-df["Ticket"].nunique()
-#681
+df["Ticket"].nunique() #681
 ```
 ## 6.3. Distrbution of Values
 - `.value_counts(normalize=True, sort=False)` can help us find out the distribution of the two values in the column.
@@ -379,7 +387,19 @@ df["Age"].plot.hist() # plot a histogram
   - `__str__()` doesn’t give you much information as `groupby()` lazy in nature. It doesn’t really do any operations to produce a useful result until you say so.
 - Various methods of `.groupby()`:
   - **Meta methods & Properties**: `.get_group(value in each group)`
-  - **Aggregation methods**: `.value_counts(normalize=True, sort=False)`
+  - **Aggregation methods**: `.value_counts(normalize=True, sort=False)` and other aggregation methods we can apply on the grouped dataset as shown in below table
+    - `agg()` method allows us to apply multiple such methods at once. 
+      - i.e: `grouped_by_df.agg(['count', 'mean', 'median', 'std', 'max', 'min'])`
+      
+  |Aggregation Method|Description|
+  |-|-|
+  |count|Number of non-NA values in the group|
+  |sum|Sum of non-NA values|
+  |mean|Mean of non-NA values|
+  |median|Arithmetic median of non-NA values|
+  |std, var|Sample standard deviation and variance|
+  |min, max|Minimum and Maximum of non-NA values|
+  
 ```Python
 by_state = df.groupby("state")
 # Example of __str__()
@@ -392,8 +412,25 @@ by_state.get_group("PA")
 # 4       Clymer     George 1739-03-16      M  rep    PA                  NaN
 #19       Maclay    William 1737-07-20      M  sen    PA  Anti-Administration
 #21       Morris     Robert 1734-01-20      M  sen    PA   Pro-Administration
-
 ```
+- Example of `.value_counts()`
+```Python
+gend = df.groupby(by='Survived')['Sex'].value_counts(sort=False)
+```
+<img width="266" alt="Screenshot 2021-10-28 at 17 05 06" src="https://user-images.githubusercontent.com/64508435/139224372-45014daa-94ee-47bf-98b9-bc20a721b3ee.png">
+
+- Example of `agg()`
+```Python
+fare_gp = df.groupby(by="Survived")["Fare"]
+fare_gp.mean() #Calculate the mean of fare for each group in "Survived" col
+#Survived
+#0    22.117887
+#1    48.395408
+
+fare_gp.agg(['count', 'mean', 'median', 'std', 'max', 'min'])
+```
+
+<img width="402" alt="Screenshot 2021-10-28 at 17 15 57" src="https://user-images.githubusercontent.com/64508435/139226269-74598439-b279-4b11-aefe-8d657ae37e12.png">
 
 
 [(Back to top)](#table-of-contents)
