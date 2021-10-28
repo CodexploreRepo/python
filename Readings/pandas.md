@@ -195,12 +195,15 @@ df.loc[df['last name'] == 'Smith', ['last name']] =  'Anderson' #change will be 
 - **Updating columns**: 
   - Assign a sequence to the column, or 
   - `.str` class under Series class provides many utilities.
-    - lower/upper/title/capitalize
-    - isupper/islower/isalpha/isalnum
-    - find/replace
+    - `lower`, `upper`, `title`, `capitalize`
+    - `isupper`, `islower`, `isalpha`, `isalnum`
+    - `find`, `replace`, `contains`
 ```Python
 df['last name'] = list(df['last name'])[::-1] #Assign a sequence to the column
-df['last name'] = df['last name'].str.lower() #Make use of str class under Series class
+
+#Make use of str class under Series class
+df['last name'] = df['last name'].str.lower() 
+df["Name"].str.contains("Mrs. Martin")
 ```
 [(Back to top)](#table-of-contents)
 
@@ -253,9 +256,42 @@ df.apply(np.sum, axis=1)
 
 # 4. Add or Remove Row Column and DataFrame
 ## 4.1. Concating a DataFrame to Another
+### 4.1.1 Concat DataFrame
+- `pd.concat([df1,df2, df3])`
+  - **axis = 0 (By Default)**: append next df by row, similar to `append`
+  - **axis = 1**: append next df by column
+    - `axis=1, join="inner"` Take the union of them all (Default)
+    - `axis=1, join="outer"` Take the intersection
+
+```Python
+#By default, axis = 0 => Similar to append by row
+result = pd.concat([df1, df2, df3])
+```
+<p align="center"><img width="400" alt="Screenshot 2021-10-15 at 13 27 03" src="https://user-images.githubusercontent.com/64508435/139216000-859a11e1-2b45-4f68-b616-14af4c51f585.png"></p>
+
+```Python
+result = pd.concat([df1, df4], axis=1) #By default, axis=1 => join="inner" - Union
+
+result = pd.concat([df1, df4], axis=1, join="inner") #join="inner" = Intersect - the second picture below
+```
+<p align="center">
+  <img width="400" alt="Screenshot 2021-10-15 at 13 27 03" src="https://user-images.githubusercontent.com/64508435/139216509-c5e13ce9-658b-48fa-b46c-d30116af333c.png">
+  <img width="400" alt="Screenshot 2021-10-15 at 13 27 03" src="https://user-images.githubusercontent.com/64508435/139216557-3bcc660a-4c05-42ce-af0e-e643f44903bd.png">
+</p>
+
+### 4.1.2. Append DataFrame
+- A useful shortcut to concat() are the `append()` instance methods on Series and DataFrame. 
+- These methods actually predated concat. They concatenate **along axis=0**, namely the index:
 - `df = df.append(df2, ignore_index=True)`: Appending a DataFrame to Another 
   - resulting DataFrame must be assigned to the original or a new df since no inplace parameter to apply the change to the original DataFrame.
   -  **ignore_index=True**: to reset the index
+```Python
+result = df1.append([df2, df3, ignore_index=True]) #Append multiple dataframes to df1
+result = df1.append(df4, sort=False) #Append df1 & df4, since they have different columns, so whatever missing values will be filled with NaN as shown below
+```
+<p align="center"><img width="400" alt="Screenshot 2021-10-15 at 13 27 03" src="https://user-images.githubusercontent.com/64508435/139180149-7632060a-2e0b-464c-97c9-7c51b230e1ad.png"></p>
+
+
 ## 4.2. Removing Columns Or Rows
 - `pandas.Series.drop(index)`
   - remove items with given indices from a Series
