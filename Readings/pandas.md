@@ -346,14 +346,22 @@ df["Survived"] = df["Survived"].astype('category')
 numerical_col = [c for c in df.columns if df[c].dtype in ('float64', 'int64')]
 ```
 
-## 6.2. Check Null Values
+## 6.2. NaN Values
+### 6.2.1. Check NaN Values
 - NaN or Null values can be counted with the `.isna()` or `.isnull()` method.
 ```Python
 df["Age"].isnull().sum()
 
 df['Age'].isna().sum()
 ```
-## 6.3. Check Unique Values
+### 6.2.2. Drop NaN Values
+- `df.dropna(axis = 1)`
+  - **axis = 0 (Default)** to drop Row contain NaN
+  - **axis = 1** to drop Column contain NaN
+### 6.2.3. Fill NaN
+- `df['Age'].fillna(df["Age"].mean())` fill the missing values
+
+## 6.3. Unique Values
 - Need to understand how many unique values in a column
 ```Python
 df["Ticket"].nunique() #681
@@ -442,7 +450,18 @@ fare_gp.agg(['count', 'mean', 'median', 'std', 'max', 'min'])
 <img width="402" alt="Screenshot 2021-10-28 at 17 15 57" src="https://user-images.githubusercontent.com/64508435/139226269-74598439-b279-4b11-aefe-8d657ae37e12.png">
 
 # 6.4.2. Cut
-- `pd.cut(col, interval)` Bin values into discrete intervals.
+- `pd.cut(col, interval)` bin values into discrete intervals.
+  - For example, bucketize value of `df['Fare']` into following intervals: `[(0, 20] < (20, 100] < (100, 513]]` 
+```Python
+buckets = [0,20,100, 513]
+df['Fare_buckets'] = pd.cut(df['Fare'], buckets)
+
+PassengerId
+1        (0, 20]
+2      (20, 100]
+3     (100, 513]
+```
+
 
 [(Back to top)](#table-of-contents)
 
