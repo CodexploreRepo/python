@@ -76,15 +76,12 @@ print(next(it))#3
 - `enumerate()`: to return both item & index corresponding to that item in the list
 
 ```Python
-l1, l2 = [ 1, 2, 3, 4, 5 ], ['h', 'e', 'l', 'l', 'o']
-for item in zip(l1, l2):
-    print(item)
-
-(1, 'h')
-(2, 'e')
-(3, 'l')
-(4, 'l')
-(5, 'o')
+>>> integers = [1, 2, 3]
+>>> letters = ['a', 'b', 'c']
+>>> floats = [4.0, 5.0, 6.0]
+>>> zipped = zip(integers, letters, floats)  # Three input iterables
+>>> list(zipped)
+[(1, 'a', 4.0), (2, 'b', 5.0), (3, 'c', 6.0)]
 ```
 ```Python
 l1 = ['h', 'e', 'l', 'l', 'o']
