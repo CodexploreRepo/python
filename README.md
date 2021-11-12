@@ -290,10 +290,12 @@ print(Student.num_of_stu) #1
 ```Python
 class Rep(Student):
     def __init__(self, first, last, cat):
-      super().__init__(first, last) #parent class handles existing arguments 
-      self.cat = cat #new information
-    def full_name(self): #override the full_name method of parent class, Student
-      return self.cat + ' representative: ' + self.first + ' ' + self.last 
+      #parent class Student handles existing arguments 
+      super().__init__(first, last)
+      #new information
+      self.cat = cat 
+    def full_name(self): #override the full_name method of parent
+      return self.cat + ' representative: ' + super().full_name() 
 ```
 [(Back to top)](#table-of-contents)
 
