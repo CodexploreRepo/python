@@ -245,7 +245,7 @@ c = copy.deepcopy(a)
 <p align="center"><img width="733" alt="Screenshot 2021-09-08 at 23 45 50" src="https://user-images.githubusercontent.com/64508435/132541770-54c04dab-43be-4439-b93f-98cd6aa61064.png"></p>
 
 ### 5.1.5. Data Mutability
-- **Immutable**  (values are changed, a new object will be created): integers, strings, and tuples
+- **Immutable**  (when values are changed, a new object will be created): integers, strings, and tuples
 - **Mutable** (values can be changed after creation): lists, dictionaries, and sets 
 <p align="center"><img width="802" alt="Screenshot 2021-09-09 at 04 35 03" src="https://user-images.githubusercontent.com/64508435/132581542-e3c2e12a-efe1-4c64-9750-e39d2091b36d.png"></p>
 
