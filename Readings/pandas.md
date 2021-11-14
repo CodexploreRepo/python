@@ -300,6 +300,7 @@ result = df1.append(df4, sort=False) #Append df1 & df4, since they have differen
 - `pandas.DataFrame.drop(index, axis=0, inplace=True)`
   - remove rows or columns from a DataFrame
   - remove columns: axis = 1 or axis = ‘columns’
+- `df = df[~df[df['gender'] == 'male']]`
 
 ```Python
 # Series
@@ -309,6 +310,9 @@ df['gender'].drop([3, 4]) #drop index =3, and =4 of Series 'gender'
 df.drop([3, 4]) #drop row 3 and row 4
 df.drop(df[df['gender'] == 'male'].index) #drop the row with the index of column "df[df['gender'] == 'male']"
 df.drop('year', axis = 1, inplace=True) #drop the col "year"
+
+#Drop column using ~
+df = df[~df['your column'].isin(['list of strings', 'A'])]
 ```
 [(Back to top)](#table-of-contents)
 
