@@ -36,6 +36,7 @@ ISSS622 - Python Programming and Data Analysis
   - [6.7. Look ahead & Look behind](#67-look-ahead-and-look-behind)
 - [7. Numpy](./Readings/numpy.md)
 - [8. Pandas](./Readings/pandas.md)
+- [9. Matplotlib](./Readings/matplotlib.md)
 
 # 1. Basics
 ## 1.1. Naming Convention
