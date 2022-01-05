@@ -6,8 +6,10 @@
 - [2. Concepts](#2-concepts)
   - [2.1. Figure](#21-figure) 
   - [2.2. Axes](#22-axes)
+  - [2.3. Axis](#23-axis)
 - [3. Common Plots](#3-common-plots)
 - [4. Box Plot](#4-box-plot)
+- [5. Contour Plot](#5-contour-plot)
 
 # 1. Introduction
 - Matplotlib is a python library to create data visualisations.
@@ -77,6 +79,33 @@ plt.show()
 <p align="center">
 <img width="628" alt="Screenshot 2022-01-05 at 11 18 34" src="https://user-images.githubusercontent.com/64508435/148159947-2ac329bf-c57b-43e0-a3e6-66b2da89f8de.png"></p>
 
+## 2.3. Axis
+### 2.3.1. Axis Limits
+```Python
+fig = plt.figure()
+ax = fig.add_subplot()
+ax.set(title = "Exercise 2", xlim=[-6,6], ylim=[-6,6])
+#OR
+ax.set_xlim([-1,4])
+ax.set_ylim([-6,6])
+```
+### 2.3.2. Axis Ticks
+- Customize axis ticks
+```Python
+ax.set_xlabel(‘angle’)
+x = [0,2,4,6]
+label = ['zero','two','four','six']
+
+#Method 1:
+ax.set_xticks(x) #denote the positions on corresponding action where ticks will be displayed.
+ax.set_xticklabels(label) #labels corresponding to tick marks
+
+#Method 2:
+ax.set(xticks=x, xticklabels=label)
+```
+
+<p align="center">
+<img width="628" alt="Screenshot 2022-01-05 at 11 18 34" src="https://user-images.githubusercontent.com/64508435/148201345-5c6c360e-efcd-49c8-a24c-b0fdb9d9cc50.png"></p>
 
 # 3. Common Plots
 - Scatter
@@ -118,11 +147,29 @@ plt.show();
   - **third quartile (Q3/75th Percentile)**: the middle value between the median and the highest value (not the “maximum”) of the dataset.
   - **“maximum”**: `Q3 + whis*IQR`
 - It can tell you about your outliers and what their values are.
-  - **outliers**: `those points > (Q3 + whis * IQR) = "maximum" ` or `those points < (Q1 – whis * IQR) = “minimum”`
+  - **outliers**: `those points > (Q3 + whis * IQR) = "maximum"` or `those points < (Q1 – whis * IQR) = “minimum”`
 - It can also tell you if your data is symmetrical, how tightly your data is grouped, and if and how your data is skewed.
 
-<img width="697" alt="Screenshot 2022-01-05 at 16 31 07" src="https://user-images.githubusercontent.com/64508435/148194512-75ae6a8c-fdfb-47c7-a811-abca95165adc.png">
+```Python
+x = np.random.randn(100) 
+plt.boxplot(x) 
+plt.show()
+```
+<p align="center"><img width="500" alt="Screenshot 2022-01-05 at 16 31 07" src="https://user-images.githubusercontent.com/64508435/148194512-75ae6a8c-fdfb-47c7-a811-abca95165adc.png"></p>
 
+# 5. Contour Plot
+- Contour plots show the relationship between a fitted response and two continuous variables
+<p align="center"><img width="700" alt="Screenshot 2022-01-05 at 17 00 29" src="https://user-images.githubusercontent.com/64508435/148198742-c9af1602-4c56-410c-a1f2-d63052581dd5.png"></p>
 
+```Python
+def f(x, y):
+  return np.sin(np.pi*x)*np.sin(np.pi*y)
+x = np.linspace(0, 5, 50)
+y = np.linspace(0, 5, 50)
+X, Y = np.meshgrid(x, y) #create positions Z = f(X, Y)
+
+plt.contour(X, Y, Z)
+plt.show()
+```
 
 [(Back to top)](#table-of-contents)
