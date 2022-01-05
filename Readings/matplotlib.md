@@ -105,7 +105,19 @@ ax.set(xticks=x, xticklabels=label)
 ```
 
 <p align="center">
-<img width="628" alt="Screenshot 2022-01-05 at 11 18 34" src="https://user-images.githubusercontent.com/64508435/148201345-5c6c360e-efcd-49c8-a24c-b0fdb9d9cc50.png"></p>
+<img width="450" alt="Screenshot 2022-01-05 at 11 18 34" src="https://user-images.githubusercontent.com/64508435/148201345-5c6c360e-efcd-49c8-a24c-b0fdb9d9cc50.png"></p>
+
+### 2.3.4. Legend
+- Label when there are multiple plots on same axes
+```Python
+plt.plot([1, 2, 3], [10, 20, 25], color = 'black', label='city1') 
+plt.plot([1, 2, 3], [30, 23, 13], color = 'orange', label='city2') 
+plt.scatter([1, 2, 3], [20, 10, 30], color = 'salmon', label='city3') 
+
+plt.legend() #Need to call .legend() to display label
+plt.show()
+```
+
 
 # 3. Common Plots
 - Scatter
