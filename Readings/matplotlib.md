@@ -115,6 +115,7 @@ plt.plot([1, 2, 3], [30, 23, 13], color = 'orange', label='city2')
 plt.scatter([1, 2, 3], [20, 10, 30], color = 'salmon', label='city3') 
 
 plt.legend() #Need to call .legend() to display label
+#plt.legend(loc='upper left') #To display where to put the label box
 plt.show()
 ```
 
