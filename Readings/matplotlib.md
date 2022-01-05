@@ -16,7 +16,7 @@
 - Pyplot module within matplotlib provides a MATLAB-like interface.
 - It creates figures and axes to achieve the desired plot.
 
-<img width="700" alt="Screenshot 2022-01-05 at 10 57 19" src="https://user-images.githubusercontent.com/64508435/148158464-a9affe81-07f0-47d5-9749-32b113e33530.png">
+<p align="center"><img width="700" alt="Screenshot 2022-01-05 at 10 57 19" src="https://user-images.githubusercontent.com/64508435/148158464-a9affe81-07f0-47d5-9749-32b113e33530.png"></p>
 
 # 2. Concepts
 - Figure: It may contain one or multiple axes (plots).
