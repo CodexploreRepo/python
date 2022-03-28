@@ -24,6 +24,8 @@
 #drop = True, to not retain the old index as a column
 df = df.reset_index(drop=True)
 ```
+#### Concat DataFrame
+- Column Concat: `pd.concat([df_1, df_2], axis= 1, ignore_index=True)`
 #### Save & Load DataFrame
 - DataFrame can be stored as Pickle files
 ```Python
