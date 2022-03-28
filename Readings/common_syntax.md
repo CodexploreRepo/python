@@ -8,6 +8,7 @@
 - [Numpy](#numpy)
 - [Matplotlib](#matplotlib)
 - [Sklearn](#sklearn)
+  - [Pre-Processing](#pre-processing)
   - [Evaluation Metrics](#evaluation-metrics)
 # Python
 ## List
@@ -42,6 +43,16 @@ df["col"].apply(lambda doc: preprocess_data(doc))
 # Matplotlib
 # Sklearn
 ## Pre-processing
+### Duplication Removal
+- `.duplicated()`: to check any duplicated rows in the DataFrame
+- **Duplication Removal**
+```Python
+train_df.duplicated().sum() #check if any duplication
+
+#keeping only the first instance of the duplicate rows 
+bool_series = train_df.duplicated(keep='first') 
+train_df = train_df[~bool_series]
+```
 ### Label Encoding
 - To encode the categorical variables to number
 ```Python
