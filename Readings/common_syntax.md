@@ -105,11 +105,13 @@ models = [RandomForestClassifier(n_estimators=100, max_depth=5, random_state=202
           MultinomialNB(),
           LogisticRegression(random_state=2022)]
 
+#Define k-fold
 cv = 5
 kfold = StratifiedKFold(cv, shuffle=True, random_state = 2022)
 cv_df = pd.DataFrame(index=range(cv * len(models))) #create a DataFrame with (k-fold * number of models) rows
 
 entries = []
+# Loop through models
 for model in models:
     model_name = model.__class__.__name__
     accuracies = cross_val_score(model, X_train_vect, y_train, scoring='accuracy', cv=kfold)
@@ -118,6 +120,22 @@ for model in models:
 #List down accuracy per fold for each model  
 cv_df = pd.DataFrame(entries, columns=['model_name', 'fold_idx', 'accuracy'])
 
+#Plot Base-Line Model Performance
+plt.figure(figsize=(6,4))
+sns.boxplot(x='model_name', y='accuracy', 
+            data=cv_df, 
+            color='lightblue', 
+            showmeans=True)
+plt.title("Boxplot of Base-line Accuracy")
+plt.xticks(rotation = 90)
+plt.show()
+```
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/64508435/160365160-9a25e02a-1246-414d-8460-d4dcaa010981.png" width="350" />
+</p>
+
+```Python
 #Summary
 mean_accuracy = cv_df.groupby('model_name').accuracy.mean()
 std_accuracy = cv_df.groupby('model_name').accuracy.std()
