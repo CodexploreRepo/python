@@ -1,5 +1,5 @@
 # Python
-ISSS622 - Python Programming and Data Analysis
+Python Programming and Data Analysis
 
 # Table of contents
 - [Table of contents](#table-of-contents)
