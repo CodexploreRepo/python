@@ -10,6 +10,7 @@
 - [Sklearn](#sklearn)
   - [Pre-Processing](#pre-processing)
   - [Evaluation Metrics](#evaluation-metrics)
+  - [Error Analysis](#error-analysis)
 # Python
 ## List
 - `list_a[-100:]` get the last 100 items in the list
@@ -45,7 +46,6 @@ df["col"].apply(lambda doc: preprocess_data(doc))
 ## Pre-processing
 ### Duplication Removal
 - `.duplicated()`: to check any duplicated rows in the DataFrame
-- **Duplication Removal**
 ```Python
 train_df.duplicated().sum() #check if any duplication
 
@@ -55,13 +55,13 @@ train_df = train_df[~bool_series]
 ```
 ### Label Encoding
 - To encode the categorical variables to number
-- label_enocoder.inverse_transform(y_test)
 ```Python
 label_enocoder = sklearn.preprocessing.LabelEncoder()
 # Encoding "Target" to number 
 y_train = label_enocoder.fit_transform(labeled_train_df['label'].values)
 ```
-- To Inverse transform: `label_enocoder.inverse_transform(y_test)`
+- To *inverse transform* from number back to orignal categorical variables' name: 
+  - `label_enocoder.inverse_transform(y_test)`
 - To get the label & name mapping
 ```Python
 my_tags = list(label_enocoder.classes_)
@@ -85,4 +85,17 @@ le_name_mapping = dict(zip(label_enocoder.classes_, label_enocoder.transform(lab
 # my_tags = ['Addendum', 'Endorsement', 'Finance_Report', 'Insurance_Sheet', 'NDA', 'Payslips', 'Term_Sheet']
 # target_names=my_tags
 print(classification_report(y_test, y_pred_nb, target_names=my_tags))
+```
+
+## Error Analysis
+### Classification
+- To check if mis-classified instance distribution
+  - For ex: to check if how many instances of class "RandomPDFs" being mis-classified as other classes. 
+```Python
+result_df = pd.DataFrame(zip(label_enocoder.inverse_transform(y_test), label_enocoder.inverse_transform(y_pred)), columns=["Label", "Pred"])
+result_df = result_df[result_df.Label == "RandomPDFs"]
+result_df["Pred"].value_counts()
+#Finance_Report     77
+#Others              9
+#Endorsement         6
 ```
