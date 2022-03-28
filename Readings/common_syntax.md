@@ -58,7 +58,8 @@ df["col"].apply(lambda doc: preprocess_data(doc))
 
 [(Back to top)](#table-of-contents)
 # Matplotlib
-
+- `plt.xticks(rotation = 90)`: rotate the label in x-axis
+-
 [(Back to top)](#table-of-contents)
 
 # Sklearn
