@@ -9,6 +9,7 @@
 - [Matplotlib](#matplotlib)
 - [Sklearn](#sklearn)
   - [Pre-Processing](#pre-processing)
+  - [Model Training](#model-training)
   - [Evaluation Metrics](#evaluation-metrics)
   - [Error Analysis](#error-analysis)
 # Python
@@ -65,7 +66,7 @@ y_train = label_enocoder.fit_transform(labeled_train_df['label'].values)
 - To get the label & name mapping
 ```Python
 my_tags = list(label_enocoder.classes_)
-# my_tags = ['Addendum', 'Endorsement', 'Finance_Report', 'Insurance_Sheet', 'NDA', 'Payslips', 'Term_Sheet']
+# my_tags = ['Addendum', 'Endorsement', 'Finance_Report', 'Insurance_Sheet']
 
 # Label & Name mapping
 le_name_mapping = dict(zip(label_enocoder.classes_, label_enocoder.transform(label_enocoder.classes_)))
@@ -73,10 +74,46 @@ le_name_mapping = dict(zip(label_enocoder.classes_, label_enocoder.transform(lab
 #'Endorsement': 1,
 #'Finance_Report': 2,
 #'Insurance_Sheet': 3,
-#'NDA': 4,
-#'Payslips': 5,
-#'Term_Sheet': 6}
 ```
+
+## Model Training
+### Baseline Models
+- For ex: Classification Problem
+```Python
+#Define Model
+models = [RandomForestClassifier(n_estimators=100, max_depth=5, random_state=2022),
+          LinearSVC(),
+          MultinomialNB(),
+          LogisticRegression(random_state=2022)]
+
+cv = 5
+kfold = StratifiedKFold(cv, shuffle=True, random_state = 2022)
+cv_df = pd.DataFrame(index=range(cv * len(models))) #create a DataFrame with (k-fold * number of models) rows
+
+entries = []
+for model in models:
+    model_name = model.__class__.__name__
+    accuracies = cross_val_score(model, X_train_vect, y_train, scoring='accuracy', cv=kfold)
+    for fold_idx, accuracy in enumerate(accuracies):
+        entries.append((model_name, fold_idx, accuracy))
+#List down accuracy per fold for each model  
+cv_df = pd.DataFrame(entries, columns=['model_name', 'fold_idx', 'accuracy'])
+
+#Summary
+mean_accuracy = cv_df.groupby('model_name').accuracy.mean()
+std_accuracy = cv_df.groupby('model_name').accuracy.std()
+
+acc = pd.concat([mean_accuracy, std_accuracy], axis= 1, ignore_index=True)
+acc.columns = ['Mean Accuracy', 'Standard deviation']
+
+# sort by accuracy
+acc.sort_values(by=['Mean Accuracy'], axis=0 ,ascending=False, inplace=True)
+```
+<p align="center">
+<img src="https://user-images.githubusercontent.com/64508435/160359420-509c7320-ecba-446a-972b-8a8bfa3bd75b.png" width="400" />
+</p>
+
+
 ## Evaluation Metrics
 ### Classification Report
 - `target_names`: replace target classes (0,1,2,3,..) with the Label's name in Classification Report 
@@ -92,7 +129,7 @@ print(classification_report(y_test, y_pred_nb, target_names=my_tags))
 - To check if mis-classified instance distribution
   - For ex: to check if how many instances of class "RandomPDFs" being mis-classified as other classes. 
 ```Python
-result_df = pd.DataFrame(zip(label_enocoder.inverse_transform(y_test), label_enocoder.inverse_transform(y_pred)), columns=["Label", "Pred"])
+result_df = pd.DataFrame(zip(y_test, y_pred)), columns=["Label", "Pred"])
 result_df = result_df[result_df.Label == "RandomPDFs"]
 result_df["Pred"].value_counts()
 #Finance_Report     77
