@@ -2,8 +2,9 @@
 
 # Table of contents
 - [Table of contents](#table-of-contents)
-- [Python](#python)
+- [Python](#python) 
   - [List](#list)
+  - [Utils](#utils)
 - [Pandas](#pandas)
 - [Numpy](#numpy)
 - [Matplotlib](#matplotlib)
@@ -16,6 +17,14 @@
 ## List
 - `list_a[-100:]` get the last 100 items in the list
 
+## Utils
+### Pickle
+```Python
+#Load models:
+pickle.dump(model, open(path,"wb"))
+#Load models:
+pickle.load(open(path,"rb"))
+```
 [(Back to top)](#table-of-contents)
 
 # Pandas
@@ -43,8 +52,15 @@ df["col"].apply(lambda x: len(num_regex.findall(x)))
 #preprocess_data: is a separate function
 df["col"].apply(lambda doc: preprocess_data(doc))  
 ```
+[(Back to top)](#table-of-contents)
+
 # Numpy
+
+[(Back to top)](#table-of-contents)
 # Matplotlib
+
+[(Back to top)](#table-of-contents)
+
 # Sklearn
 ## Pre-processing
 ### Duplication Removal
@@ -78,6 +94,7 @@ le_name_mapping = dict(zip(label_enocoder.classes_, label_enocoder.transform(lab
 #'Insurance_Sheet': 3,
 ```
 
+[(Back to top)](#table-of-contents)
 ## Model Training
 ### Baseline Models
 - For ex: Classification Problem
@@ -115,6 +132,7 @@ acc.sort_values(by=['Mean Accuracy'], axis=0 ,ascending=False, inplace=True)
 <img src="https://user-images.githubusercontent.com/64508435/160359420-509c7320-ecba-446a-972b-8a8bfa3bd75b.png" width="400" />
 </p>
 
+[(Back to top)](#table-of-contents)
 
 ## Evaluation Metrics
 ### Classification Report
@@ -138,3 +156,4 @@ result_df["Pred"].value_counts()
 #Others              9
 #Endorsement         6
 ```
+[(Back to top)](#table-of-contents)
