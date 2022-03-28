@@ -16,6 +16,28 @@
 [(Back to top)](#table-of-contents)
 
 # Pandas
+- `.reset_index(drop=True)`: to reset the index of the dataframe
+```Python
+#drop = True, to not retain the old index as a column
+df = df.reset_index(drop=True)
+```
+#### Save & Load DataFrame
+- DataFrame can be stored as Pickle files
+```Python
+#Save DataFrame
+df.to_pickle('../data/cleaned_train_v2.pkl')
+#Load DataFrame
+df.pd.read_pickle('../data/cleaned_test_v2.pkl')
+```
+#### `.apply()` and Lambda Function
+- To modified the data in the col
+```Python
+num_regex = re.compile(r'[0-9]+')
+df["col"].apply(lambda x: len(num_regex.findall(x)))
+ 
+#preprocess_data: is a separate function
+df["col"].apply(lambda doc: preprocess_data(doc))  
+```
 # Numpy
 # Matplotlib
 # Sklearn
