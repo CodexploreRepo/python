@@ -55,11 +55,15 @@ train_df = train_df[~bool_series]
 ```
 ### Label Encoding
 - To encode the categorical variables to number
+- label_enocoder.inverse_transform(y_test)
 ```Python
 label_enocoder = sklearn.preprocessing.LabelEncoder()
 # Encoding "Target" to number 
 y_train = label_enocoder.fit_transform(labeled_train_df['label'].values)
-
+```
+- To Inverse transform: `label_enocoder.inverse_transform(y_test)`
+- To get the label & name mapping
+```Python
 my_tags = list(label_enocoder.classes_)
 # my_tags = ['Addendum', 'Endorsement', 'Finance_Report', 'Insurance_Sheet', 'NDA', 'Payslips', 'Term_Sheet']
 
