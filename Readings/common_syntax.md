@@ -8,7 +8,8 @@
   - [Utils](#utils)
 - [Pandas](#pandas)
 - [Numpy](#numpy)
-  - [Spare and Dense Matrix](#spare-and-dense-matrix) 
+  - [SciPy Spare and Numpy Dense Matrix](#sciPy-spare-and-numpy-dense-matrix)
+  - [Stacking Numpy Arrays](#stacking-numpy-arrays)
 - [Matplotlib](#matplotlib)
 - [Sklearn](#sklearn)
   - [Pre-Processing](#pre-processing)
@@ -61,12 +62,46 @@ df["col"].apply(lambda doc: preprocess_data(doc))
 [(Back to top)](#table-of-contents)
 
 # Numpy
-## Spare and Dense Matrix
+## SciPy Spare and Numpy Dense Matrix
 ### Convert from SciPy sparse matrix" to a "NumPy matrix"
 - For example: `a` is a sparse matrix
   - `a.toarray()` return (numpy.array, **recommended**) a *dense ndarray* representation of this matrix. 
   - `a.todense()` return (numpy.matrix) a *dense matrix* representation of this matrix. 
+### Stacking SciPy Spare Matrices
+- `scipy.sparse.hstack`: Stack sparse matrices horizontally (column wise)
+- `scipy.sparse.vstack`: Stack sparse matrices vertically (row wise)
+```Python
+from scipy.sparse import coo_matrix, hstack
+A = coo_matrix([[1, 2], [3, 4]])
+B = coo_matrix([[5], [6]])
+# H-Stack Example
+hstack([A,B]).toarray()
+#array([[1, 2, 5],
+#       [3, 4, 6]])
 
+# V-Stack Example
+vstack([A, B]).toarray()
+#array([[1, 2],
+#       [3, 4],
+#       [5, 6]])
+```
+## Stacking Numpy Arrays
+- `np.hstack`: Stack arrays in sequence horizontally (column wise).
+- `np.vstack`: Stack arrays in sequence vertically (row wise).
+```Python
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+# H-Stack Example
+np.hstack((a,b))
+#array([1, 2, 3, 4, 5, 6])
+
+# V-Stack Example
+vstack([A, B]).toarray()
+np.vstack((a,b))
+#array([[1, 2, 3],
+#       [4, 5, 6]])
+```
 
 [(Back to top)](#table-of-contents)
 # Matplotlib
