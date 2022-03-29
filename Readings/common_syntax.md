@@ -4,6 +4,7 @@
 - [Table of contents](#table-of-contents)
 - [Python](#python) 
   - [List](#list)
+  - [Dict](#dict)
   - [Utils](#utils)
 - [Pandas](#pandas)
 - [Numpy](#numpy)
@@ -16,6 +17,10 @@
 # Python
 ## List
 - `list_a[-100:]` get the last 100 items in the list
+
+## Dict
+### Sorting a Dict
+- Based on values: `dict(sorted(name_diff.items(), key=lambda x: x[1], reverse = True))`
 
 ## Utils
 ### Pickle
@@ -55,6 +60,12 @@ df["col"].apply(lambda doc: preprocess_data(doc))
 [(Back to top)](#table-of-contents)
 
 # Numpy
+## Spare and Dense Matrix
+### Convert from SciPy sparse matrix" to a "NumPy matrix"
+- For example: `a` is a sparse matrix
+  - `a.toarray()` return (numpy.array, **recommended**) a *dense ndarray* representation of this matrix. 
+  - `a.todense()` return (numpy.matrix) a *dense matrix* representation of this matrix. 
+
 
 [(Back to top)](#table-of-contents)
 # Matplotlib
