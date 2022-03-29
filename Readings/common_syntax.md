@@ -8,6 +8,7 @@
   - [Utils](#utils)
 - [Pandas](#pandas)
 - [Numpy](#numpy)
+  - [Spare and Dense Matrix](#spare-and-dense-matrix) 
 - [Matplotlib](#matplotlib)
 - [Sklearn](#sklearn)
   - [Pre-Processing](#pre-processing)
