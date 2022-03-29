@@ -93,12 +93,11 @@ a = np.array([1, 2, 3])
 b = np.array([4, 5, 6])
 
 # H-Stack Example
-np.hstack((a,b))
+np.hstack([a,b])
 #array([1, 2, 3, 4, 5, 6])
 
 # V-Stack Example
-vstack([A, B]).toarray()
-np.vstack((a,b))
+np.vstack([a,b])
 #array([[1, 2, 3],
 #       [4, 5, 6]])
 ```
