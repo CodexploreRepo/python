@@ -3,7 +3,7 @@ Python Programming and Data Analysis
 
 # Table of contents
 - [Table of contents](#table-of-contents)
-- [0.Common Syntax](./Readings/common_syntax.md)
+- [0. Common Syntax](./Readings/common_syntax.md)
 - [1. Basics](#1-basics)
   - [1.1. Naming Convention](#11-naming-convention)
   - [1.2 Operators](#12-operators)
