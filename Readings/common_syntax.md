@@ -35,11 +35,12 @@ pickle.load(open(path,"rb"))
 [(Back to top)](#table-of-contents)
 
 # Pandas
-- `.reset_index(drop=True)`: to reset the index of the dataframe
+- `df.reset_index(drop=True)`: to reset the index of the dataframe
 ```Python
 #drop = True, to not retain the old index as a column
 df = df.reset_index(drop=True)
 ```
+- `df.sample(n=5, random_state=1)`: randomly select 5 samples from the dataframe
 #### Concat DataFrame
 - Column Concat: `pd.concat([df_1, df_2], axis= 1, ignore_index=True)`
 #### Save & Load DataFrame
