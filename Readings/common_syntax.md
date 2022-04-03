@@ -8,6 +8,7 @@
   - [Utils](#utils)
 - [Pandas](#pandas)
 - [Numpy](#numpy)
+  - [Basics](#basics) 
   - [SciPy Spare and Numpy Dense Matrix](#sciPy-spare-and-numpy-dense-matrix)
   - [Stacking Numpy Arrays](#stacking-numpy-arrays)
 - [Matplotlib](#matplotlib)
@@ -63,6 +64,10 @@ df["col"].apply(lambda doc: preprocess_data(doc))
 [(Back to top)](#table-of-contents)
 
 # Numpy
+## Basics
+- **Numpy's append** numpy arrays: `a1 = [[1], [2], [3]]` and `a2 = [[4], [5]]` &#8594; `[[1], [2], [3], [4], [5]]`
+  - `axis` the axis along which values are appended. If axis is not given, both arr and values are flattened before use.
+  - `numpy.append(a1, a2, axis = 0)`
 ## SciPy Spare and Numpy Dense Matrix
 ### Convert from SciPy sparse matrix" to a "NumPy matrix"
 - For example: `a` is a sparse matrix
