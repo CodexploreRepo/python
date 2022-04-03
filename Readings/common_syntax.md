@@ -69,6 +69,7 @@ df["col"].apply(lambda doc: preprocess_data(doc))
 - **Numpy's append** numpy arrays: `a1 = [[1], [2], [3]]` and `a2 = [[4], [5]]` &#8594; `[[1], [2], [3], [4], [5]]`
   - `axis` the axis along which values are appended. If axis is not given, both arr and values are flattened before use.
   - `numpy.append(a1, a2, axis = 0)`
+- `np.squeeze'
 ## SciPy Spare and Numpy Dense Matrix
 ### Convert from SciPy sparse matrix" to a "NumPy matrix"
 - For example: `a` is a sparse matrix
