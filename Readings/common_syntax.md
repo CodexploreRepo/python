@@ -65,6 +65,7 @@ df["col"].apply(lambda doc: preprocess_data(doc))
 
 # Numpy
 ## Basics
+- **Numpy to List**: `a.tolist() #a is a numpy array`  
 - **Numpy's append** numpy arrays: `a1 = [[1], [2], [3]]` and `a2 = [[4], [5]]` &#8594; `[[1], [2], [3], [4], [5]]`
   - `axis` the axis along which values are appended. If axis is not given, both arr and values are flattened before use.
   - `numpy.append(a1, a2, axis = 0)`
