@@ -9,7 +9,7 @@
 - [Pandas](#pandas)
 - [Numpy](#numpy)
   - [Basics](#basics) 
-  - [SciPy Spare and Numpy Dense Matrix](#sciPy-spare-and-numpy-dense-matrix)
+  - [SciPy Spare and Numpy Dense Matrix](#scipy-spare-and-numpy-dense-matrix)
   - [Stacking Numpy Arrays](#stacking-numpy-arrays)
 - [Matplotlib](#matplotlib)
 - [Sklearn](#sklearn)
@@ -42,6 +42,7 @@ X_train = []
 for row in tqdm(train_df['tokens']):
     model_vector = document_vector(row, sg_w2v_model)
     X_train.append(model_vector)
+    
 #100%|██████████| 1193/1193 [07:11<00:00,  2.77it/s]
 ```
 [(Back to top)](#table-of-contents)
@@ -55,6 +56,7 @@ df = df.reset_index(drop=True)
 - `df.sample(n=5, random_state=1)`: randomly select 5 samples from the dataframe
 #### Concat DataFrame
 - Column Concat: `pd.concat([df_1, df_2], axis= 1, ignore_index=True)`
+- Row Concat: `pd.concat([df_1, df_2], axis= 0, ignore_index=True)`
 #### Save & Load DataFrame
 - DataFrame can be stored as Pickle files
 ```Python
@@ -125,8 +127,10 @@ np.vstack([a,b])
 
 [(Back to top)](#table-of-contents)
 # Matplotlib
-- `plt.xticks(rotation = 90)`: rotate the label in x-axis
--
+- **Label Rotation** in x-axis/y-axis:
+  - `plt.xticks(rotation = 90)`:
+  - `ax1.tick_params(axis='x', labelrotation=45)`
+
 [(Back to top)](#table-of-contents)
 
 # Sklearn
