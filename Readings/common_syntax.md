@@ -63,7 +63,7 @@ df = df.reset_index(drop=True)
 #Save DataFrame
 df.to_pickle('../data/cleaned_train_v2.pkl')
 #Load DataFrame
-df.pd.read_pickle('../data/cleaned_test_v2.pkl')
+df = pd.read_pickle('../data/cleaned_test_v2.pkl')
 ```
 #### `.apply()` and Lambda Function
 - To modified the data in the col
