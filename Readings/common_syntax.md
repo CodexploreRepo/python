@@ -33,6 +33,17 @@ pickle.dump(model, open(path,"wb"))
 #Load models:
 pickle.load(open(path,"rb"))
 ```
+### TQDM
+- Progress Bar
+```Python
+from tqdm import tqdm
+
+X_train = []
+for row in tqdm(train_df['tokens']):
+    model_vector = document_vector(row, sg_w2v_model)
+    X_train.append(model_vector)
+#100%|██████████| 1193/1193 [07:11<00:00,  2.77it/s]
+```
 [(Back to top)](#table-of-contents)
 
 # Pandas
@@ -69,7 +80,9 @@ df["col"].apply(lambda doc: preprocess_data(doc))
 - **Numpy's append** numpy arrays: `a1 = [[1], [2], [3]]` and `a2 = [[4], [5]]` &#8594; `[[1], [2], [3], [4], [5]]`
   - `axis` the axis along which values are appended. If axis is not given, both arr and values are flattened before use.
   - `numpy.append(a1, a2, axis = 0)`
-- `np.squeeze'
+- `np.squeeze`: to remove single-dimensional entries from the shape of an array.
+  - Shape of input array `a`:  (1, 2, 3)  &#8594; Shape of output array `np.squeeze(a)`:  (2, 3)
+
 ## SciPy Spare and Numpy Dense Matrix
 ### Convert from SciPy sparse matrix" to a "NumPy matrix"
 - For example: `a` is a sparse matrix
