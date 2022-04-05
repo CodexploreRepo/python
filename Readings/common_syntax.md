@@ -54,6 +54,9 @@ for row in tqdm(train_df['tokens']):
 df = df.reset_index(drop=True)
 ```
 - `df.sample(n=5, random_state=1)`: randomly select 5 samples from the dataframe
+#### Select & Index
+- Indexing Pandas DF: integer rows, named columns
+  - `df.iloc[880, [df.columns.get_loc(c) for c in ['filename','label']]]`  
 #### Concat DataFrame
 - Column Concat: `pd.concat([df_1, df_2], axis= 1, ignore_index=True)`
 - Row Concat: `pd.concat([df_1, df_2], axis= 0, ignore_index=True)`
