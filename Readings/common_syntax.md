@@ -7,6 +7,11 @@
   - [Dict](#dict)
   - [Utils](#utils)
 - [Pandas](#pandas)
+  - [Basics](#basics)
+  - [Select and Index](#select-and-index)
+  - [Concat DataFrame](#concat-dataframe)
+  - [Save and Load DataFrame](#save-and-load-dataframe)
+  - [`.apply()` and Lambda Function](#apply-and-lambda-function)
 - [Numpy](#numpy)
   - [Basics](#basics) 
   - [SciPy Spare and Numpy Dense Matrix](#scipy-spare-and-numpy-dense-matrix)
@@ -48,19 +53,21 @@ for row in tqdm(train_df['tokens']):
 [(Back to top)](#table-of-contents)
 
 # Pandas
+#### Basics
 - `df.reset_index(drop=True)`: to reset the index of the dataframe
 ```Python
 #drop = True, to not retain the old index as a column
 df = df.reset_index(drop=True)
 ```
 - `df.sample(n=5, random_state=1)`: randomly select 5 samples from the dataframe
-#### Select & Index
+- `df[col].unique().tolist()`: to get List of Unique values in a column
+#### Select and Index
 - Indexing Pandas DF: integer rows, named columns
   - `df.iloc[880, [df.columns.get_loc(c) for c in ['filename','label']]]`  
 #### Concat DataFrame
 - Column Concat: `pd.concat([df_1, df_2], axis= 1, ignore_index=True)`
 - Row Concat: `pd.concat([df_1, df_2], axis= 0, ignore_index=True)`
-#### Save & Load DataFrame
+#### Save and Load DataFrame
 - DataFrame can be stored as Pickle files
 ```Python
 #Save DataFrame
@@ -68,7 +75,7 @@ df.to_pickle('../data/cleaned_train_v2.pkl')
 #Load DataFrame
 df = pd.read_pickle('../data/cleaned_test_v2.pkl')
 ```
-#### `.apply()` and Lambda Function
+#### Apply and Lambda Function
 - To modified the data in the col
 ```Python
 num_regex = re.compile(r'[0-9]+')
