@@ -17,6 +17,7 @@
   - [SciPy Spare and Numpy Dense Matrix](#scipy-spare-and-numpy-dense-matrix)
   - [Stacking Numpy Arrays](#stacking-numpy-arrays)
 - [Matplotlib](#matplotlib)
+  - [Axis Label](#axis-label) 
 - [Sklearn](#sklearn)
   - [Pre-Processing](#pre-processing)
   - [Model Training](#model-training)
@@ -138,10 +139,19 @@ np.vstack([a,b])
 
 [(Back to top)](#table-of-contents)
 # Matplotlib
+## Axis Label
 - **Label Rotation** in x-axis/y-axis:
   - `plt.xticks(rotation = 90)`:
   - `ax1.tick_params(axis='x', labelrotation=45)`
-
+- **Label Overwritting** in x-axis/y-axis:
+```Python
+# Get current yticks: An array of the values displayed on the y-axis (150, 175, 200, etc.)
+ticks = ax.get_yticks()
+# Format those values into strings beginning with dollar sign
+new_labels = [f"${int(tick)}" for tick in ticks]
+# Set the new labels
+ax.set_yticklabels(new_labels)
+```
 [(Back to top)](#table-of-contents)
 
 # Sklearn
