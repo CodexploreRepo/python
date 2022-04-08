@@ -156,8 +156,14 @@ ax.set_yticklabels(new_labels)
 
 # Sklearn
 ## Pre-processing
+### None-value Removal
+- `.dropna(subset=['col_name_1'])`: 
+- `df[df['col_name_1'].notna()]`: much faster than *.dropna*
 ### Duplication Removal
 - `.duplicated()`: to check any duplicated rows in the DataFrame
+- `.drop_duplicates(subset=['col_name_1', 'col_name_2'], keep='last')`: remove duplicates
+  - *subset*: specific column(s)
+  - *keep* = {‘first’, ‘last’, False} default ‘first’: determines which duplicates (if any) to keep. - first : Drop duplicates except for the first occurrence.
 ```Python
 train_df.duplicated().sum() #check if any duplication
 
