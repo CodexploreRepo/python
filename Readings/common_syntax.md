@@ -55,6 +55,8 @@ for row in tqdm(train_df['tokens']):
 
 # Pandas
 #### Basics
+- `df.set_index("col_name_1", inplace=True)` or `df.set_index(["col_name_1", "col_name_2"], inplace=True)`: to set columns as the index
+- `df = pd.read_csv(data_path, index_col="col_name_1")`: to set a column as index when loading data
 - `df.reset_index(drop=True)`: to reset the index of the dataframe
 ```Python
 #drop = True, to not retain the old index as a column
