@@ -66,7 +66,8 @@ df = df.reset_index(drop=True)
 - `df[col].unique().tolist()`: to get List of Unique values in a column
 #### Select and Index
 - Indexing Pandas DF: integer rows, named columns
-  - `df.iloc[880, [df.columns.get_loc(c) for c in ['filename','label']]]`  
+  - `df.iloc[880, [df.columns.get_loc(c) for c in ['filename','label']]]` 
+- Select with Multiple Conditions: `df.loc[(df.col_1.isnull())&(df.col2 == 'Mr'), 'col3_name']`
 #### Concat DataFrame
 - Column Concat: `pd.concat([df_1, df_2], axis= 1, ignore_index=True)`
 - Row Concat: `pd.concat([df_1, df_2], axis= 0, ignore_index=True)`
