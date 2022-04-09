@@ -71,7 +71,12 @@ df = df.reset_index(drop=True)
 - Column Concat: `pd.concat([df_1, df_2], axis= 1, ignore_index=True)`
 - Row Concat: `pd.concat([df_1, df_2], axis= 0, ignore_index=True)`
 #### Save and Load DataFrame
-- DataFrame can be stored as Pickle files
+- Deep copy dataframes
+```Python
+train_bkp = train_df.copy(deep=True)
+test_bkp = test_df.copy(deep=True)
+```
+- DataFrame can be stored as pickle files
 ```Python
 #Save DataFrame
 df.to_pickle('../data/cleaned_train_v2.pkl')
