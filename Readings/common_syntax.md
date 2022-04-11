@@ -65,7 +65,8 @@ df = df.reset_index(drop=True)
 - `df.sample(n=5, random_state=1)`: randomly select 5 samples from the dataframe
 - `df[col].unique().tolist()`: to get List of Unique values in a column
 #### `.str`
-- `df[~df[col].str.contains("Addendum|Endorsement|Payslips")]`: to select rows containing/not containing multiple selected values
+- **.contains**
+  - `df[~df[col].str.contains("Addendum|Endorsement|Payslips")]`: to select rows containing/not containing multiple selected values
 
 #### Select and Index
 - Indexing Pandas DF: integer rows, named columns
