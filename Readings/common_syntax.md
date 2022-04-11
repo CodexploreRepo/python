@@ -8,6 +8,7 @@
   - [Utils](#utils)
 - [Pandas](#pandas)
   - [Basics](#basics)
+  - [`.str`](#str)
   - [Select and Index](#select-and-index)
   - [Concat DataFrame](#concat-dataframe)
   - [Save and Load DataFrame](#save-and-load-dataframe)
