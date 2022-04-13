@@ -27,6 +27,7 @@
 # Python
 ## List
 - `list_a[-100:]` get the last 100 items in the list
+- `list_a.extend([1,2,3])`: merge 2 lists together (simliar to `list_a + [1,2,3]`)
 
 ## Dict
 ### Sorting a Dict
