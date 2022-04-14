@@ -34,6 +34,12 @@
 - Based on values: `dict(sorted(name_diff.items(), key=lambda x: x[1], reverse = True))`
 
 ## Utils
+### Google Drive
+- Mount the Google Drive to Colab
+```Python
+from google.colab import drive
+drive.mount('/content/drive')
+```
 ### Pickle
 ```Python
 #Load models:
