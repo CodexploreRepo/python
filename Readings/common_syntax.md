@@ -3,6 +3,7 @@
 # Table of contents
 - [Table of contents](#table-of-contents)
 - [Python](#python) 
+  - [Random Number](#random-number) 
   - [List](#list)
   - [Dict](#dict)
   - [Utils](#utils)
@@ -25,9 +26,37 @@
   - [Evaluation Metrics](#evaluation-metrics)
   - [Error Analysis](#error-analysis)
 # Python
+## Random Number
+```Python
+import random
+random.seed(42) #make results reproducible,
+
+random.random() #return random number between [0.0 and 1.0)
+>>> 0.35553263284394376
+random.uniform(0, 10) #return a random floating point number N from uniform distribution such that a <= N <= b, where a=lower_end, b=higher_end
+>>> 3.58
+random.randint(0, 10) #generate a random integer between two endpoints in Python
+>>> 7
+random.gauss(mu, sigma) #return a random floating point number with gaussian distribution.
+
+items = ['one', 'two', 'three', 'four', 'five']
+random.choice(items) #choosing multiple elements from a sequence with replacement (duplicates are possible):
+>>> 'four'
+random.choices(items, k=2)
+>>> ['three', 'three']
+random.choices(items, k=3)
+>>> ['three', 'five', 'four']
+
+
+random.shuffle(items) #randomize a sequence in-place
+>>> ['four', 'three', 'two', 'one', 'five']
+
+```
+
 ## List
 - `list_a[-100:]` get the last 100 items in the list
-- `list_a.extend([1,2,3])`: merge 2 lists together (simliar to `list_a + [1,2,3]`)
+- `list_a.extend([1,2,3])` merge 2 lists together (simliar to `list_a + [1,2,3]`)
+- `list_a[::-1]` reverse the list
 
 ## Dict
 ### Sorting a Dict
