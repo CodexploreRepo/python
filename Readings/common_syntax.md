@@ -34,6 +34,29 @@
 - Based on values: `dict(sorted(name_diff.items(), key=lambda x: x[1], reverse = True))`
 
 ## Utils
+### Shallow and Deep Copy
+- **Shallow Copy** `copy()`: will **only create a new object for the parent layer**. 
+  - It will **NOT** create a new object **for any of the child layer**.
+- **Deep Copy** `deepcopy()`: will **create new objects for the parent & child layers**.
+```Python
+import copy
+a = [[0, 1], 2, 3]
+
+#Shallow Copy: will only create a new object for the parent layer.
+#it will NOT create a new object for any of the child layer.
+b = copy.copy(a)
+
+#only b has 4 appended, not a 
+b.append(4) #a: [[0, 1], 2, 3]; b: [[0, 1], 2, 3, 4]
+#both a[0][0] and b[0][0] will be updated to 9
+b[0][0] = 9 #a: [[9, 1], 2, 3]; b: [[9, 1], 2, 3, 4]
+
+
+c = copy.deepcopy(a)
+c.append(5) #a: [[9, 1], 2, 3], c: [[9, 1], 2, 3, 5]
+c[0][0] = 8 #a: [[9, 1], 2, 3], c: [[8, 1], 2, 3, 5]
+```
+
 ### Google Colab
 - Mount the Google Drive to Colab
 ```Python
