@@ -34,11 +34,23 @@
 - Based on values: `dict(sorted(name_diff.items(), key=lambda x: x[1], reverse = True))`
 
 ## Utils
-### Google Drive
+### Google Colab
 - Mount the Google Drive to Colab
 ```Python
 from google.colab import drive
 drive.mount('/content/drive')
+```
+-  Linux Command on Google Colab
+```Python
+!python --version #to check python version
+!pip list #to list python modules
+
+!apt-get install python3.8 #get the lastest python version on Colab
+!python3.8 -m pip install transformers #to install new packages
+
+#Run Shell Command
+!python -c 'print("Hello Word")'
+!python ./week1/hello_world.py # run hello_world.py
 ```
 ### Pickle
 ```Python
