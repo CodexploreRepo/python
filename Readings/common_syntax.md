@@ -3,6 +3,7 @@
 # Table of contents
 - [Table of contents](#table-of-contents)
 - [Python](#python) 
+  - [I/O](#input-output)
   - [Random Number](#random-number) 
   - [List](#list)
   - [Dict](#dict)
@@ -26,6 +27,20 @@
   - [Evaluation Metrics](#evaluation-metrics)
   - [Error Analysis](#error-analysis)
 # Python
+## Input Output
+- Write lists of strings into to text file
+```Python
+sentences = ["Do you know?", "why it so popular.", "The quick brown fox runs over the lazy dog"]
+with open("./data/week1_test.txt", "w", encoding="utf-8") as filePtr:
+  for sentence in sentences:
+    filePtr.write(sentence + "\n")
+```
+- Read from text file
+```Python
+with open("./data/week1_test.txt", "r", encoding="utf-8") as filePtr:
+  for line in filePtr:
+    print(line)
+```
 ## Random Number
 ```Python
 import random
