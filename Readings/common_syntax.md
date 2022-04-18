@@ -224,6 +224,7 @@ vstack([A, B]).toarray()
 ## Stacking Numpy Arrays
 - `np.hstack`: Stack arrays in sequence horizontally (column wise).
 - `np.vstack`: Stack arrays in sequence vertically (row wise).
+  - `np.concatenate(list_of_arrays, axis=0)`
 ```Python
 a = np.array([1, 2, 3])
 b = np.array([4, 5, 6])
