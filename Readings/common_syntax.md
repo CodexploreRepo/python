@@ -17,6 +17,7 @@
   - [`.apply()` and Lambda Function](#apply-and-lambda-function)
 - [Numpy](#numpy)
   - [Basics](#basics) 
+  - [Vector Arithmetic](#vector-arithmetic)
   - [SciPy Spare and Numpy Dense Matrix](#scipy-spare-and-numpy-dense-matrix)
   - [Stacking Numpy Arrays](#stacking-numpy-arrays)
 - [Matplotlib](#matplotlib)
@@ -198,6 +199,27 @@ df["col"].apply(lambda doc: preprocess_data(doc))
   - `numpy.append(a1, a2, axis = 0)`
 - `np.squeeze`: to remove single-dimensional entries from the shape of an array.
   - Shape of input array `a`:  (1, 2, 3)  &#8594; Shape of output array `np.squeeze(a)`:  (2, 3)
+## Vector Arithmetic
+- Arithmetic operations include: `+, -, *, /, //, **, %`
+- Arithmetic operations with scalars propagate the scalar argument to each element.
+- Comparisons between arrays of the same size yield Boolean arrays.
+
+```Python
+arr1 = np.arange(5)
+arr2 = np.array(range(5, 0, -1))
+print(arr1 + arr2)
+print(arr1 - arr2)
+print(arr1 * arr2)
+print(arr1 / arr2)
+
+#arithmetic operations with scalars propagate the scalar argument to each element
+print(arr1 + 1)
+print(arr1 * 2)
+print(1 / arr2)
+
+#comparisons between arrays of the same size
+print(arr1 > arr2) #[False False False  True  True]
+```
 
 ## SciPy Spare and Numpy Dense Matrix
 ### Convert from SciPy sparse matrix" to a "NumPy matrix"
