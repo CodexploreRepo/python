@@ -20,7 +20,8 @@
   - [SciPy Spare and Numpy Dense Matrix](#scipy-spare-and-numpy-dense-matrix)
   - [Stacking Numpy Arrays](#stacking-numpy-arrays)
 - [Matplotlib](#matplotlib)
-  - [Axis Label](#axis-label) 
+  - [Axis Label](#axis-label)
+  - [Save Figure](#save-figure) 
 - [Sklearn](#sklearn)
   - [Pre-Processing](#pre-processing)
   - [Model Training](#model-training)
@@ -254,6 +255,13 @@ new_labels = [f"${int(tick)}" for tick in ticks]
 # Set the new labels
 ax.set_yticklabels(new_labels)
 ```
+## Save Figure
+```Python
+fig = plt.figure()
+# Any plot in between
+fig.savefig(img_path.png)
+```
+
 [(Back to top)](#table-of-contents)
 
 # Sklearn
