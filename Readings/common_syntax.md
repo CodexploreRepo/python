@@ -3,6 +3,7 @@
 # Table of contents
 - [Table of contents](#table-of-contents)
 - [Python](#python) 
+  - [venv](#venv)
   - [I/O](#input-output)
   - [Random Number](#random-number) 
   - [List](#list)
@@ -28,7 +29,22 @@
   - [Model Training](#model-training)
   - [Evaluation Metrics](#evaluation-metrics)
   - [Error Analysis](#error-analysis)
+
 # Python
+## Venv
+### Create a new virtual environment
+Step 1: create a new virtual enviroment `venv`
+```
+virtualenv venv
+```
+Step 2: activate the `venv`
+```
+source venv/bin/activate
+```
+Step 3: install the dependencies in the *requirements.txt*
+```
+pip install -r requirements.txt
+```
 ## Input Output
 - Write lists of strings into to text file
 ```Python
