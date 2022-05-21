@@ -92,6 +92,8 @@ random.shuffle(items) #randomize a sequence in-place
 - `list_a[::-1]` reverse the list
 
 ## Dict
+### Access a value in Dict vs Key
+- `dict_a.get("key_1", 0)` if the key_1 is not exist, then return value 0.
 ### Sorting a Dict
 - Based on values: `dict(sorted(name_diff.items(), key=lambda x: x[1], reverse = True))`
 
