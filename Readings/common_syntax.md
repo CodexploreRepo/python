@@ -162,6 +162,7 @@ drive.mount('/content/drive')
 !python -c 'print("Hello Word")'
 !python ./week1/hello_world.py # run hello_world.py
 ```
+- Hide a code cell by adding `#@title name_of title` in the code cell.
 ### Pickle
 ```Python
 #Load models:
