@@ -137,6 +137,7 @@ form_dir = main_dir/"samples"/"templates"
 for file_path in form_dir.glob("*.pdf")
   print(file_path)
 ```
+- ` str(temp_pdf_path.resolve())`: convert the Pathlib to string
 - `resolve()` this makes your path absolute and replaces all relative parts with absolute parts, and all symbolic links with physical paths. On case-insensitive file systems, it will also canonicalize the case (file.TXT becomes file.txt).
   - The difference between resolve and absolute is that absolute() does not replace the symbolically linked (symlink) parts of the path, and it never raises `FileNotFoundError`. It does not modify the case either.
   ```Python
