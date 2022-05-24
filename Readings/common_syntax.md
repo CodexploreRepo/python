@@ -8,6 +8,7 @@
   - [Random Number](#random-number) 
   - [List](#list)
   - [Dict](#dict)
+  - [Pathlib](#pathlib)
   - [Utils](#utils)
 - [Pandas](#pandas)
   - [Basics](#basics)
@@ -118,8 +119,56 @@ print(d["c"]) #Not Present - Default value when key is not exist
 x = defaultdict(lambda: defaultdict(lambda: 0)) 
 # x[key1][sub_key] returns 0 if sub_key does not exist
 # x[key1] returns a defaultdict(lambda: 0))
-
 ```
+
+[(Back to top)](#table-of-contents)
+
+## Pathlib
+```Python
+from pathlib import Path
+#go back 1 level
+#.resolve() as parent is not supported on Windows
+main_dir = Path(__file__).resolve().parents[1]
+#Same as os.path.join(main_dir, "samples", "templates")
+form_dir = main_dir/"samples"/"templates"
+```
+- `.glob("*.pdf")` to loop through all the files end with ".pdf"
+```Python
+for file_path in form_dir.glob("*.pdf")
+  print(file_path)
+```
+- `resolve()` this makes your path absolute and replaces all relative parts with absolute parts, and all symbolic links with physical paths. On case-insensitive file systems, it will also canonicalize the case (file.TXT becomes file.txt).
+  - The difference between resolve and absolute is that absolute() does not replace the symbolically linked (symlink) parts of the path, and it never raises `FileNotFoundError`. It does not modify the case either.
+  ```Python
+  # check beforehand
+  if p.exists():
+      p = p.resolve()
+
+  # or except afterward
+  try:
+      p = p.resolve()
+  except FileNotFoundError:
+      # deal with the missing file here
+      pass
+  ```
+- `.exits()` to check if the file exists
+- `.is_dir()`, `.iterdir()`, `.is_file()` check if Path is Dir or File
+  ```Python
+  input_filepath = Path(input_filepath)
+  if input_filepath.is_dir(): #to check if the path is Dir
+     for x in input_filepath.iterdir(): #iter the sub-dir
+         if x.is_file():
+              files_to_process.append(x)
+  ```
+- `.stem` (get only the file name without extension), `.name` (full name)
+  ```Python
+  p = Path("/home/user/Downloads/repo/test.txt")
+  print(p.stem) #test
+  print(p.name) #test.txt
+  ```
+
+[(Back to top)](#table-of-contents)
+
 ## Utils
 ### Shallow and Deep Copy
 - **Shallow Copy** `copy()`: will **only create a new object for the parent layer**. 
