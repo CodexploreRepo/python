@@ -10,6 +10,7 @@
   - [Dict](#dict)
   - [Pathlib](#pathlib)
   - [Utils](#utils)
+    - []() 
 - [Pandas](#pandas)
   - [Basics](#basics)
   - [`.str`](#str)
@@ -213,6 +214,15 @@ drive.mount('/content/drive')
 !python ./week1/hello_world.py # run hello_world.py
 ```
 - Hide a code cell by adding `#@title name_of title` in the code cell.
+- List down GPU/CPU
+```Python
+from tensorflow.python.client import device_lib
+device_lib.list_local_devices()
+
+#[name: "/device:CPU:0"
+#device_type: "CPU"
+#memory_limit: 268435456]
+```
 ### Pickle
 ```Python
 #Load models:
