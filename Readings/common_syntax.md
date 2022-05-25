@@ -11,6 +11,9 @@
   - [Pathlib](#pathlib)
   - [Utils](#utils)
     - [Google Colab](#google-colab) 
+    - [Pickle](#pickle)
+    - [TQDM](#tqdm)
+    - [Type Hint](#type-hint)
 - [Pandas](#pandas)
   - [Basics](#basics)
   - [`.str`](#str)
@@ -241,6 +244,17 @@ for row in tqdm(train_df['tokens']):
     X_train.append(model_vector)
     
 #100%|██████████| 1193/1193 [07:11<00:00,  2.77it/s]
+```
+### Type Hint
+- `typing` module
+
+```Python
+def concat(a: str, b: str) -> str:
+  return a + b
+ 
+from typing import NamedTuple
+def reverse(a: str)->NamedTuple("outputs", [("before", str), ("after", str)]):
+  return a, a[::-1]
 ```
 [(Back to top)](#table-of-contents)
 
