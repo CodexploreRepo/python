@@ -10,7 +10,7 @@
   - [Dict](#dict)
   - [Pathlib](#pathlib)
   - [Utils](#utils)
-    - []() 
+    - [Google Colab](#google-colab) 
 - [Pandas](#pandas)
   - [Basics](#basics)
   - [`.str`](#str)
