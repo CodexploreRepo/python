@@ -269,6 +269,8 @@ df = df.reset_index(drop=True)
 ```
 - `df.sample(n=5, random_state=1)`: randomly select 5 samples from the dataframe
 - `df[col].unique().tolist()`: to get List of Unique values in a column
+#### Display
+- `pd.set_option('display.float_format',lambda x: f'{x.2f}')`  to set  output to 2 decimals
 #### `.str`
 - **.contains**
   - `df[~df[col].str.contains("Addendum|Endorsement|Payslips")]`: to select rows containing/not containing multiple selected values
