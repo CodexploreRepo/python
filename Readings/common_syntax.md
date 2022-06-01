@@ -3,7 +3,7 @@
 # Table of contents
 - [Table of contents](#table-of-contents)
 - [Python](#python) 
-  - [venv](#venv)
+  - [venv & pip](#venv)
   - [I/O](#input-output)
   - [Random Number](#random-number) 
   - [List](#list)
@@ -40,7 +40,7 @@
 ### Create a new virtual environment
 Step 1: create a new virtual enviroment `venv`
 ```
-virtualenv venv
+python -m venv venv
 ```
 Step 2: activate the `venv`
 ```
@@ -50,6 +50,7 @@ Step 3: install the dependencies in the *requirements.txt*
 ```
 pip install -r requirements.txt
 ```
+- `pip list | grep torch`: grep mode name torch
 ## Input Output
 - Write lists of strings into to text file
 ```Python
