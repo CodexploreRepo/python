@@ -46,6 +46,10 @@ Step 2: activate the `venv`
 ```
 source venv/bin/activate
 ```
+- Upgrade pip
+```
+pip install --upgrade pip
+```
 Step 3: install the dependencies in the *requirements.txt*
 ```
 pip install -r requirements.txt
