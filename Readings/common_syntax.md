@@ -6,6 +6,7 @@
   - [venv & pip](#venv)
   - [I/O](#input-output)
   - [Random Number](#random-number) 
+  - [Sys](#sys)
   - [List](#list)
   - [Dict](#dict)
   - [Pathlib](#pathlib)
@@ -95,7 +96,9 @@ random.shuffle(items) #randomize a sequence in-place
 >>> ['four', 'three', 'two', 'one', 'five']
 
 ```
-
+## Sys
+- `sys.path` check the path 
+  - `sys.path.append('/mnt/c/Upskills/repos/table_extraction/src')` add a new path into the sys
 ## List
 - `list_a[-100:]` get the last 100 items in the list
 - `list_a.extend([1,2,3])` merge 2 lists together (simliar to `list_a + [1,2,3]`)
