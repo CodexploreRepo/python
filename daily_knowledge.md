@@ -1,4 +1,11 @@
 # 2023
+## Day 2
+### Matplotlib
+- Set params:
+```Python
+plt.rcParams.update({'font.size': 14})
+```
+
 ## Day 1
 ### VS Code
 #### VS Code Shortcuts
