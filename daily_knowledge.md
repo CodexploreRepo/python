@@ -1,11 +1,15 @@
 # 2023
 ## Day 2
+### Git
+#### Edit Git Commits
+- 
 ### Matplotlib
 - Set params:
 ```Python
 plt.rcParams.update({'font.size': 14})
 ```
-
+### Python General
+- `sys.path` is a built-in variable within the sys module. It contains a list of directories that the interpreter will search in for the required module. When a module(a module is a python file) is imported within a Python file, the interpreter first searches for the specified module among its built-in modules. If not found it looks through the list of directories(a directory is a folder that contains related modules) defined by sys.path.
 ## Day 1
 ### VS Code
 #### VS Code Shortcuts
