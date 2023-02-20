@@ -1,10 +1,28 @@
 # Advanced Python
 
+## Class
+
+### Encapsulation
+
+#### Access Modifiers
+
+**Encapsulation** means hiding the change
+**Access modifiers**: Python doesn't have any mechanism that effectively restricts access to any instance variable or method. Python prescribes a convention of prefixing the name of the variable/method with a single (`_`) or double underscore (`__`) to emulate the behavior of protected and private access specifiers.
+
+1. **Public**
+2. **Protected**: to add a prefix `_` (single underscore) to it
+   - Protected members of a class are accessible from within the class and are also available to its sub-classes. No other environment is permitted access to it.
+3. **Private**:
+   - The double underscore `__` prefixed to a variable makes it private. It gives a strong suggestion not to touch it from outside the class. Any attempt to do so will result in an `AttributeError`
+   - **Name mangling**: Every member with a double underscore will be changed to `_object._<class_name>__<private_attribute>`. So, it can still be accessed from outside the class, but the practice should be refrained.
+
 ## Data Class
 
 Dataclasses, as the name clearly suggests, are classes that are meant to hold data. The motivation behind this module is that we sometimes define classes that only act as data containers and when we do that, we spend a consequent amount of time writing boilerplate code with tons of arguments, an ugly `__init__` method and many overridden functions.
+
 - Type annotation for each attribute. Although this doesn’t enforce type validation, it helps your text editor provide better linting
 - dataclass decorator is actually a code generator that automatically adds other methods under the hood: `__init__` , `__eq__` and `__repr__` methods: these methods are responsible for setting the attribute values, testing for equality and representing objects in a nice string format.
+
 ```Python
 class Person():
     def __init__(self, first_name, last_name, age, job):
