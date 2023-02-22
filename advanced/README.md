@@ -4,19 +4,25 @@
 
 ### Encapsulation
 
+**Encapsulation** describes the idea of wrapping data and the methods that work on data within one unit. This puts restrictions on accessing variables and methods directly and can prevent the accidental modification of data
+
+- The goal of information hiding is to ensure that an object’s state is always valid by controlling access to attributes that are hidden from the outside world.
+
 #### Access Modifiers
 
-**Encapsulation** means hiding the change
 **Access modifiers**: Python doesn't have any mechanism that effectively restricts access to any instance variable or method. Python prescribes a convention of prefixing the name of the variable/method with a single (`_`) or double underscore (`__`) to emulate the behavior of protected and private access specifiers.
 
 1. **Public**
 2. **Protected**: to add a prefix `_` (single underscore) to it
    - Protected members of a class are accessible from within the class and are also available to its sub-classes. No other environment is permitted access to it.
+   - Although the protected variable can be accessed out of the class as well as in the derived class (modified too in derived class), it is customary(convention not a rule) to not access the protected out the class body.
 3. **Private**:
    - The double underscore `__` prefixed to a variable makes it private. It gives a strong suggestion not to touch it from outside the class. Any attempt to do so will result in an `AttributeError`
    - **Name mangling**: Every member with a double underscore will be changed to `_object._<class_name>__<private_attribute>`. So, it can still be accessed from outside the class, but the practice should be refrained.
 
-## Data Class
+## Attrs, Pydantic, or Python Data Classes
+
+### Python Data Classes
 
 Dataclasses, as the name clearly suggests, are classes that are meant to hold data. The motivation behind this module is that we sometimes define classes that only act as data containers and when we do that, we spend a consequent amount of time writing boilerplate code with tons of arguments, an ugly `__init__` method and many overridden functions.
 
