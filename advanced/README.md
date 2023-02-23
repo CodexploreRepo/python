@@ -46,3 +46,11 @@ class Person:
      age: int
      job: str
 ```
+
+## Test-driven development
+
+- The basic idea is that we write tests even before we write code. The tests define what it means to say that our program works “correctly.”
+- Test templates:
+  - The first test in every exercise checks whether the expected program exists.
+  - The second test checks that the program will print a help message if we ask for help.
+  - After that, your program will be run with various inputs and options.
