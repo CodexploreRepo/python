@@ -1,16 +1,17 @@
 # 2023
-
+## Day 2
+### Pandas
+- `to_csv` to prevent `nnamed: 0` column to be appended along with your original df
+ - Solution: set `df.to_csv(, index=False)`
 ### Matplotlib
-
 - Set params:
-
 ```Python
 plt.rcParams.update({'font.size': 14})
 ```
-
-### Python General
+### Python 
 - `sys.path` is a built-in variable within the sys module. It contains a list of directories that the interpreter will search in for the required module. When a module(a module is a python file) is imported within a Python file, the interpreter first searches for the specified module among its built-in modules. If not found it looks through the list of directories(a directory is a folder that contains related modules) defined by sys.path.
 - `assert`: to check if the data is expected (`assert len(x.shape) == 2`) and will raise Exception if not matching.
+- Randomly select an item in a list: `random.randint(0, len_x)`
 
 ## Day 1
 
