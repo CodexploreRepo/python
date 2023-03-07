@@ -1,8 +1,23 @@
 # 2023
 ## Day 2
 ### Pandas
-- `to_csv` to prevent `nnamed: 0` column to be appended along with your original df
- - Solution: set `df.to_csv(, index=False)`
+- `to_csv` to prevent `nnamed: 0` column to be appended along with your original df by set `df.to_csv(, index=False)`
+- `.apply` based on the condition of certain columns
+```Python
+df.loc[:,'C'] = df.apply(lambda row: 'Hi' if row['A'] > 10 and row['B'] < 5 else '')
+```
+### Numpy
+- Numpy vs Tensor: A significant difference between NumPy arrays and TensorFlow tensors is that TensorFlow tensors aren’t assignable: they’re constant
+```Python
+import numpy as np
+x = np.ones(shape=(2, 2))
+x[0, 0] = 0.
+
+x = tf.ones(shape=(2, 2))
+x[0, 0] = 0. # ERROR: fail, as a tensor isn’t assignable.
+```
+
+
 ### Matplotlib
 - Set params:
 ```Python
