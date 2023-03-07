@@ -31,6 +31,7 @@ plt.rcParams.update({'font.size': 14})
 - `assert`: to check if the data is expected (`assert len(x.shape) == 2`) and will raise Exception if not matching.
 - `random` module
   - Randomly select an item in a list: `random.randint(0, len_x)`
+  - Randomly select subset of items in a list: `indices_permutation = random.permutation(len(x)); x[indices_permutation][:10]`
   - Normal distribution with mean 0 and standard deviation 1: `np.random.normal(size=(3,1), loc=0., scale=1.)`
   - Uniform distribution between 0 and 1: ` np.random.uniform(size=(3, 1), low=0., high=1.)`
 ## Day 1
