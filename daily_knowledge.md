@@ -1,4 +1,10 @@
 # 2023
+## Day 3
+### Python
+- Load pickle file using `joblib`
+```Python
+model = joblib.load('lgbm_mode.pkl')
+```
 ## Day 2
 ### Pandas
 - `to_csv` to prevent `nnamed: 0` column to be appended along with your original df by set `df.to_csv(, index=False)`
@@ -22,12 +28,12 @@ x = tf.ones(shape=(2, 2))
 x[0, 0] = 0. # ERROR: fail, as a tensor isn’t assignable.
 ```
 
-
 ### Matplotlib
 - Set params:
 ```Python
 plt.rcParams.update({'font.size': 14})
 ```
+
 ### Python 
 - `assert`: to check if the data is expected (`assert len(x.shape) == 2`) and will raise Exception if not matching.
 - `iter()`: return an iterator for the given a list, set, tuple or object with `__next__()` method. 
@@ -42,24 +48,19 @@ print(next(phones_iter))
   - Randomly select subset of items in a list: `indices_permutation = random.permutation(len(x)); x[indices_permutation][:10]`
   - Normal distribution with mean 0 and standard deviation 1: `np.random.normal(size=(3,1), loc=0., scale=1.)`
   - Uniform distribution between 0 and 1: ` np.random.uniform(size=(3, 1), low=0., high=1.)`
+
 ## Day 1
-
 ### VS Code
-
 #### VS Code Shortcuts
-
 - `CMD + Shift + P`: Command Palette
 - `CMD + P`: Quickly open files
-
 #### Auto Venv Activation
 
 ```json
 # in .vscode settings.json
  "python.terminal.activateEnvironment": true
 ```
-
 #### Code Formatter
-
 - The main coding standard for Python is PEP8 (Python Enhancement Proposal 8)
   - **Linters** such as `flake8` and `pylint` highlight places where your code doesn’t conform with PEP8.
   - **Automatic formatters** such as `black` that will update your code automatically to conform with coding standards.
