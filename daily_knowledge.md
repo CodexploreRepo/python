@@ -7,6 +7,8 @@
 df.loc[:,'C'] = df.apply(lambda row: 'Hi' if row['A'] > 10 and row['B'] < 5 else '')
 ```
 ### Numpy
+- Dense & Sparse Matrix Conversion:
+  - Sparse &#8594; Dense: `A.toarray()`
 - Numpy vs Tensor: 
   - TensorFlow seems to look a lot like NumPy. But here’s something NumPy can’t do: retrieve the gradient of any differentiable expression with respect to any of its inputs. 
     - Open a `GradientTape` scope, apply some computation to one or several input tensors, and retrieve the gradient of the result with respect to the inputs.
