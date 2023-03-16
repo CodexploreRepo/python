@@ -42,6 +42,7 @@ phones = ['apple', 'samsung', 'oneplus']
 phones_iter = iter(phones) 
 print(next(phones_iter))
 ```
+- `os.environ[variable]=value` a mapping object that represents the user’s environmental variables.
 - `sys.path` is a built-in variable within the sys module. It contains a list of directories that the interpreter will search in for the required module. When a module(a module is a python file) is imported within a Python file, the interpreter first searches for the specified module among its built-in modules. If not found it looks through the list of directories(a directory is a folder that contains related modules) defined by sys.path.
 - `random` module
   - Randomly select an item in a list: `random.randint(0, len_x)`
