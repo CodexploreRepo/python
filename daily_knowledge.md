@@ -76,7 +76,7 @@ print(next(phones_iter))
     - Search “format on save” and check the checkbox
     - Search “python formatting provider” and select the `black`.
 - How to install `isort`:
-  - Open the Command Palette (`CMD + Shift + P`). Search the “Preferences: Configure Language Specific Settings” and press enter. And search the “Python” and press enter. It will open the “settings.json”.
+  - Open the Command Palette (`CMD + Shift + P`). Search the “Preferences: Open User Settings (JSON)” and press enter. It will open the “settings.json” and add the follow code into that:
   ```json
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
