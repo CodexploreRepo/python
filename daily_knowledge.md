@@ -1,6 +1,8 @@
 # 2023
 ## Day 3
 ### Python
+- `python -m pip install <some-package>` 
+  - [`-m` flag](https://stackoverflow.com/a/69527909/7973510) makes sure that you are using the pip that's tied to the active Python executable.
 - Load pickle file using `joblib`
 ```Python
 model = joblib.load('lgbm_mode.pkl')
