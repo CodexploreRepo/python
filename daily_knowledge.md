@@ -3,7 +3,7 @@
 ### Python
 - Logging level: `DEBUG > INFO > WARNING > ERROR > CRITICAL`
   - If set `logging.basicConfig(level=logging.ERROR)` means that only log `ERROR` & `CRITICAL`
-- Reload a module in Jupyter notebook
+- `reload` a module in Jupyter notebook
 ```Python
 from importlib import reload
 from abc import module_a
