@@ -1,6 +1,14 @@
 # 2023
 ## Day 3
 ### Python
+- Reload a module in Jupyter notebook
+```Python
+from importlib import reload
+from abc import module_a
+# By doing this, whatever code change in class_xyz will be reflected in the notebook
+reload(module_a)
+from abc.module_a import class_xyz 
+```
 - `python -m pip install <some-package>` 
   - [`-m` flag](https://stackoverflow.com/a/69527909/7973510) makes sure that you are using the pip that's tied to the active Python executable.
 - Load pickle file using `joblib`
