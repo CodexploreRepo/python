@@ -41,10 +41,9 @@ x[0, 0] = 0. # ERROR: fail, as a tensor isn’t assignable.
 ```
 
 ### Matplotlib
-- Set params:
-```Python
-plt.rcParams.update({'font.size': 14})
-```
+- Set params: `plt.rcParams.update({'font.size': 14})`
+- Set vertical axis range: `plt.gca().set_ylim(0,1) #set vertical range to [0-1]`
+
 
 ### Python 
 - `assert`: to check if the data is expected (`assert len(x.shape) == 2`) and will raise Exception if not matching.
