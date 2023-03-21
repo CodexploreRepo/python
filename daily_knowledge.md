@@ -57,7 +57,15 @@ print(next(phones_iter))
 - `sys.path` is a built-in variable within the sys module. It contains a list of directories that the interpreter will search in for the required module. When a module(a module is a python file) is imported within a Python file, the interpreter first searches for the specified module among its built-in modules. If not found it looks through the list of directories(a directory is a folder that contains related modules) defined by sys.path.
 - `random` module
   - Randomly select an item in a list: `random.randint(0, len_x)`
-  - Randomly select subset of items in a list: `indices_permutation = random.permutation(len(x)); x[indices_permutation][:10]`
+  - Randomly select subset of items in a list: 
+  ```Python
+  # Method 1
+  indices_permutation = random.permutation(len(x))
+  dataset[indices_permutation][:10]
+  # Method 2: select 10 out of the dataset
+  indices_permutation = random.sample(range(len(trainset)), 10)
+  dataset[indices_permutation]
+  ```
   - Normal distribution with mean 0 and standard deviation 1: `np.random.normal(size=(3,1), loc=0., scale=1.)`
   - Uniform distribution between 0 and 1: ` np.random.uniform(size=(3, 1), low=0., high=1.)`
 
