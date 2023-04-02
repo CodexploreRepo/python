@@ -20,8 +20,9 @@
    - The double underscore `__` prefixed to a variable makes it private. It gives a strong suggestion not to touch it from outside the class. Any attempt to do so will result in an `AttributeError`
    - **Name mangling**: Every member with a double underscore will be changed to `_object._<class_name>__<private_attribute>`. So, it can still be accessed from outside the class, but the practice should be refrained.
 
-## Attrs, Pydantic, or Python Data Classes
-
+## Data Modeling & Validation
+- Common Package:  Attrs, Pydantic, or Python Data Classes
+   - `Pydantic` is a Python library for data modeling/parsing that has efficient error handling and a custom validation mechanism.
 ### Python Data Classes
 
 Dataclasses, as the name clearly suggests, are classes that are meant to hold data. The motivation behind this module is that we sometimes define classes that only act as data containers and when we do that, we spend a consequent amount of time writing boilerplate code with tons of arguments, an ugly `__init__` method and many overridden functions.
