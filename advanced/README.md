@@ -55,3 +55,19 @@ class Person:
   - The first test in every exercise checks whether the expected program exists.
   - The second test checks that the program will print a help message if we ask for help.
   - After that, your program will be run with various inputs and options.
+
+## Virtual Environment
+### Virtual Env Creation & Activation
+
+- Step 1: `python3 -m venv venv` for initialising the virtual environment
+- Step 2: Activating the virtual environment
+   - Linux or MacOS `source venv/bin/activate` 
+   - Window `venv/venv\Scripts\activate.bat` 
+
+### Dependency Installation
+
+The following commands shall be ran **after activating the virtual environment**.
+
+- `pip install --upgrade pip` for upgrading the pip
+- `pip install -r requirements.txt` for the functional dependencies
+- `pip install -r requirements-dev.txt` for the development dependencies. (should include `pre-commit` module)
