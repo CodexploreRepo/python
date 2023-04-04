@@ -24,6 +24,32 @@ model = joblib.load('lgbm_mode.pkl')
 ```Python
 df.loc[:,'C'] = df.apply(lambda row: 'Hi' if row['A'] > 10 and row['B'] < 5 else '')
 ```
+#### Joining Pandas DataFrame
+- Experience: before joining (either `concat`, `merge`), need to careful about the *index* of the dataframes (might need to `.reset_index()`) as apart from the joining condition, pandas also matching the index of each dataframe.
+<p align="center"><img height=250 src="https://user-images.githubusercontent.com/64508435/229823282-0ea6ebb5-0d21-4ca7-8c96-50d025364fce.png"/></p>
+- `concat()` for combining DataFrames across rows or columns 
+  - **axis** represents the axis that you’ll concatenate along. 
+    - The default value is **0**, which concatenates **along the index**, or row axis. 
+    - Alternatively, a value of **1** will concatenate vertically, **along columns**. You can also use the string values "index" or "columns".
+  - `ignore_index` defaults to False. 
+    -  If True, then the new combined dataset won’t preserve the original index values in the axis specified in the axis parameter. This lets you have entirely new index values.
+- `merge()` for combining data on common columns or indices
+  - **how** defaults to `inner`, but other possible options include `outer`, `left`, and `right`
+  - `on`; `left_on` and `right_on` specify a column or index that’s present only in the left or right object that you’re merging   
+```Python
+# ------------ pd.concat() examples ------------
+reindexed = pd.concat(
+     [df1, df2], ignore_index=True, axis=1
+)
+# ------------ pd.merge() examples -------------
+pd.merge(
+     df1, df2, how="left", on=["col_A", "col_B"]
+)
+# if left & right DF has diff joining col names
+pd.merge(
+     df1, df2, how="left", left_on=["col_A1"], right_on=["col_A2"]
+)
+```
 ### Numpy
 - Dense & Sparse Matrix Conversion:
   - Sparse &#8594; Dense: `A.toarray()`
