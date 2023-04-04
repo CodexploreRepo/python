@@ -26,7 +26,12 @@ df.loc[:,'C'] = df.apply(lambda row: 'Hi' if row['A'] > 10 and row['B'] < 5 else
 ```
 #### Joining Pandas DataFrame
 - Experience: before joining (either `concat`, `merge`), need to careful about the *index* of the dataframes (might need to `.reset_index()`) as apart from the joining condition, pandas also matching the index of each dataframe.
-<p align="center"><img height=250 src="https://user-images.githubusercontent.com/64508435/229823282-0ea6ebb5-0d21-4ca7-8c96-50d025364fce.png"/></p>
+
+<p align="center"><img height=300 src="https://user-images.githubusercontent.com/64508435/229827362-91a5d973-9e62-4e05-9356-701732e1b9dd.png"><br>Column Concat<br>
+<img height=250 src="https://user-images.githubusercontent.com/64508435/229823282-0ea6ebb5-0d21-4ca7-8c96-50d025364fce.png"/><br>
+Merge [Inner, Outter (Left, Right)]
+</p>
+
 - `concat()` for combining DataFrames across rows or columns 
   - **axis** represents the axis that you’ll concatenate along. 
     - The default value is **0**, which concatenates **along the index**, or row axis. 
