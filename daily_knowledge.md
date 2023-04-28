@@ -24,6 +24,11 @@ model = joblib.load('lgbm_mode.pkl')
 ```Python
 df.loc[:,'C'] = df.apply(lambda row: 'Hi' if row['A'] > 10 and row['B'] < 5 else '')
 ```
+- `df.insert()` Avoid error `Try using .loc[row_indexer,col_indexer] ` when creating the new column in df from an existing df
+```Python
+# insert(position of the newly_inserted_col in the df, newly_inserted_col's name, newly_inserted_col's value)
+data.insert(len(data.columns), 'rolling', data['open'].rolling(5).mean().values)
+```
 #### Joining Pandas DataFrame
 - Experience: before joining (either `concat`, `merge`), need to careful about the *index* of the dataframes (might need to `.reset_index()`) as apart from the joining condition, pandas also matching the index of each dataframe.
 
