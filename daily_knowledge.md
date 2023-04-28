@@ -74,6 +74,7 @@ x[0, 0] = 0. # ERROR: fail, as a tensor isn’t assignable.
 ### Matplotlib
 - Set params: `plt.rcParams.update({'font.size': 14})`
 - Set vertical axis range: `ax.set_ylim([0,1])` or `plt.gca().set_ylim(0,1) #set vertical range to [0-1]`
+- Enable subplots share the same axis with `sharex` or `sharey`: `plt.subplots(nrows=3, sharey=True)`
 
 
 ### Python 
