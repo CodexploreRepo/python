@@ -1,5 +1,15 @@
 # 2023
 ## Day 3
+### Matplotlib
+#### Figure
+- Figure object is the overall window where everything is drawn.
+```Python
+def draw_smtg():
+  fig = plt.figure(figsize=(10,10))
+  plt.plot(...)
+  
+  return fig #whatever the graphs in fig will be returned
+```
 ### Python
 - Logging level: `DEBUG > INFO > WARNING > ERROR > CRITICAL`
   - If set `logging.basicConfig(level=logging.ERROR)` means that only log `ERROR` & `CRITICAL`
