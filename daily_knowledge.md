@@ -1,5 +1,16 @@
 # 2023
 ## Day 3
+### Notebook Env
+- Both `!` and `%` allow you to run shell commands from a Jupyter notebook
+  - Difference: `!` calls out to a shell (in a new process), while `%` affects the process associated with the notebook 
+    - `!cd foo`, by itself, has **no lasting effect**, since the process with the changed directory immediately terminates.
+    - `%cd foo` changes the current directory of the notebook process, which is a **lasting effect**.
+  - Example
+  ```Bash
+  # in a notebook cell
+  !git clone https://github.com/full-stack-deep-learning/fsdl-text-recognizer-2021-labs # ! can use for git clone, pip install
+  %cd fsdl-text-recognizer-2021-labs                                                    # % use for cd
+  ```
 ### VScode
 - Multiline editing in Visual Studio Code:
   - Mac: `⌥ Opt`+`⌘ Cmd`+`↑/↓`
