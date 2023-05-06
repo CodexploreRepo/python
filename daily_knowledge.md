@@ -1,5 +1,10 @@
 # 2023
 ## Day 3
+### VScode
+- Multiline editing in Visual Studio Code:
+  - Mac: `⌥ Opt`+`⌘ Cmd`+`↑/↓`
+  - Windows: `Shift`+`Alt`+`↑/↓`
+
 ### Matplotlib
 #### Figure
 - Figure object is the overall window where everything is drawn.
