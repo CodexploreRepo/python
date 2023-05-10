@@ -20,8 +20,9 @@
    - The double underscore `__` prefixed to a variable makes it private. It gives a strong suggestion not to touch it from outside the class. Any attempt to do so will result in an `AttributeError`
    - **Name mangling**: Every member with a double underscore will be changed to `_object._<class_name>__<private_attribute>`. So, it can still be accessed from outside the class, but the practice should be refrained.
 
-## Attrs, Pydantic, or Python Data Classes
-
+## Data Modeling & Validation
+- Common Package:  Attrs, Pydantic, or Python Data Classes
+   - `Pydantic` is a Python library for data modeling/parsing that has efficient error handling and a custom validation mechanism.
 ### Python Data Classes
 
 Dataclasses, as the name clearly suggests, are classes that are meant to hold data. The motivation behind this module is that we sometimes define classes that only act as data containers and when we do that, we spend a consequent amount of time writing boilerplate code with tons of arguments, an ugly `__init__` method and many overridden functions.
@@ -54,3 +55,19 @@ class Person:
   - The first test in every exercise checks whether the expected program exists.
   - The second test checks that the program will print a help message if we ask for help.
   - After that, your program will be run with various inputs and options.
+
+## Virtual Environment
+### Virtual Env Creation & Activation
+
+- Step 1: `python3 -m venv venv` for initialising the virtual environment
+- Step 2: Activating the virtual environment
+   - Linux or MacOS `source venv/bin/activate` 
+   - Window `venv/venv\Scripts\activate.bat` 
+
+### Dependency Installation
+
+The following commands shall be ran **after activating the virtual environment**.
+
+- `pip install --upgrade pip` for upgrading the pip
+- `pip install -r requirements.txt` for the functional dependencies
+- `pip install -r requirements-dev.txt` for the development dependencies. (should include `pre-commit` module)
