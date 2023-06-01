@@ -14,7 +14,7 @@
   # data_loader.py
   from utils import load_yaml # this will cause circular import
   ```
-  - Solution: do not `from .data_loader import *` if a data_loader refer to any functions in `utils.__init__.py`
+  - Solution: DO NOT `from .data_loader import *` if a data_loader refer to any functions in `utils.__init__.py`
 
 ## Day 3
 
