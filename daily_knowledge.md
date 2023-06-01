@@ -1,4 +1,20 @@
 # 2023
+## Day 4
+### Python
+- `IPython` debug: when executing `main.py` script in the terminal, we still can insert **ipython** checkpoint at the line we want to debug
+  - `from IPython import embed; embed()`
+- Avoid circular imports 
+  ```
+  # __init__.py of utils folder
+  from .base_logger import *
+  from .data_loader import *
+
+  def load_yaml()
+
+  # data_loader.py
+  from utils import load_yaml # this will cause circular import
+  ```
+  - Solution: do not `from .data_loader import *` if a data_loader refer to any functions in `utils.__init__.py`
 
 ## Day 3
 
