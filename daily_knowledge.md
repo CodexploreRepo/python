@@ -191,8 +191,8 @@ print(next(phones_iter))
 
 #### VS Code Shortcuts
 
-- `CMD + Shift + P`: Command Palette
-- `CMD + P`: Quickly open files
+- `CMD + Shift + P` Command Palette
+- `CMD + P` Quickly open files
 
 #### Auto Venv Activation
 
