@@ -201,10 +201,11 @@ print(next(phones_iter))
  "python.terminal.activateEnvironment": true
 ```
 
-### Code Formatter & Linting
+## Code Formatter & Linting
 - The main coding standard for Python is PEP8 (Python Enhancement Proposal 8)
   - **Linters** such as `flake8` and `pylint` highlight places where your code doesn’t conform with PEP8.
   - **Automatic formatters** such as `black` that will update your code automatically to conform with coding standards.
+  - **Type Checker** `mypy` is a static type checker for Python. Type checkers help ensure that you're using variables and functions in your code correctly. With mypy, add type hints (PEP 484) to your Python programs, and mypy will warn you when you use those types incorrectly.
 ### Setup inside VS Code
 - How to install `flack8`:
   - Step 1: Install `black` in virtual environment: `pip install flake8`
