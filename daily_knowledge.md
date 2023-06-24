@@ -1,4 +1,21 @@
 # 2023
+## Day 5
+### `.env`
+- Installation: `pip install python-dotenv==1.0.0`
+- Config file stores in `.env` file
+```shell
+HUGGINGFACEHUB_API_TOKEN="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"
+```
+- Load environmental variables
+```Python
+import os
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv("../config/.env") 
+# load_dotenv(find_dotenv()) # find_dotenv() is to find the .env 
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = ... # insert your API_TOKEN here
+```
+
 ## Day 4
 ### Python
 - `IPython` debug: when executing `main.py` script in the terminal, we still can insert **ipython** checkpoint at the line we want to debug
