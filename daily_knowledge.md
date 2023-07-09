@@ -32,8 +32,12 @@ os.environ["HUGGINGFACEHUB_API_TOKEN"] = ... # insert your API_TOKEN here
 ```
 
 ## Day 3
-### Notebook Env
-
+### Notebook 
+- Surpass the warning
+```Python
+import warnings
+warnings.filterwarnings('ignore')
+```
 - Both `!` and `%` allow you to run shell commands from a Jupyter notebook
   - Difference: `!` calls out to a shell (in a new process), while `%` affects the process associated with the notebook
     - `!cd foo`, by itself, has **no lasting effect**, since the process with the changed directory immediately terminates.
