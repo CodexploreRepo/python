@@ -1,9 +1,43 @@
 # 2023
+## Day 4
+### Python
+- `IPython` debug: when executing `main.py` script in the terminal, we still can insert **ipython** checkpoint at the line we want to debug
+  - `from IPython import embed; embed()`
+- Avoid circular imports 
+  ```
+  # __init__.py of utils folder
+  from .base_logger import *
+  from .data_loader import *
+
+  def load_yaml()
+
+  # data_loader.py
+  from utils import load_yaml # this will cause circular import
+  ```
+  - Solution: DO NOT `from .data_loader import *` if a data_loader refer to any functions in `utils.__init__.py`
+### `.env`
+- Installation: `pip install python-dotenv==1.0.0`
+- Config file stores in `.env` file
+```shell
+HUGGINGFACEHUB_API_TOKEN="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"
+```
+- Load environmental variables
+```Python
+import os
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv("../config/.env") 
+# load_dotenv(find_dotenv()) # find_dotenv() is to find the .env 
+os.environ["HUGGINGFACEHUB_API_TOKEN"] = ... # insert your API_TOKEN here
+```
 
 ## Day 3
-
-### Notebook Env
-
+### Notebook 
+- Surpass the warning
+```Python
+import warnings
+warnings.filterwarnings('ignore')
+```
 - Both `!` and `%` allow you to run shell commands from a Jupyter notebook
   - Difference: `!` calls out to a shell (in a new process), while `%` affects the process associated with the notebook
     - `!cd foo`, by itself, has **no lasting effect**, since the process with the changed directory immediately terminates.
@@ -175,8 +209,8 @@ print(next(phones_iter))
 
 #### VS Code Shortcuts
 
-- `CMD + Shift + P`: Command Palette
-- `CMD + P`: Quickly open files
+- `CMD + Shift + P` Command Palette
+- `CMD + P` Quickly open files
 
 #### Auto Venv Activation
 
@@ -185,11 +219,12 @@ print(next(phones_iter))
  "python.terminal.activateEnvironment": true
 ```
 
-#### Code Formatter
-
+## Code Formatter & Linting
 - The main coding standard for Python is PEP8 (Python Enhancement Proposal 8)
   - **Linters** such as `flake8` and `pylint` highlight places where your code doesn’t conform with PEP8.
   - **Automatic formatters** such as `black` that will update your code automatically to conform with coding standards.
+  - **Type Checker** `mypy` is a static type checker for Python. Type checkers help ensure that you're using variables and functions in your code correctly. With mypy, add type hints (PEP 484) to your Python programs, and mypy will warn you when you use those types incorrectly.
+### Setup inside VS Code
 - How to install `flack8`:
   - Step 1: Install `black` in virtual environment: `pip install flake8`
   - Step 2: Open the Command Palette (`CMD + Shift + P`) &#8594; Search the “Python: Select Linter” and press enter. Select the “flake8”
@@ -205,3 +240,40 @@ print(next(phones_iter))
     "source.organizeImports": true
   }
   ```
+### Setup pre-commit using `git hooks`
+This is to ensure the code formatter, linting is running before the commit
+- install requirements-dev dependencies
+
+```sh
+# requirements-dev.txt
+flake8
+black
+mypy
+coverage
+```
+
+- add `hooksPath` into git config core: `git config --local core.hooksPath .git/hooks/`
+- `pre-commit` file inside `.git/hooks/`
+  ```sh
+  # content inside pre-commit file
+  echo "Running lint.sh before commit"
+  bash lint.sh
+  echo "Linting completed"
+  ```
+  - make pre-commit file executable via `chmod +x .git/hooks//pre-commit`
+- Define the content in `lint.sh`
+
+  ```sh
+  # content inside lint.sh
+    linting_path="."
+    echo "-------------Formatter with black-----------------"
+    black $linting_path --line-length=88
+
+    echo "-------------Linting with flake8-----------------"
+    flake8 $linting_path --max-line-length=88 --ignore=E203,W503,E231,E266,E722
+
+    echo "-------------Type checking with mypy-----------------"
+    mypy $linting_path  --ignore-missing-imports
+  ```
+### Setup pre-commit using `pre-commit` package
+- [Reading](https://medium.com/@anton-k./how-to-set-up-pre-commit-hooks-with-python-2b512290436)
