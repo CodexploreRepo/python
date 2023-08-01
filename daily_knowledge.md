@@ -161,9 +161,15 @@ x = tf.ones(shape=(2, 2))
 x[0, 0] = 0. # ERROR: fail, as a tensor isn’t assignable.
 ```
 
-### Python General
+###  `sys.path`
 
 - `sys.path` is a built-in variable within the sys module. It contains a list of directories that the interpreter will search in for the required module. When a module(a module is a python file) is imported within a Python file, the interpreter first searches for the specified module among its built-in modules. If not found it looks through the list of directories(a directory is a folder that contains related modules) defined by sys.path.
+- To locate the installation path of the module: `print(module_name.__file__)`
+- Python will locate the module based on the path appears first in `sys.path`, so in order to change prioritise the installation packages, we can do as follow:
+```Python
+import sys
+sys.path.insert(0, '/path/to/site-packages') # location of src 
+```
 
 ### Matplotlib
 
