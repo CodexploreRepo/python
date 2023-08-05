@@ -31,7 +31,7 @@ $ which hello.py                   # /home/quannguyen/bin/hello.py
 ```
 
 ## Common Linux Commands
-
+###  `chmod`
 - `chmod` make our program “executable”
   - `+x` add an “executable” attribute to the file
 
@@ -41,7 +41,7 @@ chmod +x hello.py # +x will add an “executable” attribute to the file
 #  Now can run the program like
 ./hello.py
 ```
-
+###  `echo`
 - `echo` to print
 
 ```bash
@@ -50,12 +50,18 @@ echo $USER
 echo $HOME
 # /Users/quannguyen
 ```
-
+###  `env`
 - `env` is the env program will tell you about your “environment.”
 
   - If you run `env` on your computer, you should see your login name and your home directory.
   - use the `env <program_name>` command to find and run programs, say if we type`env python3`, the env program is looking for python3 in the environment. If Python has not been installed, it won’t be able to find it, but it’s also possible that Python has been installed more than once.
-
+```bash
+➜  ~ env python3
+Python 3.11.3 (v3.11.3:f3909b8bc8, Apr  4 2023, 20:12:10) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+###  `which`
 - `which` to see where the program is installed
 
 ```bash
