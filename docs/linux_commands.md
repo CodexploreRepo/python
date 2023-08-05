@@ -103,3 +103,7 @@ which python3
 ### Day 1
 
 - `du -sh` to find the size of the current folder
+- `/dev/null1 file` which is a special device file that discards all data written to it
+  - `tail -f /dev/null`  to keep a terminal session open but don't need any active process running in the background. 
+- `top` provides real-time monitoring of system resources and processes, to list down PID of each process
+  - `kill -9 1234` command isforcefully terminates the process, with **PID=1234** immediately, without giving it a chance to clean up or save any unsaved data.
