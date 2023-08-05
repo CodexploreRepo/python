@@ -7,6 +7,7 @@
 - Windows, macOS, and Linux all have a `$PATH` variable, which is a list of directories the OS will look in to find a program (using the `env` program)
   - The `$PATH` variable is a way of telling your computer to only look in places where executable programs can be found.
   - The directories are separated by colons (`:`). Notice that the directory where **python3** lives is the first one in `$PATH`
+  - The `$PATH`  is located at `~/.bashrc` user's file or or `~/.zshrc`
 
 ```bash
  echo $PATH
