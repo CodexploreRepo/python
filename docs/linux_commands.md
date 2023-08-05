@@ -47,17 +47,7 @@ echo $USER
 echo $HOME
 # /Users/quannguyen
 ```
-###  `env`
-- `env` is the env program will tell you about your “environment.”
 
-  - If you run `env` on your computer, you should see your login name and your home directory.
-  - use the `env <program_name>` command to find and run programs, say if we type`env python3`, the env program is looking for python3 in the environment. If Python has not been installed, it won’t be able to find it, but it’s also possible that Python has been installed more than once.
-```bash
-➜  ~ env python3
-Python 3.11.3 (v3.11.3:f3909b8bc8, Apr  4 2023, 20:12:10) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
->>>
-```
 ### `export`
 - `export` command sets an environment variable named **key** to the **value** 
 ```bash
@@ -75,6 +65,30 @@ export AWS_DEFAULT_PROFILE=quannguyen
 source ~/.bashrc
 source ~/.zshrc
 ```
+
+###  `env`
+- `env` is the env program will tell you about your “environment.”
+
+  - If you run `env` on your computer, you should see your login name and your home directory.
+  - use the `env <program_name>` command to find and run programs, say if we type`env python3`, the env program is looking for python3 in the environment. If Python has not been installed, it won’t be able to find it, but it’s also possible that Python has been installed more than once.
+```bash
+➜  ~ env python3
+Python 3.11.3 (v3.11.3:f3909b8bc8, Apr  4 2023, 20:12:10) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+### shebang `#!`
+
+- It’s common to put a special comment line in programs like `#!/usr/bin/env python3` these to indicate which language needs to be used to execute the commands in the file.
+- Below is the shebang you should add at the beginning of the file
+
+```
+#!/usr/bin/env python3
+```
+
+- The shebang line tells the operating system to use the `env` program (located at `/usr/bin/env`) to find the **python3** that is specific to the machine on which it’s running.
+
 
 ###  `which`
 - `which` to see where the program is installed
