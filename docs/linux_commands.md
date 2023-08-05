@@ -17,7 +17,7 @@
 /Users/quannguyen/repos/tiny_python_projects/venv/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin
 ```
 
-### Altering your `$PATH`
+#### Altering your `$PATH`
 
 - Simply add the path where your program (script) is located to $PATH, You should now be able to execute the script anywhere on your system by just typing in its name, without having to include the full path as you type it.
 
