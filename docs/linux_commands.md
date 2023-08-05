@@ -30,7 +30,7 @@ $ which hello.py                   # /home/quannguyen/bin/hello.py
 
 ```
 
-## Command Linux Commands
+## Common Linux Commands
 
 - `chmod` make our program “executable”
   - `+x` add an “executable” attribute to the file
