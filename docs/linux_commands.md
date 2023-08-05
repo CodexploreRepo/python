@@ -64,6 +64,18 @@ Type "help", "copyright", "credits" or "license" for more information.
 # This command sets an environment variable named AWS_DEFAULT_PROFILE to the value quannguyen.
 export AWS_DEFAULT_PROFILE=quannguyen
 ```
+- To persist the environment variable so that it remains available even after you close the terminal, you can add the `export` command to
+  - If using Bash terinmal, Bash profile file (`~/.bashrc` or `~/.bash_profile`)
+  - If using Zsh terminal, Zsh configuration file (`~/.zshrc`)
+```bash
+# Open & add the following line at the end of the ~/.bashrc or ~/.zshrc file
+export AWS_DEFAULT_PROFILE=quannguyen
+
+# Save the file and exit the text editor. To apply the changes, either open a new terminal session or run the following command to reload the profile:
+source ~/.bashrc
+source ~/.zshrc
+```
+
 ###  `which`
 - `which` to see where the program is installed
 
