@@ -58,6 +58,12 @@ Python 3.11.3 (v3.11.3:f3909b8bc8, Apr  4 2023, 20:12:10) [Clang 13.0.0 (clang-1
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
+### `export`
+- `export` command sets an environment variable named **key** to the **value** 
+```bash
+# This command sets an environment variable named AWS_DEFAULT_PROFILE to the value quannguyen.
+export AWS_DEFAULT_PROFILE=quannguyen
+```
 ###  `which`
 - `which` to see where the program is installed
 
