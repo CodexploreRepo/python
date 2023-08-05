@@ -1,9 +1,5 @@
 # Linux Command
 
-## Day 1
-
-- `du -sh` to find the size of the current folder
-
 ## Special Variables
 
 ### `$PATH` variable
@@ -70,3 +66,7 @@ which env
 which python3
 # /usr/local/bin/python3
 ```
+## Daily Knowledge
+### Day 1
+
+- `du -sh` to find the size of the current folder
