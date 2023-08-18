@@ -2,6 +2,16 @@
 ## Day 4
 ### Pandas
 - `df.loc[:, "col"] = df.col.map(mapping)` re-assign the updated value to originial column without any error
+#### `groupby`
+-  create a new column by using the transform `function` of pandas along with `groupby`
+```Python
+# Group by col_1, count by col_2, and then count
+df.groupby(["col_1"])["col_2"].count() 
+
+# Group by col_1, count by col_2, and then count
+# Create a new column with count values by using transform
+df.groupby(["col_1"])["col_2"].transform("count")
+```
 ### Python
 - `IPython` debug: when executing `main.py` script in the terminal, we still can insert **ipython** checkpoint at the line we want to debug
   - `from IPython import embed; embed()`
