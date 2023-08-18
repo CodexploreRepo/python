@@ -1,5 +1,7 @@
 # 2023
 ## Day 4
+### Pandas
+- `df.loc[:, "col"] = df.col.map(mapping)` re-assign the updated value to originial column without any error
 ### Python
 - `IPython` debug: when executing `main.py` script in the terminal, we still can insert **ipython** checkpoint at the line we want to debug
   - `from IPython import embed; embed()`
@@ -95,7 +97,7 @@ model = joblib.load('lgbm_mode.pkl')
 
 ### Pandas
 
-- `to_csv` to prevent `nnamed: 0` column to be appended along with your original df by set `df.to_csv(, index=False)`
+- `to_csv` to prevent `nnamed: 0` column to be appended along with your original df by set `df.to_csv('result.csv', index=False)`
 - `.apply` based on the condition of certain columns
 
 ```Python
