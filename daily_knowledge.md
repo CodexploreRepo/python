@@ -1,7 +1,16 @@
 # 2023
 ## Day 4
+### Numpy
+- Numpy 's `np.nan` vs Python 's `None` object
+  - In Numpy, a `np.nan` value is a native floating-point type array.
+    - When you try to do some arithmetic operations will `np.nan`, the result will always be `np.nan`.
+    - Fortunately, Numpy provides some special aggregation methods that can ignore the existence of `np.nan` value such as `np.nansum(arr)`
+  - `None` is a Python Object called **NoneType**
+    - Pandas automatically converts the `None` to a `np.nan` value.
+    - If you try to aggregate over this array, you will get an error because of the NoneType.
 ### Pandas
-- `df.loc[:, "col"] = df.col.map(mapping)` re-assign the updated value to originial column without any error
+- `df.loc[:, "col"] = df["col"].map(mapping)` re-assign the updated value to originial column without any error
+- `pd.set_option('max_columns', 200)` to view all the columns in the df when `df.head()`
 #### `groupby`
 -  create a new column by using the transform `function` of pandas along with `groupby`
 ```Python
