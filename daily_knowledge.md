@@ -9,7 +9,7 @@
   - `.reset_index(drop=True)` to reset the index after dropping the duplicates
   - `.copy()` to make the deep copy of the dataframe
 ```Python
- `df = df.loc[~df.duplicated(subset=['Coaster_Name','Location','Opening_Date'])] \
+df = df.loc[~df.duplicated(subset=['Coaster_Name','Location','Opening_Date'])] \
     .reset_index(drop=True).copy() 
 ```
 ## Day 4
