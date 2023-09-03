@@ -1,4 +1,17 @@
 # 2023
+## Day 5
+### Pandas
+#### Check & Remove Duplicates
+- `df.duplicated()` to check if there are any row duplicate. This will return `True` for the 2nd occurence of the duplicate 
+  - `df.duplicated(subset=['col_A','col_B','col_C'])` in case there is no entire row duplciate, we can check duplicates for only subsets of columns
+- `df.query("make == 'bmw' and model == '1_series' and year == 2013 and price == 31500")` using query to identify & view the duplicated rows
+- Remove the duplicates
+  - `.reset_index(drop=True)` to reset the index after dropping the duplicates
+  - `.copy()` to make the deep copy of the dataframe
+```Python
+ `df = df.loc[~df.duplicated(subset=['Coaster_Name','Location','Opening_Date'])] \
+    .reset_index(drop=True).copy() 
+```
 ## Day 4
 ### Numpy
 - Numpy 's `np.nan` vs Python 's `None` object
