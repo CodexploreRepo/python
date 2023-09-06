@@ -12,6 +12,21 @@
 df = df.loc[~df.duplicated(subset=['Coaster_Name','Location','Opening_Date'])] \
     .reset_index(drop=True).copy() 
 ```
+### Matplotlib
+- You can set matplotlib object to ax variable
+```Python
+# case 1: plot via pandas dataframe
+ax = df['year'].value_counts() \
+    .head(10) \
+    .plot(kind='bar', title='Top 10 Years Coasters Introduced')
+ax.set_xlabel('year')
+ax.set_ylabel('count')
+
+# case 2: plot via seaborn
+ax = sns.countplot(data=df, x='year')
+ax.set_xticks(ax.get_xticks(), ax.get_xticklabels(), rotation=90, ha='center')
+```
+
 ## Day 4
 ### Numpy
 - Numpy 's `np.nan` vs Python 's `None` object
