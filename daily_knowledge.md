@@ -1,5 +1,31 @@
 # 2023
 ## Day 5
+### Python
+- `yield` keyword is used in the context of defining generator functions.
+  - When a generator function is called, it doesn't execute the function immediately.
+  - Instead, it returns a generator object that can be used to control the execution of the function.
+  - The code inside the generator function is executed only when an item is requested from the generator using the `next()` function or a `for` loop.
+
+```Python
+def simple_generator():
+    yield 1
+    yield 2
+    yield 3
+
+# Create a generator object
+gen = simple_generator()
+
+# using next() to access the code inside
+print(next(gen)) # 1
+print(next(gen)) # 2
+print(next(gen)) # 3
+print(next(gen)) # StopIteration raised
+
+# using for-loop to iterate through the generator
+for value in simple_generator():
+    print(value)
+
+```
 ### Pandas
 #### Check & Remove Duplicates
 - `df.duplicated()` to check if there are any row duplicate. This will return `True` for the 2nd occurence of the duplicate 
