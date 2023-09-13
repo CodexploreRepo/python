@@ -1,5 +1,5 @@
 # `property()` Add Managed Attributes to Your Classes
-- Data Validation: One of the most common use cases of `property()` is building managed attributes that validate the input data before storing or even accepting it as a secure input.
+- **Data Validation**: One of the most common use cases of `property()` is building managed attributes that validate the input data before storing or even accepting it as a secure input.
 ```Python
   # point.py
 
@@ -25,4 +25,15 @@ pt.x = 4
 # Validated!
 point.x = "one" # -> ValueError: "x" must be a number
 
+```
+- **Providing Computed Attributes**
+```Python
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    @property
+    def area(self):
+        return self.width * self.height
 ```
