@@ -321,6 +321,7 @@ print(next(phones_iter))
   - Step 2: Open the Command Palette (`CMD + Shift + P`) &#8594; “Preferences &#8594; Settings”
     - Search “format on save” and check the checkbox
     - Search “python formatting provider” and select the `black`.
+  - NOTE: can run black seperately `black -l 80 --preview src/youtube_statistics.py`
 - How to install `isort`:
   - Open the Command Palette (`CMD + Shift + P`). Search the “Preferences: Open User Settings (JSON)” and press enter. It will open the “settings.json” and add the follow code into that:
   ```json
