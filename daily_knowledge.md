@@ -47,6 +47,13 @@ for value in simple_generator():
 
 ```
 ### Pandas
+#### `df.query`
+- Can set multiple condition: `df.query("make == 'bmw' and model == '1_series')`
+- Can query using a list
+```Python
+holiday_list = ['2021-01-01', '2022-09-02']
+df.query('datetime_col in @holiday_list')
+```
 #### Check & Remove Duplicates
 - `df.duplicated()` to check if there are any row duplicate. This will return `True` for the 2nd occurence of the duplicate 
   - `df.duplicated(subset=['col_A','col_B','col_C'])` in case there is no entire row duplciate, we can check duplicates for only subsets of columns
