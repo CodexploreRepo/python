@@ -39,7 +39,7 @@ df = df.loc[~df.duplicated(subset=['Coaster_Name','Location','Opening_Date'])] \
     .reset_index(drop=True).copy() 
 ```
 ### Matplotlib
-- Style: `plt.style.use('fivethirtyeight') # set at the front of the notebook`
+- Style the plot `plt.style.use('fivethirtyeight') # set at the front of the notebook`
 - You can set matplotlib object to ax variable
 ```Python
 # case 1: get ax from the plot via pandas dataframe
