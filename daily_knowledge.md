@@ -39,7 +39,7 @@ df = df.loc[~df.duplicated(subset=['Coaster_Name','Location','Opening_Date'])] \
     .reset_index(drop=True).copy() 
 ```
 ### Matplotlib
-- Style the plot `plt.style.use('fivethirtyeight') # set at the front of the notebook`
+
 - You can set matplotlib object to ax variable
 ```Python
 # case 1: get ax from the plot via pandas dataframe
@@ -177,7 +177,7 @@ model = joblib.load('lgbm_mode.pkl')
 ## Day 2
 
 ### Pandas
-
+- `df = pd.read_csv('example.csv',index_col=[0], parse_dates=[0])` to set the col loc=0 as the index, and parsed as date time type
 - `to_csv` to prevent `nnamed: 0` column to be appended along with your original df by set `df.to_csv('result.csv', index=False)`
 - `.apply` based on the condition of certain columns
 
@@ -258,7 +258,7 @@ sys.path.insert(0, '/path/to/site-packages') # location of src
 
 - Set params: `plt.rcParams.update({'font.size': 14})`
 - Set vertical axis range: `ax.set_ylim([0,1])` or `plt.gca().set_ylim(0,1) #set vertical range to [0-1]`
-
+- Set the style of the plot `plt.style.use('fivethirtyeight') # set at the front of the notebook`
 #### Subplots
 
 - Enable subplots share the same axis with `sharex` or `sharey`: `plt.subplots(nrows=3, sharey=True)`
