@@ -1,5 +1,25 @@
 # 2023
 ## Day 5
+### Seaborn
+#### Pairplot
+- Pairplot is to use scatterplot() for each pairing of the variables and histplot() for the marginal plots along the diagonal
+- Customise with `x_var` and `y_var` and `hue`
+```Python
+sns.pairplot(df.dropna(),
+             hue='hour',
+             x_vars=['hour','dayofweek',
+                     'year','weekofyear'],
+             y_vars='PJME_MW',
+             height=5,
+             plot_kws={'alpha':0.15, 'linewidth':1.5}
+            )
+plt.suptitle('Power Use MW by Hour, Day of Week, Year and Week of Year')
+plt.show()
+```
+
+<p align="center"><img height=300 src="https://github.com/CodexploreRepo/python/assets/64508435/75ec4bff-9773-496b-a9fa-dc38549e8938"></p>
+
+
 ### Python
 - `yield` keyword is used in the context of defining generator functions.
   - When a generator function is called, it doesn't execute the function immediately.
