@@ -2,7 +2,7 @@
 ## Day 5
 ### Seaborn
 #### Pairplot
-- Pairplot is to use scatterplot() for each pairing of the variables and histplot() for the marginal plots along the diagonal
+- Pairplot is to use `scatterplot()` for each pairing of the variables and `histplot()` for the marginal plots along the diagonal
 - Customise with `x_var` and `y_var` and `hue`
 ```Python
 sns.pairplot(df.dropna(),
