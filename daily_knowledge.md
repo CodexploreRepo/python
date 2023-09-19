@@ -1,6 +1,7 @@
 # 2023
 ## Day 5
 ### Seaborn
+- To get color palatte `color_pal = sns.color_palette()`
 #### Pairplot
 - Pairplot is to use `scatterplot()` for each pairing of the variables and `histplot()` for the marginal plots along the diagonal
 - Customise with `x_var` and `y_var` and `hue`
