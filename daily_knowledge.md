@@ -67,12 +67,17 @@ df = df.loc[~df.duplicated(subset=['Coaster_Name','Location','Opening_Date'])] \
 ```
 ### Matplotlib
 
-- You can set matplotlib object to ax variable
+- You can set matplotlib object to `ax` variable
+  - You also can continue to plot on the same graph with `ax` variable
 ```Python
 # case 1: get ax from the plot via pandas dataframe
 ax = df['year'].value_counts() \
     .head(10) \
     .plot(kind='bar', title='Top 10 Years Coasters Introduced')
+
+# case 1.1: also can continue to plot on the same graph with ax variable
+df.query('year < 2023').plot(style='.', ax=ax)
+
 ax.set_xlabel('year')
 ax.set_ylabel('count')
 
