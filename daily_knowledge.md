@@ -1,4 +1,8 @@
 # 2023
+## Day 6
+### Holidays package
+- Pandas's holiday package: `pandas.tseries.holiday`
+- `holidays` package
 ## Day 5
 ### Seaborn
 - To get color palatte `color_pal = sns.color_palette()`
@@ -48,6 +52,15 @@ for value in simple_generator():
 
 ```
 ### Pandas
+### Time-series 
+- Convert the datetime index to a datetime col: `df['date'] = df.index.date`
+- Slicing using 1 date by including `23:59:59`
+```Python
+end_train = '1980-01-01 23:59:59'
+# including 23:59:59 means
+data_train = df.loc[:end_train] # ends at 1980-01-01
+data_test  = df.loc[end_train:] # start at 1980-01-02
+```
 #### `df.query`
 - Can set multiple condition: `df.query("make == 'bmw' and model == '1_series')`
 - Can query using a list
@@ -290,8 +303,11 @@ sys.path.insert(0, '/path/to/site-packages') # location of src
 ### Matplotlib
 
 - Set params: `plt.rcParams.update({'font.size': 14})`
-- Set vertical axis range: `ax.set_ylim([0,1])` or `plt.gca().set_ylim(0,1) #set vertical range to [0-1]`
 - Set the style of the plot `plt.style.use('fivethirtyeight') # set at the front of the notebook`
+  - Other styles: `seaborn-v0_8-darkgrid`
+#### Ax 
+- Set vertical axis range: `ax.set_ylim([0,1])` or `plt.gca().set_ylim(0,1) #set vertical range to [0-1]`
+- Set horizontal axis range: 
 #### Subplots
 
 - Enable subplots share the same axis with `sharex` or `sharey`: `plt.subplots(nrows=3, sharey=True)`
