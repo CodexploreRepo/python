@@ -20,6 +20,7 @@ def apply_func(a: int, b: int, func: Callable[[int, int], float]) -> int:
 
 def divide_func(a: int, b: int) -> float:
     return a/b
+
 apply_func(1,2, divide_func)
 ```
 ## `mypy` Static Type Checker
