@@ -1,5 +1,8 @@
 # Advanced Python
 
+## Topics
+- [Type Hints](./type-hints.md)
+
 ## Class
 
 ### Encapsulation
