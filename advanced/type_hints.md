@@ -1,5 +1,19 @@
 # Type Hints
 ## Common Types
+```Python
+from typing import List, Dict, Tuple
+def square_func(arr: List[float]) -> List[float]:
+    return [x ** 2 for x in arr]
+print(square_func([1, 2, 3])) # 1, 4, 9
+```
+### `Union`
+```Python
+from typing import Union
+# cache_dir variable either type str or Path
+def filename_to_url(filename: str, cache_dir: Union[str, Path] = None) -> Tuple[str, str]:
+    pass
+
+```
 ### `Optional`
 ```Python
 from typing import Optional
