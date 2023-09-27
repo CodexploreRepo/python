@@ -1,7 +1,7 @@
 # Advanced Python
 
 ## Topics
-- [Type Hints](./type-hints.md)
+- [Type Hints](./type_hints.md)
 
 ## Class
 
