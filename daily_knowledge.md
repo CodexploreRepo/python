@@ -3,6 +3,9 @@
 ### Holidays package
 - Pandas's holiday package: `pandas.tseries.holiday`
 - `holidays` package
+### Code Refactor
+- Instead of `if '.yml' in file_path or '.yaml' in file_path` we can do as follows:
+  - Solution: `if any(ext in file_path for ext in ['.yml', '.yaml']` 
 ## Day 5
 ### Seaborn
 - To get color palatte `color_pal = sns.color_palette()`
