@@ -55,6 +55,9 @@ for value in simple_generator():
 
 ```
 ### Pandas
+### Select columns based on Dtype
+- Numerical columns: `num_cols = df.select_dtypes(include=np.number).columns.tolist()`
+- Categorical columns: `cat_cols = df.select_dtypes(exclude=np.number).columns.tolist()`
 ### Time-series 
 - Convert the datetime index to a datetime col: `df['date'] = df.index.date`
 - Slicing using 1 date by including `23:59:59`
