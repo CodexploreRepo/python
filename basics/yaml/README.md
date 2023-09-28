@@ -1,9 +1,25 @@
 # YAML
 
 ## Read YAML file
+### PyYAML
+- Install: `pip install pyyaml`
 
 - `yaml.load_all(file, Loader=yaml.FullLoader)` load multiple yaml docs
 - `yaml.safe_load(file)` load the yaml in a safe manner
+### `ruamel.yaml`
+- Install: `pip install ruamel.yaml`
+- `typ='safe'` to achieve `safe_load()`
+```Python
+from ruamel.yaml import YAML
+
+yaml=YAML(typ='safe')   # default, if not specfied, is 'rt' (round-trip)
+yaml.load(doc)
+
+# set identation
+yaml = YAML()
+yaml.indent(mapping=4, sequence=6, offset=3)
+yaml.load(doc)
+```
 
 ## Define YAML
 
