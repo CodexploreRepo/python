@@ -3,7 +3,6 @@
 ## Read YAML file
 ### PyYAML
 - Install: `pip install pyyaml`
-
 - `yaml.load_all(file, Loader=yaml.FullLoader)` load multiple yaml docs
 - `yaml.safe_load(file)` load the yaml in a safe manner
 ### `ruamel.yaml`
