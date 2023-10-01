@@ -2,6 +2,8 @@
 ## Day 6
 ### Numpy
 - Stacking columns/rows
+  -  `np.column_stack` & `np.row_stack`
+  -  `np.hstack` & `np.vstack`
 ```Python
 a = np.array((1,2,3))
 b = np.array((2,3,4))
