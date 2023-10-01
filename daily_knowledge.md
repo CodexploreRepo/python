@@ -1,5 +1,26 @@
 # 2023
 ## Day 6
+### Numpy
+- Stacking columns/rows
+```Python
+a = np.array((1,2,3))
+b = np.array((2,3,4))
+# column stack
+np.column_stack((a,b))
+# array([[1, 2],
+#       [2, 3],
+#       [3, 4]])
+
+# row_stack or vstack
+np.row_stack((a,b))
+np.vstack((a,b))
+# array([[1, 2, 3],
+#        [2, 3, 4]])
+
+# hstack
+np.hstack((a,b))
+# array([1, 2, 3, 2, 3, 4])
+```
 ### Holidays package
 - Pandas's holiday package: `pandas.tseries.holiday`
 - `holidays` package
