@@ -1,5 +1,7 @@
 # 2023
 ## Day 6
+### Matplotlib
+- Plot horizontal line: `{plt, ax}.axhline(y=0.5, color='r', linestyle='-')`
 ### Numpy
 - Stacking columns/rows
   -  `np.column_stack` & `np.row_stack`
