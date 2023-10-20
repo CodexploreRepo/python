@@ -164,22 +164,11 @@ df.groupby('A').agg({'B': ['min', 'max'], 'C': 'sum'}) # apply different operati
 ## Example 3:
 # group by Team & Position, get mean, min, and max value of Age for each value of Team.
 grouped_single = df.groupby(['Team', 'Position']).agg({'Age': ['mean', 'min', 'max']})
-
-# rename columns
-grouped_single.columns = ['age_mean', 'age_min', 'age_max']
-
+grouped_single.columns = ['age_mean', 'age_min', 'age_max'] # rename columns
 # reset index to get grouped columns back
 grouped_single = grouped_single.reset_index()
 ```
-- Create a new column by using the `transform` function of pandas along with `groupby`
-```Python
-# Group by col_1, count by col_2, and then count
-df.groupby(["col_1"])["col_2"].count() 
 
-# Group by col_1, count by col_2, and then count
-# Create a new column with count values by using transform
-df.groupby(["col_1"])["col_2"].transform("count")
-```
 - Group by the first column and get second column as lists in rows using `.apply(list)`
 ```Python
 In [1]: df = pd.DataFrame( {'a':['A','A','B','B','B','C'], 'b':[1,2,5,5,4,6]})
