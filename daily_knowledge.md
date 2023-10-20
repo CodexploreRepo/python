@@ -155,7 +155,23 @@ ax.set_xticks(ax.get_xticks(), ax.get_xticklabels(), rotation=45, ha='right')
 - `df.loc[:, "col"] = df["col"].map(mapping)` re-assign the updated value to originial column without any error
 - `pd.set_option('max_columns', 200)` to view all the columns in the df when `df.head()`
 #### `groupby`
--  create a new column by using the transform `function` of pandas along with `groupby`
+- Use the `.agg` function to get multiple statistics on the other columns
+```Python
+## Example 1:
+df.groupby('A').agg(['min', 'max']) # apply same operations on other columns
+## Example 2:
+df.groupby('A').agg({'B': ['min', 'max'], 'C': 'sum'}) # apply different operations on other columns
+## Example 3:
+# group by Team & Position, get mean, min, and max value of Age for each value of Team.
+grouped_single = df.groupby(['Team', 'Position']).agg({'Age': ['mean', 'min', 'max']})
+
+# rename columns
+grouped_single.columns = ['age_mean', 'age_min', 'age_max']
+
+# reset index to get grouped columns back
+grouped_single = grouped_single.reset_index()
+```
+- Create a new column by using the `transform` function of pandas along with `groupby`
 ```Python
 # Group by col_1, count by col_2, and then count
 df.groupby(["col_1"])["col_2"].count() 
@@ -163,6 +179,28 @@ df.groupby(["col_1"])["col_2"].count()
 # Group by col_1, count by col_2, and then count
 # Create a new column with count values by using transform
 df.groupby(["col_1"])["col_2"].transform("count")
+```
+- Group by the first column and get second column as lists in rows using `.apply(list)`
+```Python
+In [1]: df = pd.DataFrame( {'a':['A','A','B','B','B','C'], 'b':[1,2,5,5,4,6]})
+        df
+
+Out[1]: 
+   a  b
+0  A  1
+1  A  2
+2  B  5
+3  B  5
+4  B  4
+5  C  6
+
+In [2]: df.groupby('a')['b'].apply(list)
+Out[2]: 
+a
+A       [1, 2]
+B    [5, 5, 4]
+C          [6]
+Name: b, dtype: object
 ```
 ### Python
 - `IPython` debug: when executing `main.py` script in the terminal, we still can insert **ipython** checkpoint at the line we want to debug
