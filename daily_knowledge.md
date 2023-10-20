@@ -1,5 +1,9 @@
 # 2023
 ## Day 6
+- Number: `1000000` can be written as `1_000_000` for the ease of visualisation
+  ```Python
+  state['Population'] / 1_000_000
+  ```
 ### Matplotlib
 - Plot horizontal line: `{plt, ax}.axhline(y=0.5, color='r', linestyle='-')`
 ### Numpy
