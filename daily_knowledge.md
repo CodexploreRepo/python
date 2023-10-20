@@ -416,7 +416,7 @@ print(next(phones_iter))
 
 ```json
 # in .vscode settings.json
- "python.terminal.activateEnvironment": true
+"python.terminal.activateEnvironment": true
 ```
 
 ## Code Formatter & Linting
