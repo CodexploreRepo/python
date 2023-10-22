@@ -64,3 +64,43 @@ conda create --name anaconda-env-202302 anaconda=2023.02
 - Conda is cross platform, with support for Windows, MacOS, GNU/Linux, and support for multiple hardware platforms, such as x86 and Power 8 and 9.
 - Where a library or tools is not already packaged for install using conda, Conda allows for using other package management tools (such as pip) inside Conda environments.
 - Conda can quickly install commonly used data science libraries and tools, such as R, NumPy, SciPy, Scikit-learn, Dask, TensorFlow, PyTorch, Fast.ai, NVIDIA RAPIDS, and more built using optimized, hardware specific libraries (such as Intel’s MKL or NVIDIA’s CUDA), which provides a speedup without having to change any of your code.
+
+## Setup Conda on Macbook M2
+
+- Download [Miniforge3 (Conda installer)](https://github.com/conda-forge/miniforge), namely [Miniforge3-MacOSX-arm64.sh](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh), for macOS arm64 chips (M1, M1 Pro, M1 Max)
+- Install Miniforge3 into home directory
+  - Installation Path: `/users/<id>/miniforge3`
+  - Run `conda init`
+  - Restart Terminal
+
+```shell
+chmod +x ~/Downloads/Miniforge3-MacOSX-arm64.sh
+sh ~/Downloads/Miniforge3-MacOSX-arm64.sh
+source ~/miniforge3/bin/activate
+```
+
+- Verify installation: `conda info`
+
+## Conda commands
+
+- List all existing environments: `conda env list`
+
+### Create environments
+
+#### Method 1
+
+```shell
+conda create --name env-name
+conda activate env-name
+conda deactivate
+```
+
+- The environments created by Conda is always located in `/users/<id>/miniforge3/envs/`
+
+#### Method 2: custom env location (preferred)
+
+```shell
+conda create --prefix ./venv python=3.8
+conda activate ./venv
+conda deactivate
+```
