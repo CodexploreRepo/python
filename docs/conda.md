@@ -90,7 +90,7 @@ source ~/miniforge3/bin/activate
 #### Method 1
 
 ```shell
-conda create --name env-name
+conda create --name env-name --file environment.yml
 conda activate env-name
 conda deactivate
 ```
@@ -100,7 +100,53 @@ conda deactivate
 #### Method 2: custom env location (preferred)
 
 ```shell
-conda create --prefix ./venv python=3.8
+conda create --prefix ./venv python=3.8 --file environment.yml
 conda activate ./venv
 conda deactivate
+```
+
+#### `environment.yml`
+
+- `tensorflow-deps` will need to be installed by `conda` via `apple` channel
+- `scikit-learn` will be installed by `conda` via `conda-forge` channel
+- `tensorflow-macos` will need `pip` install via **PyPI**
+
+```yaml
+name: tensorflow
+channels:
+  - apple
+  - conda-forge
+dependencies:
+  - tensorflow-deps
+  - scikit-learn
+  - pip:
+      - tensorflow-macos
+      - tensorflow-metal
+```
+
+#### Tensorflow Setup MacOS M2
+
+- Create env:
+
+```shell
+conda create --prefix ./venv python=3.10
+conda activate ./venv
+```
+
+- Install TensorFlow dependencies from Apple Conda channel
+
+```shell
+conda install -c apple tensorflow-deps
+```
+
+- Install TensorFlow Base (Apple's fork of TensorFlow is called tensorflow-macos)
+
+```shell
+python -m pip install tensorflow-macos
+```
+
+- Install Apple's `tensorflow-metal` to leverage Apple Metal (Apple's GPU framework) for M1, M1 Pro, M1 Max GPU acceleration.
+
+```shell
+python -m pip install tensorflow-metal
 ```
