@@ -70,8 +70,18 @@ conda create --name anaconda-env-202302 anaconda=2023.02
 - Download [Miniforge3 (Conda installer)](https://github.com/conda-forge/miniforge), namely [Miniforge3-MacOSX-arm64.sh](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh), for macOS arm64 chips (M1, M1 Pro, M1 Max)
 - Install Miniforge3 into home directory
   - Installation Path: `/users/<id>/miniforge3`
-  - Run `conda init`
+  - Run `conda init` (conda init code will be added to .zshrc)
   - Restart Terminal
+
+### Config
+
+- Conda config will be stored in `~/.condarc`
+- Show env name, instead of the entire path to env:
+  - `conda config --set env_prompt '({name})'`
+  - This above command is equivalent to add `env_prompt: '({name})'` to `.condarc`
+- **Bug 1**: [environment duplication](https://github.com/microsoft/vscode-python/issues/22233?fbclid=IwAR1RimJUIENwStVLCyxOQLSWXsXdCK3aO5PYgSD9-N9i9ewXMwIIMx-vTtY) when open VS code terminal, conda init will be auto init the base env, and then after that VS code will activate the specific env of the project causing the terminal will have two env, say `(venv) (base) folder`
+  - _Solution_: disable the auto_activate_base env in `.condarc` with the follow commands
+    - `conda config --set auto_activate_base False`
 
 ```shell
 chmod +x ~/Downloads/Miniforge3-MacOSX-arm64.sh

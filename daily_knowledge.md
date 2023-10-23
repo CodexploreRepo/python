@@ -1,15 +1,56 @@
 # 2023
+
+## Day 7
+
+### Conda
+
+- Conda is an open source **package** + **environment** manager
+- Conda vs Miniconda vs Anaconda:
+  - Conda
+  - [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/) = Conda + Python 3 + Base Packages
+  - Anaconda = Miniconda + High Quality Packages
+- Recommended conda installation in PC: Miniconda
+- Miniconda and Miniforge:
+  - **Miniforge**-installed conda is the same as Miniconda-installed conda, except that it uses the conda-forge channel (and only the conda-forge channel) as the default channel.
+  - **Miniconda**-installed conda is the Anaconda (company) driven minimalistic conda installer, where pacakages installed from the anaconda channels
+- Conda channel: A **channel** is the location where packages are stored remotely.
+  - Example of channels: Anaconda channel, `conda-forge`, Apple
+  - Install TensorFlow dependencies from Apple Conda channel: `conda install -c apple tensorflow-deps`
+- Understanding `environment.yml` in `conda create --prefix ./venv python=3.8 --file environment.yml`
+  - `tensorflow-deps` will need to be installed by `conda` via `apple` channel
+  - `scikit-learn` will be installed by `conda` via `conda-forge` channel
+  - `tensorflow-macos` will need `pip` install via **PyPI**
+
+```yaml
+name: tensorflow
+channels:
+  - apple
+  - conda-forge
+dependencies:
+  - tensorflow-deps
+  - scikit-learn
+  - pip:
+      - tensorflow-macos
+      - tensorflow-metal
+```
+
 ## Day 6
+
 - Number: `1000000` can be written as `1_000_000` for the ease of visualisation
   ```Python
   state['Population'] / 1_000_000
   ```
+
 ### Matplotlib
+
 - Plot horizontal line: `{plt, ax}.axhline(y=0.5, color='r', linestyle='-')`
+
 ### Numpy
+
 - Stacking columns/rows
-  -  `np.column_stack` & `np.row_stack`
-  -  `np.hstack` & `np.vstack`
+  - `np.column_stack` & `np.row_stack`
+  - `np.hstack` & `np.vstack`
+
 ```Python
 a = np.array((1,2,3))
 b = np.array((2,3,4))
@@ -29,18 +70,28 @@ np.vstack((a,b))
 np.hstack((a,b))
 # array([1, 2, 3, 2, 3, 4])
 ```
+
 ### Holidays package
+
 - Pandas's holiday package: `pandas.tseries.holiday`
 - `holidays` package
+
 ### Code Refactor
+
 - Instead of `if '.yml' in file_path or '.yaml' in file_path` we can do as follows:
-  - Solution: `if any(ext in file_path for ext in ['.yml', '.yaml']` 
+  - Solution: `if any(ext in file_path for ext in ['.yml', '.yaml']`
+
 ## Day 5
+
 ### Seaborn
+
 - To get color palatte `color_pal = sns.color_palette()`
+
 #### Pairplot
+
 - Pairplot is to use `scatterplot()` for each pairing of the variables and `histplot()` for the marginal plots along the diagonal
 - Customise with `x_var` and `y_var` and `hue`
+
 ```Python
 sns.pairplot(df.dropna(),
              hue='hour',
@@ -56,8 +107,8 @@ plt.show()
 
 <p align="center"><img height=300 src="https://github.com/CodexploreRepo/python/assets/64508435/75ec4bff-9773-496b-a9fa-dc38549e8938"></p>
 
-
 ### Python
+
 - `yield` keyword is used in the context of defining generator functions.
   - When a generator function is called, it doesn't execute the function immediately.
   - Instead, it returns a generator object that can be used to control the execution of the function.
@@ -83,41 +134,55 @@ for value in simple_generator():
     print(value)
 
 ```
+
 ### Pandas
+
 ### Select columns based on Dtype
+
 - Numerical columns: `num_cols = df.select_dtypes(include=np.number).columns.tolist()`
 - Categorical columns: `cat_cols = df.select_dtypes(exclude=np.number).columns.tolist()`
-### Time-series 
+
+### Time-series
+
 - Convert the datetime index to a datetime col: `df['date'] = df.index.date`
 - Slicing using 1 date by including `23:59:59`
+
 ```Python
 end_train = '1980-01-01 23:59:59'
 # including 23:59:59 means
 data_train = df.loc[:end_train] # ends at 1980-01-01
 data_test  = df.loc[end_train:] # start at 1980-01-02
 ```
+
 #### `df.query`
+
 - Can set multiple condition: `df.query("make == 'bmw' and model == '1_series')`
 - Can query using a list
+
 ```Python
 holiday_list = ['2021-01-01', '2022-09-02']
 df.query('datetime_col in @holiday_list')
 ```
+
 #### Check & Remove Duplicates
-- `df.duplicated()` to check if there are any row duplicate. This will return `True` for the 2nd occurence of the duplicate 
+
+- `df.duplicated()` to check if there are any row duplicate. This will return `True` for the 2nd occurence of the duplicate
   - `df.duplicated(subset=['col_A','col_B','col_C'])` in case there is no entire row duplciate, we can check duplicates for only subsets of columns
 - `df.query("make == 'bmw' and model == '1_series' and year == 2013 and price == 31500")` using query to identify & view the duplicated rows
 - Remove the duplicates
   - `.reset_index(drop=True)` to reset the index after dropping the duplicates
   - `.copy()` to make the deep copy of the dataframe
+
 ```Python
 df = df.loc[~df.duplicated(subset=['Coaster_Name','Location','Opening_Date'])] \
-    .reset_index(drop=True).copy() 
+    .reset_index(drop=True).copy()
 ```
+
 ### Matplotlib
 
 - You can set matplotlib object to `ax` variable
   - You also can continue to plot on the same graph with `ax` variable
+
 ```Python
 # case 1: get ax from the plot via pandas dataframe
 ax = df['year'].value_counts() \
@@ -134,7 +199,9 @@ ax.set_ylabel('count')
 ax = sns.countplot(data=df, x='year')
 ax.set_xticks(ax.get_xticks(), ax.get_xticklabels(), rotation=90, ha='center')
 ```
+
 - Rotate the xticks label
+
 ```Python
 # rotate via plt
 plt.xticks(rotation=90)
@@ -142,8 +209,11 @@ plt.xticks(rotation=90)
 # rotate via ax
 ax.set_xticks(ax.get_xticks(), ax.get_xticklabels(), rotation=45, ha='right')
 ```
+
 ## Day 4
+
 ### Numpy
+
 - Numpy 's `np.nan` vs Python 's `None` object
   - In Numpy, a `np.nan` value is a native floating-point type array.
     - When you try to do some arithmetic operations will `np.nan`, the result will always be `np.nan`.
@@ -151,11 +221,16 @@ ax.set_xticks(ax.get_xticks(), ax.get_xticklabels(), rotation=45, ha='right')
   - `None` is a Python Object called **NoneType**
     - Pandas automatically converts the `None` to a `np.nan` value.
     - If you try to aggregate over this array, you will get an error because of the NoneType.
+
 ### Pandas
+
 - `df.loc[:, "col"] = df["col"].map(mapping)` re-assign the updated value to originial column without any error
 - `pd.set_option('max_columns', 200)` to view all the columns in the df when `df.head()`
+
 #### `groupby`
+
 - Use the `.agg` function to get multiple statistics on the other columns
+
 ```Python
 ## Example 1:
 df.groupby('A').agg(['min', 'max']) # apply same operations on other columns
@@ -170,11 +245,12 @@ grouped_single = grouped_single.reset_index()
 ```
 
 - Group by the first column and get second column as lists in rows using `.apply(list)`
+
 ```Python
 In [1]: df = pd.DataFrame( {'a':['A','A','B','B','B','C'], 'b':[1,2,5,5,4,6]})
         df
 
-Out[1]: 
+Out[1]:
    a  b
 0  A  1
 1  A  2
@@ -184,17 +260,20 @@ Out[1]:
 5  C  6
 
 In [2]: df.groupby('a')['b'].apply(list)
-Out[2]: 
+Out[2]:
 a
 A       [1, 2]
 B    [5, 5, 4]
 C          [6]
 Name: b, dtype: object
 ```
+
 ### Python
+
 - `IPython` debug: when executing `main.py` script in the terminal, we still can insert **ipython** checkpoint at the line we want to debug
   - `from IPython import embed; embed()`
-- Avoid circular imports 
+- Avoid circular imports
+
   ```
   # __init__.py of utils folder
   from .base_logger import *
@@ -205,30 +284,40 @@ Name: b, dtype: object
   # data_loader.py
   from utils import load_yaml # this will cause circular import
   ```
+
   - Solution: DO NOT `from .data_loader import *` if a data_loader refer to any functions in `utils.__init__.py`
+
 ### `.env`
+
 - Installation: `pip install python-dotenv==1.0.0`
 - Config file stores in `.env` file
+
 ```shell
 HUGGINGFACEHUB_API_TOKEN="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"
 ```
+
 - Load environmental variables
+
 ```Python
 import os
 from dotenv import load_dotenv, find_dotenv
 
-load_dotenv("../config/.env") 
-# load_dotenv(find_dotenv()) # find_dotenv() is to find the .env 
+load_dotenv("../config/.env")
+# load_dotenv(find_dotenv()) # find_dotenv() is to find the .env
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = ... # insert your API_TOKEN here
 ```
 
 ## Day 3
-### Notebook 
+
+### Notebook
+
 - Surpass the warning
+
 ```Python
 import warnings
 warnings.filterwarnings('ignore')
 ```
+
 - Both `!` and `%` allow you to run shell commands from a Jupyter notebook
   - Difference: `!` calls out to a shell (in a new process), while `%` affects the process associated with the notebook
     - `!cd foo`, by itself, has **no lasting effect**, since the process with the changed directory immediately terminates.
@@ -285,6 +374,7 @@ model = joblib.load('lgbm_mode.pkl')
 ## Day 2
 
 ### Pandas
+
 - `df = pd.read_csv('example.csv',index_col=[0], parse_dates=[0])` to set the col loc=0 as the index, and parsed as date time type
 - `to_csv` to prevent `nnamed: 0` column to be appended along with your original df by set `df.to_csv('result.csv', index=False)`
 - `.apply` based on the condition of certain columns
@@ -352,14 +442,15 @@ x = tf.ones(shape=(2, 2))
 x[0, 0] = 0. # ERROR: fail, as a tensor isn’t assignable.
 ```
 
-###  `sys.path`
+### `sys.path`
 
 - `sys.path` is a built-in variable within the sys module. It contains a list of directories that the interpreter will search in for the required module. When a module(a module is a python file) is imported within a Python file, the interpreter first searches for the specified module among its built-in modules. If not found it looks through the list of directories(a directory is a folder that contains related modules) defined by sys.path.
 - To locate the installation path of the module: `print(module_name.__file__)`
 - Python will locate the module based on the path appears first in `sys.path`, so in order to change prioritise the installation packages, we can do as follow:
+
 ```Python
 import sys
-sys.path.insert(0, '/path/to/site-packages') # location of src 
+sys.path.insert(0, '/path/to/site-packages') # location of src
 ```
 
 ### Matplotlib
@@ -367,9 +458,12 @@ sys.path.insert(0, '/path/to/site-packages') # location of src
 - Set params: `plt.rcParams.update({'font.size': 14})`
 - Set the style of the plot `plt.style.use('fivethirtyeight') # set at the front of the notebook`
   - Other styles: `seaborn-v0_8-darkgrid`
-#### Ax 
+
+#### Ax
+
 - Set vertical axis range: `ax.set_ylim([0,1])` or `plt.gca().set_ylim(0,1) #set vertical range to [0-1]`
-- Set horizontal axis range: 
+- Set horizontal axis range:
+
 #### Subplots
 
 - Enable subplots share the same axis with `sharex` or `sharey`: `plt.subplots(nrows=3, sharey=True)`
@@ -420,11 +514,14 @@ print(next(phones_iter))
 ```
 
 ## Code Formatter & Linting
+
 - The main coding standard for Python is PEP8 (Python Enhancement Proposal 8)
   - **Linters** such as `flake8` and `pylint` highlight places where your code doesn’t conform with PEP8.
   - **Automatic formatters** such as `black` that will update your code automatically to conform with coding standards.
   - **Type Checker** `mypy` is a static type checker for Python. Type checkers help ensure that you're using variables and functions in your code correctly. With mypy, add type hints (PEP 484) to your Python programs, and mypy will warn you when you use those types incorrectly.
+
 ### Setup inside VS Code
+
 - How to install `flack8`:
   - Step 1: Install `black` in virtual environment: `pip install flake8`
   - Step 2: Open the Command Palette (`CMD + Shift + P`) &#8594; Search the “Python: Select Linter” and press enter. Select the “flake8”
@@ -441,8 +538,11 @@ print(next(phones_iter))
     "source.organizeImports": true
   }
   ```
+
 ### Setup pre-commit using `git hooks`
+
 This is to ensure the code formatter, linting is running before the commit
+
 - install requirements-dev dependencies
 
 ```sh
@@ -476,5 +576,7 @@ coverage
     echo "-------------Type checking with mypy-----------------"
     mypy $linting_path  --ignore-missing-imports
   ```
+
 ### Setup pre-commit using `pre-commit` package
+
 - [Reading](https://medium.com/@anton-k./how-to-set-up-pre-commit-hooks-with-python-2b512290436)
