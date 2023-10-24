@@ -114,30 +114,29 @@ source ~/miniforge3/bin/activate
 - List all existing environments: `conda env list`
 
 ### Create environments
+- `conda create`
+  - `--name` or `-n` name of the env. 
+    - If not specify `--prefix`, the new environment will be created by Conda at `/users/<id>/miniforge3/envs/<env-name>`
+  ```shell
+  conda create --name env-name --file environment.yml 
+  conda activate env-name
+  conda deactivate
+  ```
 
-#### Method 1
-
-```shell
-conda create --name env-name --file environment.yml
-conda activate env-name
-conda deactivate
-```
-
-- The environments created by Conda is always located in `/users/<id>/miniforge3/envs/`
-
-#### Method 2: custom env location (preferred)
+- `--prefix` custom env location (preferred)
 
 ```shell
 conda create --prefix ./venv python=3.8 --file environment.yml
 conda activate ./venv
 conda deactivate
 ```
-
+- `--file` to specify the  `environment.yml`
 #### `environment.yml`
-
-- `tensorflow-deps` will need to be installed by `conda` via `apple` channel
-- `scikit-learn` will be installed by `conda` via `conda-forge` channel
-- `tensorflow-macos` will need `pip` install via **PyPI**
+- duplicate your environment using **YAML file**  `conda env export > my_environment.yml`
+- to recreate the environment now use `conda create -f environment.yml`
+  - `tensorflow-deps` will need to be installed by `conda` via `apple` channel
+  - `scikit-learn` will be installed by `conda` via `conda-forge` channel
+  - `tensorflow-macos` will need `pip` install via **PyPI**
 
 ```yaml
 name: tensorflow
@@ -178,3 +177,6 @@ python -m pip install tensorflow-macos
 ```shell
 python -m pip install tensorflow-metal
 ```
+
+## References
+- [Conda: Myths and Misconceptions](https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/)
