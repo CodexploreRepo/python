@@ -29,12 +29,28 @@
 | Require compiled    | No                                                   | Yes                            |
 | Create isolated env | built-in                                             | `virtualenv`, `venv`           |
 | Dependency Check    | Yes                                                  | No                             |
+### Conda vs Virtualenv
+- `virtualenv/venv` are utilites that allow users to create isolated Python environments that work with pip. 
+- **Conda** has its own built-in environment manager that works seamlessly with both conda and pip, and in fact has several advantages over virtualenv/venv:
+  - conda environments integrate management of different Python versions, including installation and updating of Python itself. Virtualenvs must be created upon an existing, externally managed Python executable.
+  - conda environments can track non-python dependencies; for example seamlessly managing dependencies and parallel versions of essential tools like LAPACK or OpenSSL
+  - Rather than environments built on symlinks – which break the isolation of the virtualenv and can be flimsy at times for non-Python dependencies – conda-envs are true isolated environments within a single executable path.
+  - While virtualenvs are not compatible with conda packages, conda environments are entirely compatible with pip packages. First conda install pip, and then you can pip install any available package within that environment. You can even explicitly list pip packages in conda environment files, meaning the full software stack is entirely reproducible from a single environment metadata file.
+### Conda vs (Miniconda & Anaconda)
 
-### Conda vs Miniconda vs Anaconda
+- *Conda* is a **package manager**
+  -  A package manager is a tool that automates the process of installing, updating, and removing packages. 
+  - *Conda* is tightly coupled to two software distributions: *Anaconda* and *Miniconda*. 
+- *Anaconda* is a **software distribution** created by by Continuum Analytics. Although Conda is packaged with Anaconda, the two are distinct entities with distinct goals.
+  - A software distribution is a pre-built and pre-configured collection of packages that can be installed and used on a system. 
 
-- Conda
-- [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/) = Conda + Python 3 + Base Packages
-- Anaconda = Miniconda + High Quality Packages
+#### Anaconda vs Miniconda
+
+- Anaconda is a full distribution of the central software in the PyData ecosystem, and includes Python itself along with binaries for several hundred third-party open-source projects. 
+- Miniconda is essentially an installer for an empty conda environment, containing only Conda and its dependencies, so that you can install what you need from scratch.
+
+
+
 <p align="center"><img src='../assests/img/conda_miniconda_anaconda.webp'></p>
 
 - **Rule of thumbs**: installing Miniconda which combines Conda with Python 3
@@ -56,7 +72,9 @@ conda create --name anaconda-env-202302 anaconda=2023.02
 - To Check the default channels: `conda config --show channels`
 - To Install a Package in Conda Using a Channel Name: `conda install -c conda-forge matplotlib`
   - This is to install `matplotlib` via `conda-forge` channel
-
+#### `conda-forge` channel
+- There is a **community-led** effort (Conda-Forge) to make conda packaging & distribution entirely open.
+- `conda-forge` that contains tools for the creation of community-driven builds for any package. Packages are maintained in the open via github, with binaries automatically built using free CI tools like TravisCI for Mac OSX builds, AppVeyor for Windows builds, and CircleCI for Linux builds. All the metadata for each package lives in a Github repository, and package updates are accomplished through merging a Github pull request (here is an example of what a package update looks like in conda-forge).
 ## Why should you use Conda ?
 
 - Conda provides **pre-built** packages or binaries (which generally avoids the need to deal with compiling packages from source).
