@@ -9,7 +9,8 @@
 
 ### Pip vs Conda
 
-- **Pip** is the Python Packaging Authority’s recommended tool for installing packages from the Python Package Index (PyPI).
+- **Pip**, which stands for **P**ip **I**nstalls **P**ackages, is Python's officially-sanctioned package manager, and is most commonly used to install packages published on the Python Package Index (PyPI). 
+  - Both **pip** and **PyPI** are governed and supported by the Python Packaging Authority (PyPA).
   - Pip installs Python software packaged as _wheels_ or _source_ distributions.
 
 #### Difference between Conda and Pip
@@ -64,7 +65,7 @@ conda create --name anaconda-env-202302 anaconda=2023.02
 
 - `miniforge` is the **community** (`conda-forge`) driven minimalistic conda installer. Subsequent package installations come thus from conda-forge channel.
 - `miniconda` is the **Anaconda** (company) driven minimalistic conda installer. Subsequent package installations come from the **anaconda channels** (default or otherwise).
-- Summary: Miniforge-installed conda is the same as Miniconda-installed conda, except that it uses the conda-forge channel (and only the conda-forge channel) as the default channel.
+- Summary: Both Miniforge and Miniconda are minimalistic conda installers, except that Miniforge uses the conda-forge channel (and only the conda-forge channel) as the default channel.
 
 ### Conda Channel
 
