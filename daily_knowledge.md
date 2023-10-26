@@ -5,10 +5,10 @@
 ### Conda
 
 - Conda is an open source **package** + **environment** manager
-- Conda vs Miniconda vs Anaconda:
-  - Conda
-  - [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/) = Conda + Python 3 + Base Packages
-  - Anaconda = Miniconda + High Quality Packages
+- Conda vs (Miniconda & Anaconda):
+  - *Conda* is a **package manager** &  *Conda* is tightly coupled to two software distributions: *Anaconda* and *Miniconda*. 
+  - *Anaconda* is a full distribution of the central software in the PyData ecosystem, and includes Python itself along with binaries for several hundred third-party open-source projects. 
+  - *Miniconda* is essentially an installer for an empty conda environment, containing only Conda and its dependencies, so that you can install what you need from scratch.
 - Recommended conda installation in PC: Miniconda
 - Miniconda and Miniforge:
   - **Miniforge**-installed conda is the same as Miniconda-installed conda, except that it uses the conda-forge channel (and only the conda-forge channel) as the default channel.

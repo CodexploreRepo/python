@@ -9,7 +9,8 @@
 
 ### Pip vs Conda
 
-- **Pip** is the Python Packaging Authority’s recommended tool for installing packages from the Python Package Index (PyPI).
+- **Pip**, which stands for **P**ip **I**nstalls **P**ackages, is Python's officially-sanctioned package manager, and is most commonly used to install packages published on the Python Package Index (PyPI).
+  - Both **pip** and **PyPI** are governed and supported by the Python Packaging Authority (PyPA).
   - Pip installs Python software packaged as _wheels_ or _source_ distributions.
 
 #### Difference between Conda and Pip
@@ -30,11 +31,28 @@
 | Create isolated env | built-in                                             | `virtualenv`, `venv`           |
 | Dependency Check    | Yes                                                  | No                             |
 
-### Conda vs Miniconda vs Anaconda
+### Conda vs Virtualenv
 
-- Conda
-- [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/) = Conda + Python 3 + Base Packages
-- Anaconda = Miniconda + High Quality Packages
+- `virtualenv/venv` are utilites that allow users to create isolated Python environments that work with pip.
+- **Conda** has its own built-in environment manager that works seamlessly with both conda and pip, and in fact has several advantages over virtualenv/venv:
+  - conda environments integrate management of different Python versions, including installation and updating of Python itself. Virtualenvs must be created upon an existing, externally managed Python executable.
+  - conda environments can track non-python dependencies; for example seamlessly managing dependencies and parallel versions of essential tools like LAPACK or OpenSSL
+  - Rather than environments built on symlinks – which break the isolation of the virtualenv and can be flimsy at times for non-Python dependencies – conda-envs are true isolated environments within a single executable path.
+  - While virtualenvs are not compatible with conda packages, conda environments are entirely compatible with pip packages. First conda install pip, and then you can pip install any available package within that environment. You can even explicitly list pip packages in conda environment files, meaning the full software stack is entirely reproducible from a single environment metadata file.
+
+### Conda vs (Miniconda & Anaconda)
+
+- _Conda_ is a **package manager**
+  - A package manager is a tool that automates the process of installing, updating, and removing packages.
+  - _Conda_ is tightly coupled to two software distributions: _Anaconda_ and _Miniconda_.
+- _Anaconda_ is a **software distribution** created by by Continuum Analytics. Although Conda is packaged with Anaconda, the two are distinct entities with distinct goals.
+  - A software distribution is a pre-built and pre-configured collection of packages that can be installed and used on a system.
+
+#### Anaconda vs Miniconda
+
+- Anaconda is a full distribution of the central software in the PyData ecosystem, and includes Python itself along with binaries for several hundred third-party open-source projects.
+- Miniconda is essentially an installer for an empty conda environment, containing only Conda and its dependencies, so that you can install what you need from scratch.
+
 <p align="center"><img src='../assests/img/conda_miniconda_anaconda.webp'></p>
 
 - **Rule of thumbs**: installing Miniconda which combines Conda with Python 3
@@ -48,7 +66,7 @@ conda create --name anaconda-env-202302 anaconda=2023.02
 
 - `miniforge` is the **community** (`conda-forge`) driven minimalistic conda installer. Subsequent package installations come thus from conda-forge channel.
 - `miniconda` is the **Anaconda** (company) driven minimalistic conda installer. Subsequent package installations come from the **anaconda channels** (default or otherwise).
-- Summary: Miniforge-installed conda is the same as Miniconda-installed conda, except that it uses the conda-forge channel (and only the conda-forge channel) as the default channel.
+- Summary: Both Miniforge and Miniconda are minimalistic conda installers, except that Miniforge uses the conda-forge channel (and only the conda-forge channel) as the default channel.
 
 ### Conda Channel
 
@@ -56,6 +74,11 @@ conda create --name anaconda-env-202302 anaconda=2023.02
 - To Check the default channels: `conda config --show channels`
 - To Install a Package in Conda Using a Channel Name: `conda install -c conda-forge matplotlib`
   - This is to install `matplotlib` via `conda-forge` channel
+
+#### `conda-forge` channel
+
+- There is a **community-led** effort (Conda-Forge) to make conda packaging & distribution entirely open.
+- `conda-forge` that contains tools for the creation of community-driven builds for any package. Packages are maintained in the open via github, with binaries automatically built using free CI tools like TravisCI for Mac OSX builds, AppVeyor for Windows builds, and CircleCI for Linux builds. All the metadata for each package lives in a Github repository, and package updates are accomplished through merging a Github pull request (here is an example of what a package update looks like in conda-forge).
 
 ## Why should you use Conda ?
 
@@ -98,17 +121,18 @@ source ~/miniforge3/bin/activate
 
 ### Create environments
 
-#### Method 1
+- `conda create`
 
-```shell
-conda create --name env-name --file environment.yml
-conda activate env-name
-conda deactivate
-```
+  - `--name` or `-n` name of the env.
+    - If not specify `--prefix`, the new environment will be created by Conda at `/users/<id>/miniforge3/envs/<env-name>`
 
-- The environments created by Conda is always located in `/users/<id>/miniforge3/envs/`
+  ```shell
+  conda create --name env-name --file environment.yml
+  conda activate env-name
+  conda deactivate
+  ```
 
-#### Method 2: custom env location (preferred)
+- `--prefix` custom env location (preferred)
 
 ```shell
 conda create --prefix ./venv python=3.8 --file environment.yml
@@ -136,11 +160,15 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
+- `--file` to specify the `environment.yml`
+
 #### `environment.yml`
 
-- `tensorflow-deps` will need to be installed by `conda` via `apple` channel
-- `scikit-learn` will be installed by `conda` via `conda-forge` channel
-- `tensorflow-macos` will need `pip` install via **PyPI**
+- duplicate your environment using **YAML file** `conda env export > my_environment.yml`
+- to recreate the environment now use `conda create -f environment.yml`
+  - `tensorflow-deps` will need to be installed by `conda` via `apple` channel
+  - `scikit-learn` will be installed by `conda` via `conda-forge` channel
+  - `tensorflow-macos` will need `pip` install via **PyPI**
 
 ```yaml
 name: tensorflow
@@ -181,3 +209,7 @@ python -m pip install tensorflow-macos
 ```shell
 python -m pip install tensorflow-metal
 ```
+
+## References
+
+- [Conda: Myths and Misconceptions](https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/)
