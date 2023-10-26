@@ -94,6 +94,7 @@ source ~/miniforge3/bin/activate
 ## Conda commands
 
 - List all existing environments: `conda env list`
+- `conda list` gives you list of packages used for the environment
 
 ### Create environments
 
@@ -113,6 +114,26 @@ conda deactivate
 conda create --prefix ./venv python=3.8 --file environment.yml
 conda activate ./venv
 conda deactivate
+```
+
+#### Install from `requirements.txt`
+
+- `conda install --file requirements.txt`
+
+#### Export enviroment to `requirements.txt` for `pip`
+
+```shell
+conda activate <env>
+conda install pip # only install if pip in conda env is not avail, can check which pip
+pip list --format=freeze > requirements.txt
+```
+
+- Then use the resulting `requirements.txt` to create a `pip` virtual environment:
+
+```shell
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
 ```
 
 #### `environment.yml`

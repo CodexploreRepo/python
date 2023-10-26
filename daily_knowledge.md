@@ -34,6 +34,21 @@ dependencies:
       - tensorflow-metal
 ```
 
+- Conda env starts:
+
+```shell
+# create env
+conda create --prefix ./venv python=3.8 --file environment.yml
+conda activate ./venv
+conda deactivate
+
+# install package from requirements.txt
+conda install --file requirements.txt
+# export to requirements.txt so that can install via pip in virtualenv/venv environment
+
+pip list --format=freeze > requirements.txt
+```
+
 ## Day 6
 
 - Number: `1000000` can be written as `1_000_000` for the ease of visualisation
