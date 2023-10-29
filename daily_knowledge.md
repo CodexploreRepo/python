@@ -1,14 +1,25 @@
 # 2023
 
+## Day 8
+
+### List
+
+- Copy a list: `copied_list = a_list[:]`
+  - Leverage on `copy` module
+  ```Python
+  import copy
+  copied_list = copy.deepcopy(a_list)
+  ```
+
 ## Day 7
 
 ### Conda
 
 - Conda is an open source **package** + **environment** manager
 - Conda vs (Miniconda & Anaconda):
-  - *Conda* is a **package manager** &  *Conda* is tightly coupled to two software distributions: *Anaconda* and *Miniconda*. 
-  - *Anaconda* is a full distribution of the central software in the PyData ecosystem, and includes Python itself along with binaries for several hundred third-party open-source projects. 
-  - *Miniconda* is essentially an installer for an empty conda environment, containing only Conda and its dependencies, so that you can install what you need from scratch.
+  - _Conda_ is a **package manager** & _Conda_ is tightly coupled to two software distributions: _Anaconda_ and _Miniconda_.
+  - _Anaconda_ is a full distribution of the central software in the PyData ecosystem, and includes Python itself along with binaries for several hundred third-party open-source projects.
+  - _Miniconda_ is essentially an installer for an empty conda environment, containing only Conda and its dependencies, so that you can install what you need from scratch.
 - Recommended conda installation in PC: Miniconda
 - Miniconda and Miniforge:
   - **Miniforge**-installed conda is the same as Miniconda-installed conda, except that it uses the conda-forge channel (and only the conda-forge channel) as the default channel.
@@ -240,7 +251,7 @@ ax.set_xticks(ax.get_xticks(), ax.get_xticklabels(), rotation=45, ha='right')
 ### Pandas
 
 - `df.loc[:, "col"] = df["col"].map(mapping)` re-assign the updated value to originial column without any error
-- `pd.set_option('max_columns', 200)` to view all the columns in the df when `df.head()`
+- `pd.options.display.max_columns` to view all the columns in the df when `df.head()`
 
 #### `groupby`
 
