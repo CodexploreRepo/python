@@ -210,6 +210,11 @@ python -m pip install tensorflow-macos
 python -m pip install tensorflow-metal
 ```
 
+### Remove environments
+
+- `conda remove -n ENV_NAME --all`
+- `conda remove -p /path/to/venv`
+
 ## References
 
 - [Conda: Myths and Misconceptions](https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/)
