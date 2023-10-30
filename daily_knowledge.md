@@ -45,11 +45,11 @@ dependencies:
       - tensorflow-metal
 ```
 
-- Conda env starts:
+#### Conda env creation:
 
 ```shell
 # create env
-conda create --prefix ./venv python=3.8 --file environment.yml
+conda create --prefix ./venv python=3.8 --file requirements.txt
 conda activate ./venv
 conda deactivate
 
@@ -59,6 +59,12 @@ conda install --file requirements.txt
 
 pip list --format=freeze > requirements.txt
 ```
+
+#### `conda create --file requirements.txt` vs `conda env create --file environment.yml`
+
+- `conda create --file` expects a `requirements.txt`, not an `environment.yml`, each line in the given file is treated as a package-reference
+- `conda env create` to create an environment from a given `environment.yml`
+  - Command: `conda env create --name tensorflow --file environment.yml`
 
 ## Day 6
 

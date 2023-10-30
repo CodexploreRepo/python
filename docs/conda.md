@@ -121,24 +121,30 @@ source ~/miniforge3/bin/activate
 
 ### Create environments
 
-- `conda create`
+#### `conda create`
 
-  - `--name` or `-n` name of the env.
-    - If not specify `--prefix`, the new environment will be created by Conda at `/users/<id>/miniforge3/envs/<env-name>`
+- `--name` or `-n` name of the env.
+  - If not specify `--prefix`, the new environment will be created by Conda at `/users/<id>/miniforge3/envs/<env-name>`
 
-  ```shell
-  conda create --name env-name --file environment.yml
-  conda activate env-name
-  conda deactivate
-  ```
+```shell
+conda create --name env-name --file requirements.txt
+conda activate env-name
+conda deactivate
+```
 
 - `--prefix` custom env location (preferred)
 
 ```shell
-conda create --prefix ./venv python=3.8 --file environment.yml
+conda create --prefix ./venv python=3.8 --file requirements.txt
 conda activate ./venv
 conda deactivate
 ```
+
+#### `conda env create`
+
+- `conda create --file` expects a `requirements.txt`, not an `environment.yml`, each line in the given file is treated as a package-reference
+- `conda env create` to create an environment from a given `environment.yml`
+  - Command: `conda env create --name tensorflow --file environment.yml`
 
 #### Install from `requirements.txt`
 
