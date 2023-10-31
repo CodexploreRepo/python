@@ -2,8 +2,11 @@
 
 ## Day 8
 
-### List
+### `os.path`
 
+- To read the path separator of the env: `os.path.sep`
+
+### List
 - Copy a list: `copied_list = a_list[:]`
   - Leverage on `copy` module
   ```Python
