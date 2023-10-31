@@ -4,7 +4,7 @@
 
 ### `os.path`
 
-- To read the path separator of the env: `os.path.sep`
+- To read the path separator of the env `os.path.sep # return '/' if using Linux` 
 
 ### List
 - Copy a list: `copied_list = a_list[:]`
