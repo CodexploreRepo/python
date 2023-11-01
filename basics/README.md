@@ -25,6 +25,11 @@ parser.add_argument('-n', '--name', metavar='user_name',
 args = parser.parse_args()
 
 print('Hello, ' + args.name + '!')
+
+# use var() to make args as the dict
+args = var(parser.parse_args())
+print('Hello, ' + args['name'] + '!')
+
 ```
 
 | Type       | Example                        | Required | Default |
