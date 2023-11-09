@@ -2,11 +2,25 @@
 
 ## Day 8
 
+- `bytes("yes", "utf-8")` convert string to binary objects:
+
+### `subprocess.Popen` to send Linux command
+
+```Python
+from subprocess import Popen, Pipe
+
+execute = Popen("scp -i /location_in_machine_A/to/private/key -v -P 64022 file_path machineB@ip_address:/path/to/store/inB/".split(), stdout=PIPE, stdin=PIPE, stderr=PIPE)
+execute.stdin.write(bytes("yes", "utf-8")) # to send the "yes" command
+execute.communicate()[0]
+
+```
+
 ### `os.path`
 
-- To read the path separator of the env `os.path.sep # return '/' if using Linux` 
+- To read the path separator of the env `os.path.sep # return '/' if using Linux`
 
 ### List
+
 - Copy a list: `copied_list = a_list[:]`
   - Leverage on `copy` module
   ```Python
