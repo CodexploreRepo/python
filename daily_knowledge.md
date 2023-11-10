@@ -4,6 +4,16 @@
 
 - `bytes("yes", "utf-8")` convert string to binary objects:
 
+### Relative import
+
+```
+# example.py
+from .abstract import ExampleClass
+# if we run this script directly like python src/abc/example.py, we will encounter the issue
+```
+
+- Soluton: `python -m src.abc.example` or call the `example.py` script outside the `src`
+
 ### `subprocess.Popen` to send Linux command
 
 ```Python
