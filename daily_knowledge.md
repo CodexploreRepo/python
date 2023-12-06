@@ -352,7 +352,7 @@ Name: b, dtype: object
 - Config file stores in `.env` file
 
 ```shell
-HUGGINGFACEHUB_API_TOKEN="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"
+HUGGINGFACEHUB_API_TOKEN="<hf_token>"
 ```
 
 - Load environmental variables
