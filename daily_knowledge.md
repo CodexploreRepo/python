@@ -4,6 +4,33 @@
 
 - `bytes("yes", "utf-8")` convert string to binary objects:
 
+### Matplotlib
+
+- Color Map
+
+```Python
+cmap = plt.get_cmap("viridis")
+fig = plt.figure(figsize=(8, 6))
+m1 = plt.scatter(X_train, y_train, color=cmap(0.9), s=10)
+m2 = plt.scatter(X_test, y_test, color=cmap(0.5), s=10)
+```
+
+- Plot 2 charts on the same figure with share x-axis
+
+```Python
+fig, ax1 = plt.subplots()
+
+ax1.hist(housing["housing_median_age"], bins=50)
+
+ax2 = ax1.twinx()  # key: create a twin axis that shares the same x-axis
+color = "blue"
+ax2.plot(ages, rbf1, color=color, label="gamma = 0.10")
+ax2.tick_params(axis='y', labelcolor=color)
+ax2.set_ylabel("Age similarity", color=color) # second y-axis's measurement
+
+plt.show()
+```
+
 ### Relative import
 
 ```

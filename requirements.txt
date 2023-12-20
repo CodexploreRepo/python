@@ -2,3 +2,6 @@ attrs
 black
 pydantic
 pyaml
+tqdm
+librosa
+wandb
