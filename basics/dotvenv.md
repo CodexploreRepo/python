@@ -2,7 +2,7 @@
 - Installation: `pip install python-dotenv==1.0.0`
 - Config file stores in `.env` file
 ```shell
-HUGGINGFACEHUB_API_TOKEN="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"
+HUGGINGFACEHUB_API_TOKEN="<hf_token>"
 ```
 - Load environmental variables
 ```Python
