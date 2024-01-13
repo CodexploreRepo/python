@@ -1,5 +1,33 @@
 # 2023
 
+## Day 9
+
+### `sys` module
+
+- The kernel knows to execute this script with a **python** interpreter with the shebang `#!/usr/bin/env python`
+- `sys.argv[0]` return name of the script
+- `sys.argv[1:]` return the arguments parsed to the script
+
+```Python
+#############################
+# in the python_script.py   #
+#############################
+#!/usr/bin/env python
+import sys
+for arg in reversed(sys.argv[1:]):
+    print(arg)
+
+#############################
+# in the interactive shell  #
+#############################
+bash-5.2$ chmod +x python_script.py
+bash-5.2$ ./python_script.py a b c
+# Running: ./python_script.py
+# c
+# b
+# a
+```
+
 ## Day 8
 
 - `bytes("yes", "utf-8")` convert string to binary objects:
