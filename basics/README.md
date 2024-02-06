@@ -3,9 +3,9 @@
 ## Topics
 
 - [`*args` and `**kwargs`](./args_kwargs_tutorial.py)
-- [Google Colab](./google_colab_tutorial.ipynb)
+- [Google Colab](./notebooks/google_colab_tutorial.ipynb)
 - [Pathlib](./pathlib_tutorial.py)
-- [Subprocess](./subprocess_tutorial.py)
+- [Subprocess](./notebooks/subprocess.ipynb)
 - [YAML](./yaml/README.md)
 
 ## Argument Parser

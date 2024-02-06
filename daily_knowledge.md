@@ -2,6 +2,46 @@
 
 ## Day 9
 
+### `subprocess` module
+
+- `subprocess.run` is a higher-level wrapper around Popen that is intended to be more convenient to use.
+  - Usage: to run a command and capture its output
+- `subprocess.call`
+  - Usage: to run a command and check the return code, but do not need to capture the output.
+- `subprocess.Popen` is a lower-level interface to running subprocesses
+
+  - Usage: if you need more control over the process, such as interacting with its input and output streams.
+
+- A `PIPE` is a unidirectional communication channel that connects one process's standard output to another's standard input.
+
+```Python
+# creates a pipe that connects the output of the `ls` command to the input of the `grep` command,
+ls_process = subprocess.Popen(["ls"], stdout=subprocess.PIPE, text=True)
+
+grep_process = subprocess.Popen(["grep", ".ipynb"], stdin=ls_process.stdout, stdout=subprocess.PIPE, text=True)
+
+output, error = grep_process.communicate()
+
+print(f"Ouptut:\n{output}")
+print(f"Error : {error}")
+
+# Ouptut:
+# google_colab_tutorial.ipynb
+# subprocess.ipynb
+#
+# Error : None
+result = subprocess.run(["ls"], stdout=subprocess.PIPE)
+
+print(result.stdout.decode()) # decode() to convert from bytes to strings
+# google_colab_tutorial.ipynb
+# subprocess.ipynb
+```
+
+#### `subprocess` vs `os.system`
+
+- `subprocess.run` is generally more flexible than `os.system` (you can get the stdout, stderr, the "real" status code, better error handling, etc.)
+- Even the [documentation for `os.system`](https://docs.python.org/3/library/os.html#os.system) recommends using subprocess instead.
+
 ### `sys` module
 
 - The kernel knows to execute this script with a **python** interpreter with the shebang `#!/usr/bin/env python`
