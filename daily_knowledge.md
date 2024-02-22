@@ -15,6 +15,18 @@ df = next(df_iter)
 
 ### Python
 
+#### `lru_cache` from `functools`
+
+-` @lru_cache` modifies the function it decorates to return the same value that was returned the first time, instead of computing it again, executing the code of the function every time.
+
+```Python
+@lru_cache
+def say_hi(name: str, salutation: str = "Ms."):
+    return f"Hello {salutation} {name}"
+```
+
+<p align="center"><img src="./assets/img/lru_cache_example.png" width=400></p>
+
 #### typing `Annotated`
 
 - `Annotated` in python allows developers to declare the type of a reference and provide additional information related to it.
