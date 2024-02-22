@@ -1,5 +1,60 @@
 # 2023
 
+## Day 10
+
+### Pandas
+
+#### `.read_csv()` by chunk
+
+- If the csv file is large, can consider to read by chunk
+
+```Python
+df_iter = pd.read_csv(file_path, iterator=True, chunksize=100000)
+df = next(df_iter)
+```
+
+### Python
+
+#### typing `Annotated`
+
+- `Annotated` in python allows developers to declare the type of a reference and provide additional information related to it.
+
+```Python
+from typing_extensions import Annotated
+# This tells that "name" is of type "str" and that "name[0]" is a capital letter.
+name = Annotated[str, "first letter is capital"]
+```
+
+- Fast API examples:
+  ```Python
+  from fastapi import Query
+  def read_items(q: Annotated[str, Query(max_length=50)])
+  ```
+  - The parameter `q` is of type `str` with a maximum length of 50.
+
+#### Float to Decimal conversion
+
+- Convert `float` directly to `Decimal` constructor introduces a rounding error.
+
+```Python
+from decimal import Decimal
+x = 0.1234
+Decimal(x)
+# Decimal('0.12339999999999999580335696691690827719867229461669921875')
+```
+
+- **Solution**: to convert a float to a string before passing it to the constructor.
+  - You also can round the float before converting it to string
+
+```Python
+Decimal(str(x))
+# Decimal('0.1234')
+Decimal(str(round(x,2)))
+# Decimal('0.12')
+```
+
+-
+
 ## Day 9
 
 ### `subprocess` module
