@@ -17,7 +17,7 @@ df = next(df_iter)
 
 #### `lru_cache` from `functools`
 
--` @lru_cache` modifies the function it decorates to return the same value that was returned the first time, instead of computing it again, executing the code of the function every time.
+- `@lru_cache` modifies the function it decorates to return the same value that was returned the first time, instead of computing it again, executing the code of the function every time.
 
 ```Python
 @lru_cache
