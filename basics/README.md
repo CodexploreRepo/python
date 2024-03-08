@@ -26,8 +26,8 @@ args = parser.parse_args()
 
 print('Hello, ' + args.name + '!')
 
-# use var() to make args as the dict
-args = var(parser.parse_args())
+# use vars() to make args as the dict
+args = vars(parser.parse_args())
 print('Hello, ' + args['name'] + '!')
 
 ```
