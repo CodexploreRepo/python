@@ -499,6 +499,14 @@ grouped_single = df.groupby(['Team', 'Position']).agg({'Age': ['mean', 'min', 'm
 grouped_single.columns = ['age_mean', 'age_min', 'age_max'] # rename columns
 # reset index to get grouped columns back
 grouped_single = grouped_single.reset_index()
+
+## Example 4:
+df_customers.groupby('rfm_score').agg(    # groupby 'rfm_score' col
+    customers=('customer_id', 'count'),   # create new 'customers' col by count('customer_id' col)
+    mean_recency=('recency', 'mean'),     # create new 'mean_recency' col by mean('recency' col)
+    mean_frequency=('frequency', 'mean'),
+    mean_monetary=('monetary', 'mean'),
+).sort_values(by='rfm_score')
 ```
 
 - Group by the first column and get second column as lists in rows using `.apply(list)`
