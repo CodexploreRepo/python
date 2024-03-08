@@ -4,6 +4,42 @@
 
 ### Pandas
 
+#### `pd.cut` vs `pd.qcut`
+
+|           | Space between 2 bins | Frequency of Samples in each bin |
+| --------- | -------------------- | -------------------------------- |
+| `pd.cut`  | Equal Spacing        | Difference                       |
+| `pd.qcut` | Un-equal Spacing     | Same                             |
+
+- `pd.cut` will choose the bins to be **evenly spaced** according to the values themselves and not the frequency of those values.
+  - You also can define the bounds for each binning with `pd.cut()`
+  - You can use the Fisher-Jenks algorithm to determine the natural bounds and then pass those values into `pd.cut()`
+- `pd.qcut` the bin interval will be chosen so based on the percentiles that you have the same number of records in each bin.
+
+```Python
+factors = np.random.randn(30)
+
+pd.cut(factors, 5).value_counts() # bin size has equal interval of ~1
+
+# (-2.583, -1.539]    5
+# (-1.539, -0.5]      5
+# (-0.5, 0.539]       9
+# (0.539, 1.578]      9
+# (1.578, 2.617]      2
+
+pd.qcut(factors, 5).value_counts() # each bin has equal size of 6
+
+# [-2.578, -0.829]    6
+# (-0.829, -0.36]     6
+# (-0.36, 0.366]      6
+# (0.366, 0.868]      6
+# (0.868, 2.617]      6
+
+
+
+
+```
+
 #### `.read_csv()` by chunk
 
 - If the csv file is large, can consider to read by chunk
