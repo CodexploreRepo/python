@@ -655,6 +655,11 @@ df.loc[:,'C'] = df.apply(lambda row: 'Hi' if row['A'] > 10 and row['B'] < 5 else
 data.insert(len(data.columns), 'rolling', data['open'].rolling(5).mean().values)
 ```
 
+#### Joining Pandas DataFrame with Numpy array
+
+- Concat `df` with `numpy_array` and assign the name for the `numpy_array` as `new_col`
+  - Syntax: `df = df.assign(new_col=numpy_array)`
+
 #### Joining Pandas DataFrame
 
 - Experience: before joining (either `concat`, `merge`), need to careful about the _index_ of the dataframes (might need to `.reset_index()`) as apart from the joining condition, pandas also matching the index of each dataframe.
