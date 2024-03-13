@@ -344,6 +344,15 @@ np.hstack((a,b))
 
 - To get color palatte `color_pal = sns.color_palette()`
 
+#### Histogram (Displot)
+
+- Since the `sns.displot` is deprecated, so we will use `sns.histplot` as follow to plot the histogram + kde distribution by specifying `kde=True`
+- Also can `set_xlim()` to the zone that containing the data in case the distribution is skewed
+
+```Python
+sns.histplot(df['col_name'], kde=True, bins=50).set_xlim(0,8);
+```
+
 #### Pairplot
 
 - Pairplot is to use `scatterplot()` for each pairing of the variables and `histplot()` for the marginal plots along the diagonal
