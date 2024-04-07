@@ -4,6 +4,8 @@
 
 ### Pandas
 
+- Find the row with the column is equal to value: `index_choice = df.index.get_loc(CustomerId=15674932)`
+
 #### `pd.cut` vs `pd.qcut`
 
 |           | Space between 2 bins | Frequency of Samples in each bin |
