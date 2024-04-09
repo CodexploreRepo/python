@@ -1,5 +1,13 @@
 # 2023
 
+## Day 11
+
+### Conda vs Pip: Package Availability
+
+- Pip installs packages from the Python Package Index (`PyPI`), which hosts a vast array of Python libraries. Almost any Python library can be installed using pip.
+- conda installs packages from the Anaconda distribution and other channels (`conda-forge`). While the number of packages available through conda is smaller than pip, conda can install packages for multiple languages and not just Python.
+- Example: `skforecast` is not avail in the `conda-forge` but it is avail in `PyPI`, so you cannot `conda install skforecast`, but it can be install via `pip install` command
+
 ## Day 10
 
 ### Pandas
@@ -297,6 +305,7 @@ pip list --format=freeze > requirements.txt
 
 - `conda env list` to list down conda envs
 - `du -h -s $(conda info --base)/envs/*` list down the size of each env
+- `conda config --show channels` to show available channels in the config
 
 ## Day 6
 
