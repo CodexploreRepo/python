@@ -293,6 +293,11 @@ pip list --format=freeze > requirements.txt
 - `conda env create` to create an environment from a given `environment.yml`
   - Command: `conda env create --name tensorflow --file environment.yml`
 
+#### Other common conda commands
+
+- `conda env list` to list down conda envs
+- `du -h -s $(conda info --base)/envs/*` list down the size of each env
+
 ## Day 6
 
 - Number: `1000000` can be written as `1_000_000` for the ease of visualisation
