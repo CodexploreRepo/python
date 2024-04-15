@@ -2,6 +2,26 @@
 
 ## Day 11
 
+### Matplotlib
+
+- Subplots:
+
+```Python
+# Annual, weekly and daily seasonality
+# ==============================================================================
+fig, axs = plt.subplots(2, 2, figsize=(8.5, 5.5), sharex=False, sharey=True)
+
+# Before:
+ax1 = axs[0,0]
+ax2 = axs[0,1]
+# After with axs.ravel()
+axs = axs.ravel()
+ax1 = axs[0]
+#...
+ax4 = axs[3]
+
+```
+
 ### Conda vs Pip: Package Availability
 
 - Pip installs packages from the Python Package Index (`PyPI`), which hosts a vast array of Python libraries. Almost any Python library can be installed using pip.
