@@ -2,6 +2,70 @@
 
 ## Day 11
 
+### Pandas
+
+#### `pd.melt` vs `pd.crosstab`
+
+- The `melt` function in pandas is used to unpivot a DataFrame, meaning that it **converts columns of data into rows**.
+  - This is useful when you want to combine the data for plotting
+  - For example: the melt function has converted the `Math` and `Physics` columns into rows, and created two new columns: `subject` and `score`.
+
+```Python
+# Create a sample DataFrame
+df = pd.DataFrame({'student_id': [1, 2, 3], 'Math': [4, 5, 6], 'Physics': [7, 8, 9]})
+
+# Melt the DataFrame
+df_melted = df.melt(id_vars=['student_id'], value_vars=['Math', 'Physics'], var_name='Ssubject', value_name='score')
+
+# Print the melted DataFrame
+print(df_melted)
+
+#    student_id subject  score
+# 0       1      Math      4
+# 1       2      Math      5
+# 2       3      Math      6
+# 3       1      Physics   7
+# 4       2      Physics   8
+# 5       3      Physics   9
+
+# plotting the melted dataframe by subject using hue of seaborn
+
+sns.barplot(df_melted, x='student_id', y='score', hue='subject')
+```
+
+- The `crosstab` function: produces a DataFrame where the rows represent the levels of one factor and the columns represent the levels of another factor.
+- The crosstab function takes the following arguments:
+  - `index`: The name of the column to use for the row labels.
+  - `columns`: The name of the column to use for the column labels.
+  - `values`: The name of the column to use for the cell values. If not specified, the counts of observations are used.
+  - `margins`: If True, the DataFrame will include a row and column for the totals.
+
+```Python
+# Create a sample DataFrame
+df = pd.DataFrame({'gender': ['M', 'F', 'M', 'F', 'F'], 'favorite_color': ['blue', 'red', 'green', 'blue', 'purple']})
+
+#     gender favorite_color
+# 0      M           blue
+# 1      F            red
+# 2      M          green
+# 3      F           blue
+# 4      F         purple
+# Create a crosstabulation of gender and favorite color
+crosstab = pd.crosstab(df['gender'], # rows
+                       df['favorite_color'],  # columns
+                       margins=True # True to calculate the total
+                       )
+
+# re-name columns "All" to 'row_totals' & 'col_totals'
+# note: columns "All" are only avail if margins=True
+crosstab.columns = [*crosstab.columns.to_list()[:-1], 'row_totals']
+crosstab.index = [*crosstab.index.to_list()[:-1], 'col_totals']
+#             blue  green  purple  red  row_totals
+# F              1      0       1    1           3
+# M              1      1       0    0           2
+# col_totals     2      1       1    1           5
+```
+
 ### Matplotlib
 
 - Subplots:
