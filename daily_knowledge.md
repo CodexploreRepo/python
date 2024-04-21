@@ -2,9 +2,11 @@
 
 ## Day 11
 
+- `1e-4` is equal to `0.0001` with total 4 zeros
+
 ### Pandas
 
-#### `pd.melt` vs `pd.crosstab`
+#### `pd.melt` vs contingency table (`pd.crosstab`)
 
 - The `melt` function in pandas is used to unpivot a DataFrame, meaning that it **converts columns of data into rows**.
   - This is useful when you want to combine the data for plotting
@@ -34,6 +36,7 @@ sns.barplot(df_melted, x='student_id', y='score', hue='subject')
 ```
 
 - The `crosstab` function: produces a DataFrame where the rows represent the levels of one factor and the columns represent the levels of another factor.
+- Usage: to create frequency table for each category in a feature vs another feature
 - The crosstab function takes the following arguments:
   - `index`: The name of the column to use for the row labels.
   - `columns`: The name of the column to use for the column labels.
