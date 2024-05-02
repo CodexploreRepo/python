@@ -2,7 +2,17 @@
 
 ## Day 11
 
+### Python
+
 - `1e-4` is equal to `0.0001` with total 4 zeros
+- Validate the input string variable, say `split` belongs to certain options: `assert split in ['train', 'test', 'both']`
+  - We can add the handling path if the assertion error paused the program
+  ```Python
+  try:
+      assert 'value' not in numerical_vars
+  except AssertionError:
+      # do something
+  ```
 
 ### Pandas
 
