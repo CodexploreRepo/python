@@ -1,3 +1,68 @@
+# 2024
+
+## Day 1
+
+### Pandas
+
+#### `.loc` vs `.iloc`
+
+- `loc` gets rows (and/or columns) with particular **labels**.
+- `iloc` gets rows (and/or columns) at **integer locations**.
+- Example: given the following dataframe that has the index starting from 80 to 84
+
+```Python
+df = pd.DataFrame(np.arange(25).reshape(5, 5),
+                      index=[80, 81, 82, 83, 84],
+                      columns=['col_A','col_B','col_C', 'col_D', 'col_E'])
+```
+
+|     | col_A | col_B | col_C | col_D | col_E |
+| --: | ----: | ----: | ----: | ----: | ----: |
+|  80 |     0 |     1 |     2 |     3 |     4 |
+|  81 |     5 |     6 |     7 |     8 |     9 |
+|  82 |    10 |    11 |    12 |    13 |    14 |
+|  83 |    15 |    16 |    17 |    18 |    19 |
+|  84 |    20 |    21 |    22 |    23 |    24 |
+
+- Return the first row of the df with two columns `col_A` and `col_D`
+  - `.loc`: since the first row in the dataframe corresponding to the `index=80`, so we need to specify it in the `.loc`
+    - `df.loc[80, ["col_A", "col_D"]]`
+  - `.iloc`: as iloc will be based on the integer location, so the first row in the df is corresponding to the location 0
+    - `df.iloc[0, [df.columns.get_loc(c) for c in ["col_A", "col_D"]]]`
+
+```Python
+# example of .loc and .iloc to return the first row of the df with two columns A and D
+df.loc[80, ["col_A", "col_D"]]
+# col_A    0
+# col_D    3
+df.iloc[0, [df.columns.get_loc(c) for c in ["col_A", "col_D"]]]
+# col_A    0
+# col_D    3
+```
+
+- Select last 2 row in the `df` &#8594; `.iloc` will have the advantages as it is based on the integer location rather then the labels.
+
+```Python
+df.iloc[-2:, :]
+```
+
+|     | col_A | col_B | col_C | col_D | col_E |
+| --: | ----: | ----: | ----: | ----: | ----: |
+|  83 |    15 |    16 |    17 |    18 |    19 |
+|  84 |    20 |    21 |    22 |    23 |    24 |
+
+- Select first 3 columns of the row after index=82
+
+```Python
+df.iloc[df.index.get_loc(82):, :3]
+```
+
+|     | col_A | col_B | col_C |
+| --: | ----: | ----: | ----: |
+|  82 |    10 |    11 |    12 |
+|  83 |    15 |    16 |    17 |
+|  84 |    20 |    21 |    22 |
+
 # 2023
 
 ## Day 11
