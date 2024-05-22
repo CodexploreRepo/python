@@ -2,6 +2,23 @@
 
 ## Day 1
 
+### Matplotlib
+
+- Modify the x-axis with highlighted values (only), instead of listing down all the dates
+  - In the below example, instead of putting in x-axis all the months, we just highlight data points with marks a year from 1949 to 1962
+
+```Python
+fig, ax = plt.subplots()
+
+ax.plot(df['Month'], df['Passengers'])
+ax.set_xlabel('Date')
+ax.set_ylabel('Number of air passengers')
+
+plt.xticks(np.arange(0, 145, 12),   # only provide each 12 months
+           np.arange(1949, 1962, 1) # a list of a year corresponding to
+)
+```
+
 ### Pandas
 
 #### `.loc` vs `.iloc`
