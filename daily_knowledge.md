@@ -1,5 +1,9 @@
 # 2024
 
+## Day 2
+
+- How to express $10^{n}$: `2.944297e+10` is equivalent to `2.944297*(10**10)`
+
 ## Day 1
 
 ### Matplotlib
