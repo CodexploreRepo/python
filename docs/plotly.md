@@ -52,6 +52,11 @@ fig.show()
 ### Subplots
 
 - `make_subplots` function from `plotly.subplots` is to create the subplots.
+- In the below example, `make_subplots()` creates the figure `fig` with 2 rows and 1 column.
+  - `fig.add_trace()` function to add two traces to the figure, one for stock price data and one for volume data.
+  - `go.Ohlc()` function creates an interactive candlestick chart based on stock price data
+  - `go.Scatter()` function is used to plot the volume data
+  - By `setting layout_xaxis_rangeslider_visible` to `False`, the update() function modifies the layout of the plot to get rid of the range slider for the x-axis.
 
 ```Python
 import plotly.graph_objs as go

@@ -790,7 +790,7 @@ os.environ["HUGGINGFACEHUB_API_TOKEN"] = ... # insert your API_TOKEN here
 import warnings
 warnings.filterwarnings('ignore')
 
-# also can explicit specify which warning needs ignore
+# [Optional] If you do not want to supress all the warnings, you also can explicitly specify which warning needs ignore
 import warnings
 warnings.filterwarnings('ignore', category=FutureWarning)
 warnings.filterwarnings('ignore', category=DeprecationWarning)
