@@ -789,6 +789,11 @@ os.environ["HUGGINGFACEHUB_API_TOKEN"] = ... # insert your API_TOKEN here
 ```Python
 import warnings
 warnings.filterwarnings('ignore')
+
+# also can explicit specify which warning needs ignore
+import warnings
+warnings.filterwarnings('ignore', category=FutureWarning)
+warnings.filterwarnings('ignore', category=DeprecationWarning)
 ```
 
 - Both `!` and `%` allow you to run shell commands from a Jupyter notebook

@@ -8,6 +8,8 @@ pip install plotly
 
 ## Plotly Express
 
+- Plotly Express is a high-level interface for creating various types of plots easily.
+
 ```Python
 import plotly.express as px
 fig = px.bar(x=["a", "b", "c"], y=[1, 3, 2])
@@ -15,6 +17,8 @@ fig.show()
 ```
 
 ## Plotly Graph Objects
+
+### Single Plot
 
 ```Python
 import plotly.graph_objects as go
@@ -44,3 +48,49 @@ fig.update_layout(
 #fig.update_xaxes(rangeslider_visible=True)
 fig.show()
 ```
+
+### Subplots
+
+- `make_subplots` function from `plotly.subplots` is to create the subplots.
+
+```Python
+import plotly.graph_objs as go
+from plotly.subplots import make_subplots
+
+# Define the range for cropping the x-axis
+start_date = '2021-01-10'
+end_date = '2021-01-20'
+
+# Create subplots
+# shared_xaxes=True to help crop both plots at the same time.
+fig = make_subplots(rows=2, cols=1, shared_xaxes=True)
+
+# Add OHLC plot at row=1, col=1
+fig.add_trace(
+    go.Ohlc(
+        x=df["Date"],
+        open=df["Open"],high=df["High"],low=df["Low"],close=df["Close"],
+        name="Price"
+    ),
+    row=1, col=1 # specify the plot order row=1, col=1
+)
+
+# Add Volume scatter plot at row=2, col=1
+fig.add_trace(
+    go.Scatter(
+        x=df["Date"], y=df["Volume"],
+        name="Volume"
+    ),
+    row=2, col=1 # specify the plot order row=2, col=1
+)
+
+# Update x-axes range
+fig.update_xaxes(range=[start_date, end_date])
+
+# Hide the rangeslider
+fig.update(layout_xaxis_rangeslider_visible=False)
+
+fig.show()
+```
+
+<p align="center"><img width="600" src="../assets/img/plotly_subplots_example.png"></p>
