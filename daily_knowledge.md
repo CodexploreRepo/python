@@ -873,7 +873,14 @@ data.insert(len(data.columns), 'rolling', data['open'].rolling(5).mean().values)
 - Concat `df` with `numpy_array` and assign the name for the `numpy_array` as `new_col`
   - Syntax: `df = df.assign(new_col=numpy_array)`
 
-#### Joining Pandas DataFrame
+#### Joining Pandas DataFrame with Pandas Series
+
+```Python
+# need to convert pd's Series into the Dataframe, and transpose it before concat with pd's DF
+pd.concat([df, pd_series.to_frame().T], ignore_index=True)
+```
+
+#### Joining Pandas DataFrames
 
 - Experience: before joining (either `concat`, `merge`), need to careful about the _index_ of the dataframes (might need to `.reset_index()`) as apart from the joining condition, pandas also matching the index of each dataframe.
 
