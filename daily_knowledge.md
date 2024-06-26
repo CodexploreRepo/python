@@ -2,6 +2,13 @@
 
 ## Day 2
 
+- Notebook: make changes to your module's code and see the effects immediately without needing to manually reload or restart the notebook's kernel.
+
+```Python
+%load_ext autoreload # enable the autoreload feature in your notebook session.
+%autoreload 2 #  sets the auto-reload mode to "2", which means that modules will be automatically re-loaded before executing any code that depends on them.
+```
+
 - How to express $10^{n}$: `2.944297e+10` is equivalent to `2.944297*(10**10)`
 
 ## Day 1
